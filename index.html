@@ -263,223 +263,731 @@
 
 <script>
 const allQuestions = [
-    { question: "HDD ile SSD arasındaki temel farklar nelerdir? ", options: ["HDD daha hızlıdır, SSD daha dayanıklıdır", "HDD mekanik bir yapıya sahiptir, SSD elektronik devreler kullanır", "SSD daha fazla enerji tüketir, HDD daha az enerji tüketir", "SSD yalnızca sunucularda kullanılır, HDD ise kişisel bilgisayarlarda"], correct: 1 },
-    { question: "ECC RAM'in sunuculardaki avantajı nedir?", options: ["Daha hızlı veri erişimi sağlar ", "Veri hatalarını otomatik olarak düzeltir", "Daha az enerji tüketir", "Depolama kapasitesini artırır"], correct: 1 },
-    { question: "Windows Server 'ın Hyper-V sanallaştırma teknolojisi ile Linux 'un KVM çözümü arasındaki temel fark nedir? ", options: ["Hyper-V yalnızca Windows Server üzerinde çalışırken, KVM açık kaynaklı ve farklı Linux dağıtımları üzerinde çalışabilir", "Hyper-V daha az RAM tüketirken, KVM daha fazla kaynak tüketir", "KVM yalnızca ticari yazılımlar için optimize edilmiştir, Hyper-V ise açık kaynaklıdır", "Hyper-V güvenlik açısından daha zayıfken, KVM daha az güvenlik sunar"], correct: 0 },
-    { question: "Aşağıdakilerden hangisi BIOS yapılandırmasında yapılabilecek işlemlerden biri değildir? ", options: ["Sistem tarih ve saat ayarlarını değiştirme", "İşletim sistemi lisans anahtarını girme", "Önyükleme sırasını değiştirme", "Donanım bileşenlerini etkinleştirme/devre dışı bırakma"], correct: 1 },
-    { question: "UEFI yapılandırması ile BIOS arasındaki en belirgin farklardan biri aşağıdakilerden hangisidir? ", options: ["UEFI sadece eski bilgisayarlarda bulunur", "BIOS daha büyük disk boyutlarını destekler", "UEFI grafik arayüz desteğine sahiptir", "BIOS, Secure Boot özelliğini destekler"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Windows kurulumundan sonra yapılması gereken temel yapılandırma adımlarından biridir? ", options: ["BIOS güncellemesini kaldırmak", "İşletim sistemini yeniden derlemek", "Donanım sürücülerini yüklemek", "ISO dosyasını tekrar yazmak"], correct: 2 },
-    { question: "Aşağıdaki komutlardan hangisi sistemde yüklü olan kernel modüllerini listeler? ", options: ["uname -r", "lsmod", "modinfo", "dmesg"], correct: 1 },
-    { question: "Aşağıdaki işlemlerden hangisi bir kernel modülünü sistemden kaldırmak için kullanılır? ", options: ["modprobe -r modul_adi", "lsmod modul_adi", "uname -a modul_adi", "sudo apt remove modul_adi"], correct: 0 },
-    { question: "Bir web sunucusu kurulurken, aşağıdaki hangi yazılım genellikle kullanılır ve HTTP trafiğini yönetir? ", options: ["Samba", "Apache", "MySQL", "Bind9"], correct: 1 },
-    { question: "DHCP sunucusunun temel görevi aşağıdakilerden hangisidir? ", options: ["Ağ trafiğini şifrelemek", "Kullanıcıya sabit IP atamak", "Cihazlara IP adresi ve ağ bilgilerini otomatik vermek", "Alan adlarını IP'ye çevirmek"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Linux sistemlerde log dosyalarının tutulduğu dizindir? ", options: ["/etc/log", "/usr/log", "/var/log", "/log/system"], correct: 2 },
-    { question: "Windows işletim sisteminde log takibi yapmak için kullanılan yerleşik araç hangisidir? ", options: ["System Monitor", "Event Viewer", "Log Watch", "Task Manager"], correct: 1 },
-    { question: "journalctl komutu ne işe yarar? ", options: ["Disk performansını ölçer", "Sistem yapılandırmalarını listeler", "Log dosyalarını düzenler", "Systemd tabanlı logları görüntüler"], correct: 3 },
-    { question: "Aşağıdakilerden hangisi NTFS dosya sisteminin sunduğu bir özelliktir? ", options: ["Sadece okuma desteği", "ACL ile detaylı yetkilendirme", "Eski FAT dosya sistemine uyum", "Linux sistemlerde varsayılan olması"], correct: 1 },
-    { question: "ACL (Access Control List) ile ilgili olarak aşağıdakilerden hangisi doğrudur? ", options: ["Sadece grup bazlı yetkilendirme yapılabilir", "Her kullanıcıya aynı yetki verilir", "Dosya ya da klasörlere kullanıcı bazlı özel yetkiler atanabilir", "ACL sadece grafik arayüzden ayarlanabilir"], correct: 2 },
-    { question: "Windows sistemlerde bir olay kaydında yer alan bilgilerden biri değildir:", options: ["Olay Kimliği", "Olay Kaynağı", "IP Adresi", "Zaman Bilgisi"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Linux sistemlerde performans izleme aracı değildir? ", options: ["top", "htop", "vmstat", "winstat"], correct: 3 },
-    { question: "Kernel seviyesindeki güvenlik açıklarından biri aşağıdakilerden hangisidir?", options: ["Brute force", "Race condition", "SQL injection", "Man-in-the-middle"], correct: 1 },
-    { question: "Sunucu güvenliğinde \"minimum yetki ilkesi\" neyi ifade eder? ", options: ["Herkese tam yetki verilmesini", "Kullanıcıya sadece görevini yapacağı kadar yetki verilmesini", "Şifrelerin rastgele verilmesini", "Dosyaların herkese açık olmasını"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi SSH erişimini güvenli hale getirmek için alınabilecek önlemlerden biridir? ", options: ["root kullanıcı ile doğrudan bağlantı açmak", "SSH portunu 22'de bırakmak", "2FA kullanmak", "Güvenlik duvarlarını kapatmak"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Type 1 (bare-metal) hypervisor örneğidir? ", options: ["Oracle VirtualBox", "VMware ESXi", "VMware Workstation", "Parallels Desktop"], correct: 1 },
-    { question: "KVM ile LXC arasındaki temel fark aşağıdakilerden hangisidir? ", options: ["KVM daha az kaynak kullanırken, LXC daha fazla kullanır", "LXC donanım düzeyinde sanallaştırma yaparken, KVM konteyner teknolojisidir", "KVM tam sanallaştırma sunarken, LXC işletim sistemi düzeyinde çalışır", "Her ikisi de sadece Windows üzerinde çalışır"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi LXC (Linux Containers) teknolojisinin avantajlarından biri değildir? ", options: ["Hızlı başlatılabilirlik", "Düşük kaynak kullanımı", "Tam donanım izolasyonu", "Aynı çekirdeği kullanma özelliği"], correct: 2 },
-    { question: "KVM sanallaştırma çözümünün en önemli avantajlarından biri nedir? ", options: ["Sadece Windows sunucularda çalışması", "Kapalı kaynaklı olması", "Donanım destekli yüksek performans sağlaması", "Tüm verileri internete açık şekilde depolaması"], correct: 2 },
-    { question: "Bir VPS kurulumunun ilk adımı genellikle nedir? ", options: ["Apache web sunucusunu kurmak", "SSH ile sunucuya bağlanmak", "VPS sağlayıcısından bir sunucu oluşturmak", "Firewall kurmak"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi bir KVM özelliği değildir? ", options: ["Canlı taşıma (Live Migration)", "Snapshot alma", "VirtualBox'a özel yapı olması", "SELinux ile güvenlik sağlaması"], correct: 2 },
-    { question: "Bir VPS'e ilk kez bağlanırken hangi protokol kullanılır? ", options: ["FTP", "SSH", "HTTP", "SMB"], correct: 1 },
-    { question: "Proxmox VE cluster'ında düğümler arası mesajlaşma ve quorum kontrolünü sağlayan bileşen hangisidir? ", options: ["Ceph", "Corosync", "QEMU", "NFS"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi \"ücretsiz ve açık kaynak\" lisans modeli sunan sanallaştırma platformudur? ", options: ["VMware vSphere", "Microsoft Hyper-V", "Proxmox VE", "Hepsi"], correct: 2 },
-    { question: "Proxmox VE üzerinde bir sanal makineyi HA (High Availability) grubuna atamak için hangi komut kullanılır? ", options: ["pvecm add", "ha-manager set vm: --enabled 1 --group default", "pveceph init", "qm migrate"], correct: 1 },
-    { question: "Sanal makinenin işletim sistemi ve dosyalarını sakladığı kalıcı depolama birimi hangisidir? ", options: ["CPU ", "RAM", "Disk", "Ağ"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi dinamik kaynak tesisinin (dynamic resource allocation) temel amacıdır? ", options: ["Sanal makinenin sabit bir donanıma sahip olmasını sağlar.", "Sanal makineye ihtiyaç duydukça kaynak (CPU, RAM) atanmasını sağlar.", "Sanal makinenin internet bağlantısını kapatır. ", "Sanal makinenin kalıcı olarak silinmesini sağlar."], correct: 1 },
-    { question: "Kubernetes'in temel bileşenleri nelerdir ve her birinin işlevi nedir? ", options: ["Node, Table, Cloud, Controller", "Pod, Container, Database, Master", "Pod, Node, Kube-apiserver, Scheduler, etcd", "Volume, IP, Load Balancer, Virtual Machine"], correct: 2 },
-    { question: "Pod, Deployment ve ReplicaSet kavramları arasındaki farklar nelerdir? ", options: ["Hepsi veritabanı yönetim sistemleridir.", "Pod, tek bir uygulamayı çalıştırırken; Deployment, güncellemeleri yönetir; ReplicaSet ise kopya sayısını kontrol eder.", "ReplicaSet, pod içinde bulunur; Deployment, pod'ları siler; Pod ise sadece cache tutar. ", "Pod, en küçük çalıştırılabilir birimdir; ReplicaSet, pod sayısını yönetir; Deployment ise versiyonlamayı ve güncellemeyi sağlar. "], correct: 3 },
-    { question: "kubectl komutlarından hangisi doğrudur? ", options: ["kubectl vm start", "kubectl get pods", "kubectl write api", "kubectl ping db"], correct: 1 },
-    { question: "Kubernetes cluster'ında pod'ların çalıştırıldığı makineler hangileridir? ", options: ["Control Plane Nodes", "Worker Nodes", "Backup Nodes", "etcd Servers"], correct: 1 },
-    { question: "LXC (Linux Container) teknolojisi hangi iki temel Linux çekirdek özelliğini kullanır? ", options: ["Hypervisor ve Swap alanı", "Control groups ve Namespaces", "Dockerfile ve Volumes", "Kernel modules ve Systemd"], correct: 1 },
-    { question: "Docker ve LXC arasındaki temel farklardan biri nedir? ", options: ["Docker yalnızca Windows'ta çalışır, LXC ise yalnızca Linux'ta çalışır.", "Docker uygulama konteynerleştirmeye odaklanırken, LXC işletim sistemi düzeyinde sanallaştırma sağlar. ", "LXC, Docker'a göre daha az kaynak verimlidir.", "Docker, geleneksel sanal makinelerden daha yavaştır. "], correct: 1 },
-    { question: "Aşağıdakilerden hangisi Docker'ın bileşenlerinden biri değildir? ", options: ["Control groups", "Dockerfile", "Docker Hub", "Docker Engine"], correct: 0 },
-    { question: "Mikroservis mimarisinin konteyner teknolojileriyle kullanılmasının avantajı nedir? ", options: ["Tüm mikroservislerin aynı işlemde çalışmasını sağlar.", "Servisler arası sıkı bağımlılık kurarak geliştirmeyi kolaylaştırır.", "Her servis bağımsız olarak paketlenip ölçeklenebilir hale gelir. ", "Uygulamanın sadece tek bir sunucuda çalışmasını zorunlu kılar."], correct: 2 },
-    { question: "Aşağıdakilerden hangisi mikroservis mimarisi kullanmanın potansiyel bir dezavantajıdır? ", options: ["Her servisin bağımsız ölçeklenebilmesi", "Tek servis arızasında sistemin tamamının etkilenmemesi", "Dağıtık sistem karmaşıklığı ve servisler arası iletişim zorlukları", "Geliştirici ekiplerinin daha özgür çalışabilmesi"], correct: 2 },
-    { question: "Mikroservislerin birbirine bağımlı hale gelmesi ne gibi bir soruna yol açabilir? ", options: ["Servislerin daha hızlı çalışmasına neden olur.", "Uygulama performansı artar. ", "Bir servisteki hata diğerlerini de etkileyerek sistemin tamamında bozulmaya yol açabilir.", "Sistemin güvenliği artar çünkü servisler birbirini kontrol eder. "], correct: 2 },
-    { question: "Aşağıdaki OpenStack bileşenlerinden hangisi sanal makineleri yönetmekten sorumludur? ", options: ["Glance", "Neutron", "Nova", "Keystone"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi \"Platform as a Service (PaaS)\" modelinin bir özelliğidir? ", options: ["Tüm altyapıyı ve uygulamayı kullanıcı yönetir.", "İşletim Sistemini (OS) kullanıcı yönetir.", "Geliştiricilere altyapı ile uğraşmadan uygulama geliştirme imkânı sunar. ", "Sadece veri depolama hizmeti sunar."], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Infrastructure as a Service (IaaS) modelinin sağladığı bir avantajdır? ", options: ["Uygulamalar için hazır arayüzler sunar", "Donanım kaynaklarını doğrudan kiralayarak özelleştirme imkânı verir", "Teknik bilgi gerektirmeden yazılım kullanımı sağlar", "Sadece web tabanlı uygulamalar geliştirmek için kullanılır"], correct: 1 },
-    { question: "Edge computing'in geleneksel bulut bilişim mimarilerine göre sağladığı en önemli avantaj aşağıdakilerden hangisidir? ", options: ["Daha düşük donanım maliyeti", "Yüksek seviyede merkezi yönetim kolaylığı", "Verilerin işlenmeden önce buluta gönderilmesi", "Gecikme süresinin azaltılması ve gerçek zamanlı yanıt kabiliyeti"], correct: 3 },
-    { question: "Aşağıdaki senaryolardan hangisi edge computing kullanımına en uygun örneklerden biridir? ", options: ["Büyük veri analizi için merkezi bir veri merkezinde çalışan bir sistem ", "Küresel ölçekli bir e-ticaret web sitesinin müşteri veritabanı", "Otonom araçların çevresel sensör verilerini anlık olarak işlemesi", "Arşiv amaçlı kullanılan dijital belge saklama platformu"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi edge computing mimarisinde karşılaşılabilecek temel zorluklardan biri değildir? ", options: ["Cihazlar arası senkronizasyon ve veri bütünlüğü", "Güçlü internet bağlantısına olan mutlak bağımlılık", "Dağıtık sistemlerde güvenlik yönetimi", "Yerel veri işleme kaynaklarının sınırlılığı"], correct: 1 },
-    { question: "Kaynak tahsisinin temel amacı aşağıdakilerden hangisidir? ", options: ["Donanım kaynaklarının rastgele kullanılması", "Sistem performansını artırmak ve hizmet sürekliliğini sağlamak", "Fiziksel donanımın devre dışı bırakılması", "Sadece ağ bant genişliğini artırmak"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi overcommitment kullanım nedenlerinden biridir? ", options: ["Kaynak israfını artırmak", "Sistem kararsızlığı yaratmak", "Kullanılmayan kaynakların daha verimli kullanılmasını sağlamak", "Fiziksel kaynakları tamamen devre dışı bırakmak"], correct: 2 },
-    { question: "\"Ballooning\" yöntemi RAM overcommitment durumunda ne amaçla kullanılır? ", options: ["Sanal makinelerde CPU kullanımını azaltmak", "Sanal makinenin kullanılmayan belleğini hypervisor'a geri kazandırmak", "Disk alanını genişletmek", "Ağ trafiğini düzenlemek"], correct: 1 },
-    { question: "Bulut bilişimin önemli bir özelliği olan \"Kaynak Havuzlama\" (Resource Pooling) ne anlama gelir? ", options: ["Tüm kaynakların tek bir büyük sunucuda sabitlenmesi.", "Sağlayıcının kaynakları toplayıp birden çok kullanıcıya dinamik olarak ataması.", "Her kullanıcının kendi özel donanımına sahip olması. ", "Kaynakların sadece belirli saatlerde kullanılabilir olması."], correct: 1 },
-    { question: "Bir şirket Microsoft ürünlerini (Windows Server, Office 365 vb.) yoğun olarak kullanıyorsa, sunulan bilgilere göre bu şirket için genellikle hangi bulut sağlayıcısıyla entegrasyonun daha kolay olması beklenir? ", options: ["Google Cloud Platform (GCP) ", "Amazon Web Services (AWS)", "Microsoft Azure", "Hepsi eşit derecede kolay entegrasyon sunar."], correct: 2 },
-    { question: "DNS'in temel amacı nedir? ", options: ["Web sitelerinin tasarımını iyileştirmek", "İnternet bağlantı hızını artırmak", "IP adreslerini kullanıcı dostu alan adlarına çevirmek", "İnternetteki tüm siteleri filtrelemek"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi bir DNS kaydı (DNS Record) içinde yer almaz? ", options: ["Alan adı", "IP adresi", "Tarayıcı geçmişi", "TTL (Time to Live)"], correct: 2 },
-    { question: "\"Inverse Domain\" aşağıdakilerden hangisini yapar? ", options: ["Alan adını IP adresine dönüştürür", "IP adresini alan adına dönüştürür", "Alan adlarını sıralar", "Web sitelerini engeller"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi DNS hiyerarşisinde en üst düzeyde yer alır? ", options: ["TLD Nameserver", "Authoritative Nameserver", "DNS Recursor", "Root Nameserver"], correct: 3 },
-    { question: "Aşağıdakilerden hangisi BIND9'un yapılandırma dosyalarından biridir? ", options: ["pdns.conf", "dns.config", "named.conf", "zone.txt"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi PowerDNS'in bir avantajıdır? ", options: ["Donanım bağımlılığı", "API entegrasyonu kolaylığı", "Yalnızca IPv6 desteği", "Sadece Windows'ta çalışması"], correct: 1 },
-    { question: "BIND9 ile PowerDNS arasındaki temel fark nedir? ", options: ["BIND9 kapalı kaynaklıdır, PowerDNS açık kaynaklıdır", "PowerDNS sadece IPv4 destekler", "BIND9 dosya tabanlıdır, PowerDNS veritabanı tabanlıdır", "Her ikisi de aynı şekilde çalışır"], correct: 2 },
-    { question: "Aşağıdaki bileşenlerden hangisi, internetten gelen e-postaların iç ağa yönlendirilmeden önce güvenlik açısından incelendiği noktadır? ", options: ["SMTP.GMAIL.COM - Gmail Mail Server", "External DNS - Harici DNS Sunucusu", "EDGE01 - Edge Transport Role", "PHXDC01.itdvds.local - Domain Controller / Internal DNS", "PHXDESKTOP01.itdvds.local - Kullanıcı Masaüstü Bilgisayarı"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi CNAME kaydı ile ilgili yanlıştır? ", options: ["CNAME kaydı, bir alan adını başka bir alan adına yönlendirir.", "CNAME kaydı, bir alan adını doğrudan bir IP adresine yönlendirir. ", "CNAME kaydı, genellikle \"www\" gibi alt alan adlarını yönlendirmek için kullanılır. ", "CNAME kaydının işaret ettiği alan adı A kaydı içermelidir. ", "Bir alan adı için hem CNAME hem de başka bir kayıt türü aynı anda yapılamaz. "], correct: 1 },
-    { question: "Aşağıdakilerden hangisi alan adı yönetimi kapsamında yapılan işlemlerden biri değildir? ", options: ["Alan adının kayıt süresini uzatmak ", "Alan adını farklı bir DNS sağlayıcısına yönlendirmek", "Alan adının WHOIS bilgilerini güncellemek", "Alan adı için e-posta sunucusu yapılandırmak", "Web sitesinin tasarımını değiştirmek"], correct: 4 },
-    { question: "DNS sisteminin temel görevi nedir? ", options: ["IP adreslerini şifrelemek", "İnternet bağlantı hızını artırmak", "Alan adlarını IP adreslerine çevirmek", "Web sitelerinin içeriğini korumak"], correct: 2 },
-    { question: "DNSSEC teknolojisinin temel amacı nedir? ", options: ["DNS kayıtlarını daha hızlı işlemek", "Alan adlarını ücretsiz hale getirmek", "DNS yanıtlarının doğruluğunu ve bütünlüğünü sağlamak", "Web sayfalarını yedeklemek"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi DNSSEC'in çalışmasında kullanılan bir teknolojidir? ", options: ["VPN tünelleme", "Dijital imzalar", "Yapay zeka", "Donanım hızlandırma"], correct: 1 },
-    { question: "DNSSEC kullanıldığında aşağıdaki durumlardan hangisi engellenmiş olur? ", options: ["İnternet erişiminin tamamen kesilmesi", "Alan adının silinmesi", "Kullanıcının sahte bir siteye yönlendirilmesi", "Dosya indirme hızının düşmesi"], correct: 2 },
-    { question: "Load Balancer'ın temel görevi nedir? ", options: ["DNS kayıtlarını güncellemek", "IP adreslerini yönetmek", "Gelen internet trafiğini birden fazla sunucuya dağıtmak", "Web sitesi tasarımı yapmak"], correct: 2 },
-    { question: "L4 Load Balancer yönlendirme kararını neye göre verir? ", options: ["HTTP başlığı ve içerik analizi", "IP adresi, port ve protokol bilgisi", "Coğrafi konum", "Kullanıcı oturumu bilgisi"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi L7 Load Balancer kullanımına örnek bir durumdur? ", options: ["IP tabanlı yönlendirme", "TCP bağlantı kurulumu", "URL'ye göre içerik yönlendirme", "UDP veri iletimi"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi DNS ve Load Balancer teknolojilerinin birlikte kullanılmasının temel nedenlerinden biridir? ", options: ["Web sitesinin estetik tasarımını geliştirmek", "Alan adlarını daha kolay hatırlanır hâle getirmek", "Hem yönlendirme hem de yük dengeleme yaparak kesintisiz hizmet sağlamak", "İnternet bağlantı hızını donanımsal olarak artırmak"], correct: 2 },
-    { question: "CDN (İçerik Teslim Ağı) ne amaçla kullanılır? ", options: ["Sunucuların fiziksel olarak birleştirilmesi için", "Web sitelerinin renk düzenini değiştirmek için", "Web sayfalarının yüklenme süresini azaltmak ve veri iletimini hızlandırmak için", "Sadece sosyal medya platformlarında görüntü paylaşımı için"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi CDN'nin sağladığı avantajlardan biri değildir? ", options: ["Sayfa yüklenme süresini düşürmek", "Bant genişliği maliyetlerini düşürmek", "İçerik erişilebilirliğini artırmak", "Kullanıcıların kişisel bilgilerini toplamak"], correct: 3 },
-    { question: "CDN teknolojisinde önbelleğe alma işlemi aşağıdakilerden hangisine en çok uygundur? ", options: ["Sadece ses dosyalarına ", "Kullanıcıya göre sürekli değişen dinamik içeriklere", "Sabit kalan, sık değişmeyen statik içeriklere", "Canlı yayın akışlarına"], correct: 2 },
-    { question: "Aşağıdaki ifadelerden hangisi yanlıştır? ", options: ["CDN, kullanıcılara coğrafi olarak daha yakın sunuculardan içerik sağlar.", "Dinamik içerikler önbelleğe alındığında performans en üst seviyeye çıkar.", "CDN, DDoS saldırılarına karşı koruma sağlar. ", "CDN'ler, veri trafiğini optimize ederek kaynak sunucu üzerindeki yükü azaltır."], correct: 1 },
-    { question: "DNS sistemi ne işe yarar? ", options: ["Bilgisayarın donanım hızını artırır", "Alan adlarını IP adreslerine çevirir", "İnterneti daha güvenli hale getirir", "İnternet bağlantısını otomatik olarak yeniden başlatır"], correct: 1 },
-    { question: "DNS önbelleklemenin temel amacı nedir? ", options: ["İnternetteki tüm siteleri engellemek", "DNS sorgularını daha uzun sürede çözmek", "Daha hızlı erişim için geçmiş sorgu sonuçlarını saklamak", "IP adreslerini şifrelemek"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi DNS önbelleğini temizlemek için kullanılan bir komuttur? ", options: ["ping/resetdns", "netstat -f", "ipconfig /flushdns", "dns /renewcache"], correct: 2 },
-    { question: "DNS zehirlenmesi (poisoning) sonucunda ne olabilir? ", options: ["Web siteleri daha hızlı yüklenir", "Kullanıcı doğru siteye yönlendirilir", "DNS kayıtları kalıcı olarak silinir", "Kullanıcı sahte veya zararlı bir siteye yönlendirilebilir"], correct: 3 },
-    { question: "DNS hızını artırmak için hangi yöntem tercih edilebilir? ", options: ["TTL süresini sıfıra indirmek", "Daha uzak DNS sunucuları kullanmak", "Güvenilir DNS sağlayıcıları (örneğin Cloudflare, Google DNS) kullanmak", "DNS çözümlemesini her sorguda sıfırdan başlatmak"], correct: 2 },
-    { question: "CDN'in temel amacı nedir? ", options: ["Veritabanı performansını artırmak", "Web sayfalarının yüklenme hızını düşürmek", "İçeriği kullanıcılara en yakın sunucudan ileterek performansı artırmak", "SEO puanını doğrudan artırmak"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi CDN kullanmanın avantajlarından biridir? ", options: ["Sunucu maliyetlerini artırması", "Web sitelerinin güvenlik açıklarını çoğaltması", "Trafiğin daha dengeli dağıtılması", "Veritabanı sorgularını hızlandırması"], correct: 2 },
-    { question: "DNS ve Load Balancer arasındaki temel fark nedir? ", options: ["DNS yük dengeleme yapar, load balancer sadece yönlendirme yapar", "DNS IP adresi sağlar, load balancer trafiği yönlendirir", "Load balancer IP çözer, DNS sunucuları seçer", "DNS doğrudan backend sunuculara istek gönderir"], correct: 1 },
-    { question: "Hangi DNS kaydı bir alan adını başka bir alan adına yönlendirir? ", options: ["A", "MX", "CNAME", "AAAA"], correct: 2 },
-    { question: "Load balancer hangi katmanda çalıştığında HTTP isteklerinin içeriğine göre yönlendirme yapabilir? ", options: ["Katman 2 (Data Link Layer)", "Katman 3 (Network Layer)", "Katman 4 (Transport Layer)", "Katman 7 (Application Layer)"], correct: 3 },
-    { question: "Depolama sistemlerinde \"IOPS\" metriği neyi ifade eder? ", options: ["Diskin toplam kapasitesini", "Saniyede yapılan giriş/çıkış işlem sayısını", "Verinin yedeklenme hızını", "Gecikme süresini"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi depolama performansını yükseltmek için kullanılan bir yazılımsal optimizasyon tekniğidir? ", options: ["NVMe disk kullanmak", "RAID 0 kurmak", "IO scheduler ayarlarını değiştirmek", "Disk kapasitesini artırmak"], correct: 2 },
-    { question: "Snapshot ve backup işlemleriyle ilgili aşağıdakilerden hangisi doğrudur? ", options: ["Snapshot işlem veriyi yedeğin fiziksel olarak kopyalar.", "Backup yalnızca anlık görüntü alır, veri değişimini izlemez.", "Snapshot işlemleri yedekleme kadar performansa etki etmez. ", "Backup işlemleri sistem performansını etkilemez."], correct: 2 },
-    { question: "Disk bölümlendirme yapılmasının temel amaçlarından biri aşağıdakilerden hangisidir? ", options: ["Donanım sürücülerini hızlandırmak", "İnternet hızını artırmak", "Verileri izole ederek sistem kararlılığını artırmak", "İşletim sistemi lisans süresini uzatmak"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi sunucu sistemlerde yaygın olarak ayrı bölüm olarak ayrılan dizinlerden biri değildir? ", options: ["/home", "/var", "/tmp", "/lib64"], correct: 3 },
-    { question: "Aşağıdaki araçlardan hangisi grafik arayüzle disk bölümlendirme yapılmasını sağlar? ", options: ["fdisk", "parted", "gdisk", "GParted"], correct: 3 },
-    { question: "Aşağıdaki komutlardan hangisi bir fiziksel disk ya da bölümü LVM için uygun hale getirir? ", options: ["vgcreate /dev/sdX", "lvcreate -L 10G -n lv1 vg1", "pvcreate /dev/sdX", "mkfs.ext4 /dev/sdX", "mount /dev/sdX /mnt"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi mevcut bir mantıksal hacmi büyütmek için kullanılır? ", options: ["vgcreate -L +5G /dev/vg/lv", "lvextend -L +5G /dev/vg/lv", "lvcreate -L +5G /dev/vg/lv", "resize2fs /dev/vg/lv", "vgextend -L +5G /dev/vg/lv"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi SAN (Storage Area Network) depolama çözümünün NAS (Network Attached Storage) çözümüne göre avantajlarından biri değildir? ", options: ["Yüksek performans sunması ", "Büyük veri tabanları için uygun olması", "Kurulumunun ve yönetiminin daha kolay olması", "Yüksek ölçeklenebilirlik sağlaması"], correct: 2 },
-    { question: "Aşağıdaki kullanım senaryolarından hangisi için NAS depolama çözümü SAN'a göre daha uygundur? ", options: ["Büyük veri tabanlarının barındırılması", "Yedekleme ve dosya paylaşımı", "Yüksek performanslı sanallaştırma altyapısı", "Kritik uygulamalar için düşük gecikmeli depolama"], correct: 1 },
-    { question: "Object Storage ile Block Storage arasındaki temel fark nedir? ", options: ["Object Storage sadece veritabanları için kullanılır.", "Block Storage verileri nesne olarak saklar, Object Storage ise bloklara ayırır.", "Block Storage verileri bloklara ayırırken, Object Storage veriyi metadata ve kimlikle birlikte nesne olarak saklar. ", "İkisi de sadece işletim sistemi dosyalarını saklar. "], correct: 2 },
-    { question: "Ceph sisteminin avantajlarından biri değildir? ", options: ["Yüksek erişilebilirlik", "Dağıtık mimari", "Sınırlı ölçeklenebilirlik", "Blok, nesne ve dosya desteği"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Object Storage kullanım senaryosuna uygundur? ", options: ["RAM içi geçici değişkenlerin saklanması", "İşletim sistemi kurulumu", "Fotoğraf, video, yedek gibi büyük dosyaların arşivlenmesi", "SSD üzerinde veritabanı bloklarının yazılması"], correct: 2 },
-    { question: "Snapshot ile Backup arasındaki temel fark nedir? ", options: ["Snapshot daha uzun süreli saklama yapar", "Backup anlık değişiklikleri izler", "Snapshot hızlı geri dönüş sağlar, Backup uzun vadeli koruma sunar", "Backup sadece geçici verileri saklar"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi 3-2-1 yedekleme stratejisinde yer almaz? ", options: ["3 farklı kopya", "2 farklı ortam", "1 tanesi off-site", "Sadece snapshot alınması"], correct: 3 },
-    { question: "Neden yalnızca snapshot'lara güvenmek yeterli değildir? ", options: ["Snapshot'lar düşük performans sunar", "Snapshot'lar donanım arızasında kaybolabilir", "Snapshot almak çok uzun sürer", "Snapshot'lar veri şifrelemesi yapar"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi veritabanı yedeklemesinin temel amaçlarından biridir? ", options: ["Veritabanı performansını artırmak", "Yazılım güncellemelerini hızlandırmak", "Donanım maliyetlerini azaltmak", "Veri kaybı riskini azaltmak", "Ağ hızını artırmak"], correct: 3 },
-    { question: "MySQL veritabanını komut satırından yedeklemek için aşağıdakilerden hangisi kullanılır? ", options: ["pg_backup", "mysql_export", "mysqldump", "sqlcopy", "mysqltool"], correct: 2 },
-    { question: "PostgreSQL'de pg_dump komutu hangi amaçla kullanılır? ", options: ["Veritabanı performansını ölçmek", "Veritabanı sunucusunu başlatmak", "Veritabanını yedeklemek", "Yeni bir kullanıcı oluşturmak", "Erişim yetkilerini sıfırlamak"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Windows işletim sisteminde yerleşik olarak gelen bir yedekleme aracıdır? ", options: ["rsync", "Backup and Restore", "tar", "winsync", "WinMount"], correct: 1 },
-    { question: "Linux sistemlerinde klasörlerin yedeklenmesi için en çok tercih edilen komut hangisidir? ", options: ["xcopy", "copydir", "rcopy", "rsync", "zipcopy"], correct: 3 },
-    { question: "Aşağıdakilerden hangisi veri yedekleme stratejilerinde kullanılan 3-2-1 kuralını doğru açıklar? ", options: ["3 kişi, 2 işlem, 1 dosya", "3 kopya, 2 farklı yazılım, 1 kullanıcı", "3 kopya, 2 farklı ortam, 1 uzak konum", "3 donanım, 2 yazılım, 1 merkez", "3 yedek, 2 ağ bağlantısı, 1 yedekleme sunucusu"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Proxmox Backup Server ile ilgili doğru bir ifadedir? ", options: ["Sadece fiziksel sunucuları yedekler", "Yalnızca Windows ortamında çalışır", "Sanal makineleri merkezi olarak yedeklemek için kullanılır", "Yedekleme verilerini sıkıştırmadan tutar", "Her yedeklemede veriyi siler"], correct: 2 },
-    { question: "Tape Backup sistemlerinin avantajı aşağıdakilerden hangisidir? ", options: ["Anlık geri yükleme yapılabilmesi", "Yüksek maliyetli olması", "Kısa vadeli kullanım için tasarlanması", "Çok az veri saklayabilmesi", "Uzun vadeli arşivleme için uygun olması"], correct: 4 },
-    { question: "Linux'ta zamanlanmış yedekleme görevleri oluşturmak için aşağıdaki araçlardan hangisi kullanılır? ", options: ["systemd", "crontab", "taskmgr", "backupctl", "scheduler"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi veri merkezi yedekleme politikalarının hedeflerinden biri değildir? ", options: ["Felaket durumunda veri kurtarmak", "Sistem sürekliliğini sağlamak", "Aşırı yedekleme ile depolama maliyetini artırmak", "Yetkisiz erişimi engellemek", "Hatalı silinmeleri geri alabilmek"], correct: 2 },
-    { question: "Apache web sunucusu aşağıdaki hangi mimariyi kullanır? ", options: ["Event-driven", "Threadless", "Process/thread tabanlı", "Stateless"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Nginx'in en belirgin avantajlarından biridir? ", options: ["Her istek için ayrı işlem oluşturması", "Dizin bazlı .htaccess desteği", "Event-driven mimarisi", "Yalnızca dinamik içerik çalıştırabilmesi"], correct: 2 },
-    { question: "Apache'nin en çok tercih edilme nedenlerinden biri nedir? ", options: ["Az modül desteği", "Statik içerik sunmada yüksek hız", ".htaccess ile esnek yapılandırma", "Yalnızca Windows sunucularda çalışması"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Nginx ile ilgili doğru bir ifadedir? ", options: ["Her bağlantı için ayrı thread oluşturur", "RAM tüketimi Apache'ye göre daha fazladır", "PHP'yi doğrudan çalıştırabilir", "Çok sayıda bağlantıyı tek bir süreçle yönetebilir"], correct: 3 },
-    { question: "WordPress için önerilen minimum RAM miktarı aşağıdakilerden hangisidir? ", options: ["128 MB", "256 MB", "1 GB", "4 GB"], correct: 2 },
-    { question: "Joomla'nın desteklediği veritabanı sistemlerinden biri değildir:", options: ["PostgreSQL", "Oracle", "MySQL", "Microsoft SQL Server"], correct: 1 },
-    { question: "Aşağıdaki seçeneklerden hangisi hem WordPress hem de Joomla için önerilen web sunucularından biridir? ", options: ["Lighttpd", "IIS", "Apache", "Tomcat"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Apache ve Nginx arasındaki bir farktır? ", options: ["Apache yalnızca Windows'ta çalışır", "Nginx her istek için yeni işlem açar", "Apache modül desteği daha fazladır", "Nginx .htaccess dosyalarını destekler"], correct: 2 },
-    { question: "Joomla için aşağıdakilerden hangisi zorunlu sistem gereksinimlerinden biridir? ", options: ["Python 3.8+", "mod_rewrite ve JSON desteği", "Redis önbellekleme", "Node.js çalıştırma yeteneği"], correct: 1 },
-    { question: "Web sunucularının performansını en çok etkileyen faktör aşağıdakilerden hangisidir? ", options: ["Arayüz dili", "Trafik yoğunluğu", "Domain adı uzunluğu", "Kullanıcı sayfa başlığı"], correct: 1 },
-    { question: "SSL/TLS protokollerinin temel amacı nedir? ", options: ["Dosya transferi yapmak", "Web sayfalarının tasarımını iyileştirmek", "Verileri şifreleyerek güvenli iletişim sağlamak", "DNS sunucularını hızlandırmak"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi TLS'in yerine geçtiği eski protokoldür? ", options: ["HTTPS", "SSL", "FTP", "SSH"], correct: 1 },
-    { question: "HTTPS ne sağlar?", options: ["Web sitesinin mobil uyumlu olmasını", "Sayfanın daha hızlı yüklenmesini", "Şifreli ve güvenli veri iletimi", "Alan adı tescilini"], correct: 2 },
-    { question: "HTTPS kullanmayan bir web sitesi ne tür risk taşır? ", options: ["Renkli görselleri desteklemez", "Kullanıcı verileri çalınabilir", "İnternet bağlantısı kesilir", "Siteye erişim imkansız olur"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi tarayıcıda HTTPS bağlantısının göstergesidir? ", options: ["Yeşil \"Download\" butonu", "Adres çubuğundaki kilit simgesi", "Ücretsiz alan adı etiketi", "HTTPS logolarının olması"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi web sunucusu güvenliği kapsamında yer alan temel güvenlik alanlarından biri değildir? ", options: ["Fiziksel güvenlik", "Ağ güvenliği", "Uygulama tasarım prensipleri", "Sunucu (Host) güvenliği"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi OWASP Top 10 listesinde yer alan güvenlik zafiyetlerinden biridir? ", options: ["Güçlü parola politikalarının uygulanması", "Yazılım güncellemelerinin manuel yapılması", "Broken Access Control (Bozulmuş Erişim Kontrolü)", "Fiziksel erişim kontrolleri"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi \"Security Misconfiguration\" zafiyetine örnek olarak verilebilir? ", options: ["Kullanıcı girdilerinin doğrulanmaması", "Gereksiz servislerin açık bırakılması", "Verilerin şifrelenmeden saklanması", "Güçlü parola zorunluluğu olmaması"], correct: 1 },
-    { question: "Web sunucusu güvenliğinde \"TLS 1.3 kullanımı\" öncelikle hangi alanla ilişkilidir? ", options: ["Fiziksel güvenlik", "Kimlik doğrulama", "Veri iletişiminde güvenlik", "Yedekleme stratejileri"], correct: 2 },
-    { question: "Aşağıdaki açıklamalardan hangisi yanlıştır? ", options: ["OWASP, web uygulama güvenliği konusunda açık kaynak çözümler sunar.", "SIEM sistemleri anormal aktivitelerin tespiti için kullanılır. ", "Sqlmap, DDoS saldırılarını önlemek için kullanılır.", "NIST SP 800-123, web sunucusu güvenliği için bir rehberdir. "], correct: 2 },
-    { question: "DDoS (Distributed Denial of Service) saldırılarının temel amacı nedir? ", options: ["Sunucuların daha hızlı çalışmasını sağlamak", "İnternet bağlantılarını güçlendirmek", "Hedef sistemi trafiğe boğarak hizmet dışı bırakmak", "Verileri şifreleyip fidye istemek"], correct: 2 },
-    { question: "DDoS saldırılarında kullanılan ve saldırganlar tarafından kontrol edilen cihazlara ne ad verilir? ", options: ["Router", "Proxy", "Bot veya Zombi", "Host"], correct: 2 },
-    { question: "SYN Flood saldırısı, OSI modelinin hangi katmanlarını hedef alır? ", options: ["1. ve 2. katman", "3. ve 4. katman", "5. ve 6. katman", "6. ve 7. katman"], correct: 1 },
-    { question: "DNS Amplification saldırısının temel mantığı nedir? ", options: ["Web sunucusuna çok sayıda sahte kullanıcı girişi yapmak", "Küçük sorgularla büyük cevaplar üretip kurbana yönlendirmek", "Sunucunun dosya sistemine zarar vermek", "Web sitesinin tasarımını bozmak"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi DDoS saldırılarını azaltmak için kullanılan yöntemlerden biri değildir? ", options: ["Web Application Firewall", "Rate Limiting", "Blackhole Routing", "SQL Injection"], correct: 3 },
-    { question: "Reverse Proxy hangi amaçla kullanılır? ", options: ["Veritabanı replikasyonu için", "Kullanıcının IP adresini açığa çıkarmak için", "İstemci isteklerini yönlendirerek güvenlik ve yük dengelemesi sağlamak için", "Doğrudan sunucuya erişimi hızlandırmak için"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi CDN'in temel faydalarından biridir? ", options: ["Donanım güncellemelerini otomatik yapmak", "Web içeriklerini en uzak noktadan sağlamak", "Kullanıcının şifrelerini saklamak", "Sayfa yüklenme süresini azaltmak"], correct: 3 },
-    { question: "Reverse Proxy ile CDN arasındaki temel fark nedir? ", options: ["CDN sadece güvenlik sağlar, Reverse Proxy hız sağlar", "Reverse Proxy sadece video içerik sunar", "CDN içeriği yakın sunucudan sunar, Reverse Proxy ise yönlendirme yapar", "İkisi de aynı görevi yapar"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi CDN kullanımı ile doğrudan ilgilidir? ", options: ["CPU hızı artar", "Kullanıcı konumuna göre en yakın sunucudan içerik sunulur", "Web sunucusu doğrudan saldırıya açık hale gelir", "Yalnızca dinamik içerik çalıştırılır"], correct: 1 },
-    { question: "CDN sistemi nasıl çalışırken ilk olarak hangi adım gerçekleşir? ", options: ["DNS yönlendirmesi yapılır", "Kullanıcının konumuna göre en uygun edge sunucu seçilir", "İçerik önbellekten sunulur", "Ana sunucudan içerik alınır"], correct: 0 },
-    { question: "Hangi protokol, bir özelliği olan e-posta iletişiminde kullanılan basit ve eski cihazlara erişim için tasarlanmıştır? ", options: ["IMAP, çünkü klasör organizasyonu ve cihaz arasında senkronizasyon olmadığı için erişim kolaylığı sağlar. ", "SMTP, çünkü temel HTML e-postaları gönderme amacıyla özellikle tasarlandı. ", "POP3, çünkü basit yapısı ve düşük bant genişliği kullanımı ile eski cihazlarda bile çalışabilir. ", "DNS, çünkü e-posta adreslerinin etki alanı kontrolünü yönetir. "], correct: 2 },
-    { question: "Aşağıdakilerden hangisi IMAP protokolünün avantajları arasında yer almaz? ", options: ["E-postaları birden fazla cihaz arasında senkronize etmek.", "Sunucuda klasör yapısı oluşturmak.", "Mesajları sunucuda saklayarak her yerde erişim sağlamak. ", "Bant genişliği tasarrufu sağlayarak e-postaları tamamen indirmek."], correct: 3 },
-    { question: "Aşağıdakilerden hangisi bir mail sunucusunda posta gönderme işinden sorumlu bileşendir? ", options: ["Dovecot", "Postfix", "Thunderbird", "Maildir"], correct: 1 },
-    { question: "Dovecot aşağıdaki görevlerden hangisini yerine getirir? ", options: ["DNS kayıtlarını yönetmek", "SMTP üzerinden e-posta göndermek", "IMAP/POP3 protokolüyle kullanıcıya e-posta erişimi sağlamak", "Webmail arayüzü sunmak"], correct: 2 },
-    { question: "POP3'te yalnızca ileti başlıklarını ve ilk N satırı indirmeye yarayan, düşük bant genişliği senaryolarında tercih edilen komut aşağıdakilerden hangisidir? ", options: ["TOP", "LIST", "UIDL", "DELE"], correct: 0 },
-    { question: "IMAP oturumunda silinmek üzere işaretlenmiş iletileri seçili posta kutusundan kalıcı olarak kaldıran komut hangisidir? ", options: ["EXPUNGE ", "NOOP", "IDLE", "STORE"], correct: 0 },
-    { question: "Birden fazla cihazda senkronize posta kutusu erişimi sağlamak için hangi protokol tercih edilir? ", options: ["POP3", "IMAP", "SMTP", "FTP"], correct: 1 },
-    { question: "Postfix kurulumu sırasında debconf ekranında \"Mail Server Configuration Type\" sorusuna internet üzerinden e-posta alıp gönderecek bir sunucu için hangi seçenek seçilmelidir? ", options: ["Local Only", "Internet Site", "Satellite System", "No Configuration"], correct: 1 },
-    { question: "Bir şirketin e-posta sistemi kurarken çalışanlarının ofiste ve evde farklı cihazlardan e-postalarını okuyabilmesini ve tüm cihazlarda aynı e-posta durumlarını görebilmesini istiyor. Bu durumda hangi protokolü kullanmak en uygundur? ", options: ["SMTP, çünkü şirket içi iletişimi sağlamak için tasarlanmıştır.", "POP3, çünkü e-postaları her cihazda yerel olarak saklayarak senkronizasyon sağlar. ", "FTP, çünkü büyük dosyaların transferine izin verir.", "IMAP, çünkü e-postaları sunucuda saklayarak cihazlar arası senkronizasyon sağlar. "], correct: 3 },
-    { question: "Bir kullanıcı e-posta istemcisinden e-posta göndermeye çalıştığında, e-postanın alıcıya ulaşana kadarki süreçte hangi adımlar doğru sırada gerçekleşir? ", options: ["Kullanıcı e-posta yazar → POP3 ile e-posta gönderilir Alıcının e-posta sunucusu mesajı alır Alıcı SMTP ile e-postayı okur ", "Kullanıcı e-posta yazar → SMTP ile gönderici sunucuya iletilir Alıcının e-posta sunucusuna SMTP ile iletilir → Alıcı IMAP veya POP3 ile e-postayı okur", "Kullanıcı e-posta yazar → IMAP ile sunucuya kaydedilir → SMTP ile alıcı sunucuya iletilir → Alıcı POP3 ile e-postayı indirir", "Kullanıcı e-posta yazar → DNS ile alıcı adresi doğrulanır → HTTP ile internet üzerinden iletilir → Alıcı SMTP ile e-postayı alır"], correct: 1 },
-    { question: "Zimbra hangi tür yazılım lisansı ile sunulur? ", options: ["Yalnızca ticari", "Kapalı kaynak", "Açık kaynak", "Shareware"], correct: 2 },
-    { question: "Zimbra'nın web arayüzü nasıldır? ", options: ["Yoktur", "Basittir", "Gelişmiştir", "Yavaş çalışır"], correct: 2 },
-    { question: "Exchange Server'ın bir dezavantajı nedir? ", options: ["Ücretsiz olması", "Çok sade olması", "Yüksek maliyetli olması", "Açık kaynaklı olması"], correct: 2 },
-    { question: "iRedMail kurulumu nasıldır? ", options: ["Uzun ve zor", "Sadece Windows için", "Otomatik ve kolay", "Yalnızca manuel olarak yapılır"], correct: 2 },
-    { question: "RainLoop'un veritabanı kullanımıyla ilgili olarak aşağıdakilerden hangisi doğrudur? ", options: ["MySQL kullanımı zorunludur.", "Sadece SQLite desteklenir.", "Veritabanı bağlantısı zorunlu değildir, dosya bazlı çalışabilir.", "RainLoop veritabanı desteği sunmaz. "], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Roundcube ve RainLoop arasında temel bir farktır? ", options: ["Her ikisi de sadece Windows üzerinde çalışır.", "Roundcube OAuth desteğine sahip değildir. ", "RainLoop daha fazla sistem kaynağı kullanır.", "Roundcube yalnızca tek domain destekler."], correct: 1 },
-    { question: "RainLoop aşağıdaki hangi özelliğiyle öne çıkar? ", options: ["Zor kurulum süreci ve yüksek kaynak tüketimi", "Veritabanı zorunluluğu ve sadece tek kullanıcı desteği", "Hızlı performans ve dosya bazlı veri yönetimi", "Yalnızca POP3 protokolünü desteklemesi"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Thunderbird'ün bir özelliğidir? ", options: ["Ücretli lisanslı yazılımdır", "Microsoft Exchange ile tam uyum sağlar", "Açık kaynak kodludur", "Yalnızca Windows işletim sisteminde çalışır"], correct: 2 },
-    { question: "Outlook hangi durumda daha uygun bir tercihtir? ", options: ["Bireysel e-posta kullanımı için", "Linux üzerinde e-posta yönetimi için", "Office 365 ile entegrasyon gereken kurumsal ortamlarda", "Eklenti ile özelleştirme yapmak isteyen kullanıcılar için"], correct: 2 },
-    { question: "Thunderbird'ün eksik yönlerinden biri aşağıdakilerden hangisidir? ", options: ["Ücretsiz olması", "Eklenti desteğinin geniş olması", "Kurumsal destek eksikliği", "Çevrimdışı çalışamaması"], correct: 2 },
-    { question: "Outlook'un avantajlarından biri aşağıdakilerden hangisidir? ", options: ["Ücretsiz dağıtılması", "Exchange entegrasyonu", "Tüm işletim sistemleriyle tam uyumluluk", "Geniş eklenti desteği"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi spam e-postaları tanımanın yaygın yollarından biridir? ", options: ["E-postanın çok kısa olması", "Gönderen adresinin tanıdık olması", "E-postada aciliyet ve ödül vaadi bulunması", "E-postada resim bulunmaması"], correct: 2 },
-    { question: "\"Phishing\" (oltalama) saldırılarında saldırganların en çok kullandığı yöntem aşağıdakilerden hangisidir? ", options: ["Antivirüs yazılımı yüklemek", "Fiziksel olarak USB takmak", "Sahte ve ikna edici e-posta göndermek", "Web sitesinin adını değiştirmek"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi kişisel e-posta güvenliğini artırmak için alınabilecek en etkili önlemlerden biridir? ", options: ["İki faktörlü kimlik doğrulama kullanmak", "Aynı şifreyi tüm hesaplarda kullanmak", "Tüm e-postalara hızlıca yanıt vermek", "E-postaları düzenli olarak silmek"], correct: 0 },
-    { question: "Kurumlarda spam ve zararlı e-postaların engellenmesinde en etkili teknik çözüm aşağıdakilerden hangisidir? ", options: ["Tüm e-postaları manuel kontrol etmek", "Mail gateway sistemleri kullanmak", "E-posta yazım kurallarını sıkılaştırmak", "Çalışanlara e-posta gönderimini yasaklamak"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi şüpheli bir e-postanın işareti olabilir? ", options: ["İyi yazılmış, resmi bir dil kullanması", "Bilinen bir alan adı uzantısı (.com) taşıması", "Kötü yazılmış metin ve hatalı dilbilgisi", "Kurumsal logoya sahip olması"], correct: 2 },
-    { question: "Aşağıdaki yazılımlardan hangisi spam içerikleri tespit etmek için puanlama sistemine göre çalışır? ", options: ["ClamAV ", "SpamAssassin", "OpenDKIM", "Postfix"], correct: 1 },
-    { question: "Greylisting (Gri Listeleme) yöntemi aşağıdakilerden hangisini hedefler? ", options: ["E-postaları dijital olarak imzalamayı", "SPF ve DKIM uyumunu kontrol etmeyi", "Spam botlarının e-posta tekrar denememesi üzerinden spam'ı engellemeyi", "E-postaları virüs taramasına sokmayı"], correct: 2 },
-    { question: "Spam e-postaların gönderildiği IP'leri tespit edip engellemek için kullanılan sistem aşağıdakilerden hangisidir? ", options: ["TLS", "RBL (Real-time Blackhole List)", "MX", "DKIM"], correct: 1 },
-    { question: "SPF kaydının temel amacı nedir? ", options: ["E-posta içeriğini şifrelemek", "Alıcı sunucunun spam filtrelerini devre dışı bırakmak", "Gönderen IP adresinin yetkili olup olmadığını denetlemek", "E-postanın içeriğinin değiştirilip değiştirilmediğini tespit etmek", "E-postalara dijital imza eklemek"], correct: 2 },
-    { question: "SPF kaydının DNS üzerinde tutulduğu kayıt türü hangisidir? ", options: ["A kaydı", "MX kaydı", "CNAME kaydı", "TXT kaydı", "PTR kaydı"], correct: 3 },
-    { question: "Aşağıdakilerden hangisi SPF kaydında yetkili olmayan kaynaklardan gelen mailleri tamamen engellemek için kullanılır? ", options: ["~all ", "+all", "-all", "?all", "include"], correct: 2 },
-    { question: "DKIM'in sağladığı temel güvenlik özelliği nedir? ", options: ["Gönderen IP kontrolü", "Mesajın spam'e düşmesini engelleme", "E-posta içeriğinin değişip değişmediğini doğrulama", "E-posta eklerinin taranması", "Sunucuya SSL ekleme"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi DKIM doğrulamasında kullanılan unsurlardan biridir? ", options: ["SPF IP listesi", "SSL sertifikası", "Public key (açık anahtar)", "SMTP header zaman damgası", "PTR kaydı"], correct: 2 },
-    { question: "Aşağıdaki DMARC parametrelerinden hangisi SPF eşleşme düzeyini tanımlar? ", options: ["rua", "ruf", "pct", "aspf", "sp"], correct: 3 },
-    { question: "DMARC kaydında pct=10 ne anlama gelir? ", options: ["SPF kayıtları %10 doğrulukla çalışır", "DKIM kontrolü %10 doğrulanır", "DMARC politikası e-postaların %10'una uygulanır", "Raporlar yalnızca %10 oranda gönderilir", "SPF ve DKIM kontrolü zorunlu değildir"], correct: 2 },
-    { question: "DMARC politikası ile ilgili aşağıdaki ifadelerden hangisi yanlıştır? ", options: ["p=reject ile uyumsuz e-postalar tamamen reddedilir", "p=none politikası, sadece izleme ve raporlama yapar", "DMARC, SPF ve DKIM'den bağımsız çalışır", "rua parametresi, raporların gönderileceği adresi belirtir", "DMARC politikası bir TXT kaydı olarak tanımlanır"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi SELinux ve AppArmor'un ortak özelliğidir? ", options: ["Her ikisi de sadece Windows sistemlerinde çalışır", "Her ikisi de Linux'ta güvenliği artırmak için kullanılır", "Her ikisi de internet tarayıcılarıdır", "Her ikisi de metin düzenleyici programlardır"], correct: 1 },
-    { question: "Linux sistemlerinde güvenlik açıklarını takip etmek için aşağıdakilerden hangisi kullanılmaz? ", options: ["Ubuntu Güvenlik Duyuruları", "Red Hat Güvenlik Güncellemeleri", "Debian Güvenlik Bilgileri", "Microsoft Güvenlik Bültenleri"], correct: 3 },
-    { question: "SSH bağlantısını daha güvenli hale getirmek için aşağıdakilerden hangisi önerilir? ", options: ["Parola yerine anahtar tabanlı kimlik doğrulama kullanmak", "Root kullanıcısının doğrudan bağlanmasına izin vermek", "Varsayılan 22 portunu değiştirmemek", "Şifresiz kullanıcı hesapları oluşturmak"], correct: 0 },
-    { question: "Aşağıdakilerden hangisi bir web sitesinin SSL/TLS ile korunduğunu gösteren belirtilerden biri değildir? ", options: ["Web adresinin \"https://\" ile başlaması", "Tarayıcıda kilit simgesinin görünmesi", "Web sitesinde animasyonlu banner olması", "Sertifikanın geçerliliğinin kontrol edilebilmesi"], correct: 2 },
-    { question: "SSL/TLS el sıkışma süreci sırasında istemcinin (tarayıcı) sunucunun sertifikasını doğrulamasının temel amacı nedir? ", options: ["Web sitesinin IP adresini değiştirmek ", "Sunucunun güvenli bir bağlantı kurma yeteneğini test etmek", "Sunucunun kimliğini doğrulamak ve sahte siteyi tespit etmek", "İnternet bağlantı hızını ölçmek"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi iki faktörlü kimlik doğrulamanın (2FA) sağladığı avantajlardan biri değildir? ", options: ["Şifre kırma saldırılarına karşı ek koruma sağlar", "Otomatik güncellemeleri daha hızlı indirir", "Kimlik avı saldırılarına karşı savunma oluşturur", "Hesaplara yetkisiz erişimi zorlaştırır"], correct: 1 },
-    { question: "Aşağıdaki yöntemlerden hangisi yaygın olarak kullanılan bir 2FA (iki faktörlü kimlik doğrulama) yöntemi değildir? ", options: ["SMS ile gönderilen doğrulama kodu", "E-posta eki olarak gelen PDF formu", "Mobil kimlik doğrulama uygulamaları", "Push (bildirim) yöntemiyle doğrulama"], correct: 1 },
-    { question: "Apache'nin güvenlik açısından avantajlarından biri hangisidir? ", options: ["Yalnızca statik içerik sunması", "Modüler yapısı sayesinde çok sayıda güvenlik modülü sunması", "Sadece Windows işletim sistemlerinde çalışması", "Otomatik güncelleme yapmaması"], correct: 1 },
-    { question: "Web sunucusu güvenliğinde aşağıdakilerden hangisi kritik bir önlem değildir? ", options: ["Düzenli yazılım güncellemeleri yapmak", "SSL/TLS sertifikası kullanmak", "Parolaları basit ve tahmin edilebilir yapmak", "Erişim kontrollerini sıkı tutmak"], correct: 2 },
-    { question: "Zero Trust mimarisinde hangi prensip esas alınır? ", options: ["İç ağda tüm kullanıcılar otomatik olarak güvenilir kabul edilir", "Hiçbir kullanıcı veya cihaz otomatik olarak güvenilir kabul edilmez", "Güvenlik sadece dış ağda sağlanır", "Tek faktörlü kimlik doğrulama yeterlidir"], correct: 1 },
-    { question: "Zero Trust mimarisinde karşılaşılan zorluklardan biri hangisidir? ", options: ["Kolay kurulum ve basit yönetim", "Performans üzerinde olumsuz etkiler yaratabilir", "Kullanıcıların şifrelerini otomatik olarak oluşturmak", "Sadece fiziksel sunucularda çalışması"], correct: 1 },
-    { question: "Graylog sisteminin aşağıdaki avantajlarından hangisi doğrudur? ", options: ["Verileri işleme konusunda çok esnektir", "Gelişmiş görselleştirme desteği sunar", "Kaynak tüketimi yüksektir", "Öğrenmesi daha kolaydır"], correct: 3 },
-    { question: "Aşağıdakilerden hangisi ELK Stack'in Graylog'a göre üstün olduğu bir özelliktir? ", options: ["Daha düşük kaynak tüketimi", "Daha basit öğrenme eğrisi", "Gelişmiş görselleştirme araçları (Kibana)", "Daha az topluluk desteği"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi logrotate aracının temel işlevlerinden biridir? ", options: ["Sistem loglarını toplamak ve dosyalara yazmak", "Donanım sürücülerini otomatik olarak güncellemek", "Log dosyalarını belirli aralıklarla döndürmek ve arşivlemek", "Kullanıcı oturumlarını yönetmek"], correct: 2 },
-    { question: "Zabbix'in temel işlevi nedir? ", options: ["Web siteleri tasarlamak", "Sunuculara otomatik yedekleme yapmak", "BT altyapısını izlemek ve performans verilerini toplamak", "Veritabanı şemaları oluşturmak"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Zabbix ile Grafana arasındaki temel farklardan biridir? ", options: ["Zabbix sadece grafik çizimi için kullanılırken, Grafana tüm ağ cihazlarını izler", "Grafana, genellikle görselleştirme için kullanılırken; Zabbix, veri toplama ve uyarı sistemleriyle izleme yapar ", "Zabbix sadece veritabanı yönetimi yapar, Grafana ise sadece yedekleme sağlar", "Grafana bir işletim sistemi iken, Zabbix bir programlama dilidir"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi Prometheus mimarisine ait bir bileşendir? ", options: ["MySQL", "Alertmanager", "Grafana", "Graylog"], correct: 1 },
-    { question: "Graylog sisteminde \"Stream\" bileşeninin temel işlevi nedir? ", options: ["Log verilerini görselleştirerek grafikler oluşturmak", "Loglardan belirli alanları ayıklamak", "Log verilerini kategorilere ayırarak filtreleme sağlamak", "Log verilerini indeksleyip Elasticsearch'e kaydetmek"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Elasticsearch mimarisinde verilerin fiziksel olarak parçalanmasını ve çoğaltılmasını sağlar? ", options: ["Node", "Cluster", "Index", "Shard ve Replica"], correct: 3 },
-    { question: "Kibana'nın temel rolü aşağıdakilerden hangisidir? ", options: ["Log verilerini analiz edip başka sistemlere gönderir", "Log verilerinin Elasticsearch'te indekslenmesini sağlar", "Log verilerini görselleştirerek kullanıcıya sunar", "Sunuculardan log toplar ve MongoDB'ye kaydeder"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi SIEM sistemlerinin temel işlevlerinden biridir? ", options: ["Port yönlendirme yapılandırması", "Sistemlerin fiziksel korunması", "Log verilerini analiz ederek anormallikleri tespit etmek", "Oyun sunucularının çalışmasını optimize etmek"], correct: 2 },
-    { question: "Red Team'in temel amacı nedir? ", options: ["Sistem güncellemelerini otomatikleştirmek", "Güvenlik duvarı kurallarını oluşturmak", "Gerçek saldırı simülasyonlarıyla güvenlik açıklarını test etmek", "Port yönlendirme işlemlerini yönetmek"], correct: 2 },
-    { question: "Blue Team'in aşağıdaki görevlerinden hangisi yanlıştır? ", options: ["IDS/IPS sistemlerini kullanarak tehditlere karşı savunma yapmak", "Olaylara anında müdahale etmek", "Sosyal mühendislik saldırıları düzenlemek", "SIEM analizlerinden yararlanmak"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi açık kaynak yazılımın temel ilkelerinden biri değildir? ", options: ["Kaynak kodunun erişilebilir olması", "Kodun değiştirilip dağıtılabilmesi", "Sadece ticari kullanım için lisanslanması", "Topluluk katkılarına açık olması"], correct: 2 },
-    { question: "FOSS ve FLOSS kavramları arasındaki temel fark aşağıdakilerden hangisidir? ", options: ["FLOSS yalnızca ücretli yazılımları kapsar", "FOSS yalnızca devlet projelerinde kullanılır", "FLOSS ifadesi \"özgürlük\" vurgusunu daha açık hâle getirir", "FOSS, kapalı kaynak lisanslarla da uyumludur"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi özgür yazılım ve açık kaynak yazılım arasındaki temel felsefi ayrımı en iyi açıklar? ", options: ["Açık kaynak yazılım ticari kullanıma izin vermezken özgür yazılım verir", "Özgür yazılım etik değerlere, açık kaynak yazılım pratik faydaya odaklanır", "Özgür yazılım topluluk desteğine, açık kaynak ise bireysel geliştirmeye dayanır", "Açık kaynak yazılım kaynak kodunu paylaşmaz, sadece özgür yazılım paylaşır"], correct: 1 },
-    { question: "Aşağıdaki lisanslardan hangisi \"copyleft\" ilkesini zorunlu kılar? ", options: ["MIT", "BSD", "Apache", "GPL"], correct: 3 },
-    { question: "Apache lisansının MIT lisansına göre en büyük farkı nedir? ", options: ["Apache lisansı kaynak kodunu kapatır", "Apache lisansı, patent hakkı lisanslaması içerir", "MIT lisansı ticari kullanımı yasaklar", "MIT lisansı sadece akademik projelerde kullanılabilir"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi GitHub üzerinde yapılan katkı sürecinin bir parçası değildir? ", options: ["Fork işlemi", "Pull Request gönderme", "Kodun doğrudan ana projeye yazılması", "Commit ile değişiklik kaydetme"], correct: 2 },
-    { question: "Açık kaynak projelere teknik olmayan katkı biçimine örnek olarak aşağıdakilerden hangisi verilebilir? ", options: ["Hata raporlama (issue oluşturma)", "Performans optimizasyonu", "Kod derleme", "CI/CD kurulumu"], correct: 0 },
-    { question: "Pardus işletim sistemi hangi temel Linux dağıtımı üzerine inşa edilmiştir? ", options: ["Arch Linux ", "Red Hat", "Debian", "Fedora"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi Pardus'un kamu kurumlarında tercih edilme nedenlerinden biri değildir? ", options: ["Lisans maliyetlerinden tasarruf sağlaması", "Kapalı kaynak donanım bağımlılığı sunması", "Güvenli ve özelleştirilebilir olması", "Yerli ve millî geliştirilmiş olması"], correct: 1 },
-    { question: "Pardus işletim sistemi aşağıdakilerden hangisinde aktif olarak kullanıldığı belgelenmiş açık kaynak çözüm olarak öne çıkmaktadır? ", options: ["Üniversite akademik sunucuları", "Yüksek Seçim Kurulu veri işleme sistemleri", "Jandarma Genel Komutanlığı siber güvenlik yazılım altyapısı", "FATİH Projesi kapsamındaki akıllı tahta sistemleri"], correct: 3 },
-    { question: "Veri merkezlerinde sanallaştırma için kullanılan, açık kaynaklı platform aşağıdakilerden hangisidir? ", options: ["Docker", "Prometheus", "Proxmox VE", "Git"], correct: 2 },
-    { question: "Aşağıdakilerden hangisi açık kaynak altyapı araçları arasında sistem izleme amacıyla kullanılır? ", options: ["Prometheus", "Ansible", "GitLab", "Thunderbird"], correct: 0 },
-    { question: "Kamu kurumlarında açık kaynak sistemlere geçişte en sık karşılaşılan zorluklardan biri nedir? ", options: ["Lisans problemleri", "Donanım desteği eksikliği", "Kullanıcı alışkanlıklarının değişime direnci", "Açık kaynak yazılımların kapalı kaynak olması"], correct: 2 },
-    { question: "GitLab'ın GitHub'a kıyasla öne çıkan temel özelliği nedir? ", options: ["Sadece özel projeler için kullanılabilir olması", "CI/CD entegrasyonunun yerleşik ve güçlü olması", "Kod barındırma özelliğinin olmaması", "Kaynak kodunun kapalı olması"], correct: 1 },
-    { question: "Aşağıdakilerden hangisi doğrudan bir işletim sistemi değil, açık kaynak yazılım paketidir? ", options: ["Fedora", "LibreOffice", "Arch Linux", "Manjaro"], correct: 1 },
-    { question: "Aşağıdaki durumlardan hangisi, GPL lisanslı bir yazılımın MIT lisanslı bir yazılıma göre geliştiriciden daha fazla yükümlülük talep ettiğini gösterir? ", options: ["GPL lisanslı yazılımda yapılan değişiklikler de aynı lisansla paylaşılmalıdır", "GPL lisanslı yazılımın kaynak kodunu ticari olarak satmak yasaktır", "MIT lisansı sadece kapalı kaynak sistemlerde kullanılabilir", "MIT lisanslı yazılımda ticari kullanım kesinlikle yasaktır"], correct: 0 }
+    {
+        question: "Aşağıdakilerden hangisi ERP sisteminin temel özelliklerinden biri değildir?",
+        options: ["Modüler yapı", "Gerçek zamanlı veri işleme", "Farklı sistemlerde bağımsız çalışan modüller", "Ortak veri tabanı kullanımı", "Aynı platform üzerinden yönetim"],
+        correct: 2
+    },
+    {
+        question: "\"Satın alma, muhasebe, insan kaynakları gibi departmanların aynı sistemde birlikte çalışmasını sağlayan yazılım türüne ... denir.\" Boşluğu en iyi tamamlayan ifade aşağıdakilerden hangisidir?",
+        options: ["CRM", "ERP", "SCM", "BI", "RPA"],
+        correct: 1
+    },
+    {
+        question: "ERP sistemlerinde \"Three-Tier Architecture\" yapısında, kullanıcıların işlemleri yaptığı katman aşağıdakilerden hangisidir?",
+        options: ["Application Layer", "Data Layer", "Presentation Layer", "Process Layer", "Virtual Layer"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi bir ERP sisteminde yer alan fonksiyonel modüllerden biri değildir?",
+        options: ["Finans ve Muhasebe", "Satın Alma", "Üretim", "Antivirüs Koruma", "İnsan Kaynakları"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdaki açıklamalardan hangisi \"ERP sistemlerinde departmanlar arası entegrasyon'un sağladığı bir fayda değildir?",
+        options: ["Aynı verinin birden fazla kez girilmesini önler", "Bilgiler gerçek zamanlı güncellenir", "Tüm bölümler ortak veriye ulaşabilir", "Her departmanın sadece kendi verilerine erişmesi sağlanır", "Karar alma süreçleri hızlanır"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdakilerden hangisi ERP sistemlerinde kullanılan modüller arasında yer almaz?",
+        options: ["SD (Satış ve Dağıtım)", "FI (Finansal Muhasebe)", "HR (İnsan Kaynakları)", "SEO (Arama Motoru Optimizasyonu)", "MM (Malzeme Yönetimi)"],
+        correct: 3
+    },
+    {
+        question: "ERP sistemlerinde kullanılan \"RICEF\" yapısındaki \"C (Conversion)\" ne anlama gelir?",
+        options: ["Süreçlerin otomatikleştirilmesi", "Kullanıcı ekranlarının özelleştirilmesi", "Eski sistem verilerinin ERP'ye taşınması", "Tedarik zinciri süreçlerinin planlanması", "Finansal işlemlerin raporlanması"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi ERP sistemleri ile en yakından ilişkili olan bir yazılım dili veya aracı değildir?",
+        options: ["ABAP", "Python", "Java", "Tableau", "SAP GUI"],
+        correct: 3
+    },
+    {
+        question: "ERP sistemlerinde kullanılan \"Gerçek Zamanlı Veri\" kavramı aşağıdakilerden hangisini ifade eder?",
+        options: ["Gecikmeli olarak veri aktarımı", "Sadece günlük raporlamaya uygun veri", "Veri girişinin yalnızca manuel yapılması", "Verilerin eş zamanlı ve anında işlenmesi", "Her modülün kendi veri tabanına sahip olması"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdaki ERP proje tiplerinden hangisi mevcut sistem üzerinde yeni modül eklenmesi veya iyileştirme yapılmasını ifade eder?",
+        options: ["Greenfield", "Brownfield", "Bluefield", "Blackfield", "Support"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi ERP sistemlerinin kullanım amaçlarından biri değildir?",
+        options: ["Şirket kaynaklarını etkin kullanmak", "Bölümler arası veri paylaşımını sağlamak", "İş süreçlerini entegre yönetmek", "Veri analizini zorlaştırmak", "Tek bir sistemle tüm operasyonları yürütmek"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdakilerden hangisi ERP sisteminde yer alan kullanıcı tiplerinden biri değildir?",
+        options: ["Fonksiyonel danışman", "Teknik danışman", "Techno-functional danışman", "End-user (Son kullanıcı)", "Sistem müfettişi"],
+        correct: 4
+    },
+    {
+        question: "Aşağıdakilerden hangisi SAP gibi bir ERP sisteminde sunum (presentation) katmanına örnektir?",
+        options: ["Veritabanı sunucusu", "SAP GUI", "ABAP programı", "In-memory computing", "Kod pushdown işlemi"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki sistemlerden hangisi ERP dışı (Non-ERP) bir yazılım türü olarak kabul edilir?",
+        options: ["SAP", "Oracle EBS", "CRM", "Microsoft Dynamics", "S/4HANA"],
+        correct: 2
+    },
+    {
+        question: "ERP sisteminde \"Form\" terimi neyi ifade eder?",
+        options: ["Veri giriş ekranlarını", "Yazıcıdan alınan okuma amaçlı çıktı belgeleri", "Sistem güncelleme dosyalarını", "Kullanıcı şifreleme modülünü", "E-posta iletilerini"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi SAP Basis yöneticisinin görevlerinden biri değildir?",
+        options: ["Sistem performansını izlemek", "SAP kullanıcı yetkilendirmelerini yapmak", "SAP sistemine yazılım geliştirmek", "Veritabanı yönetimini gerçekleştirmek", "Sistem güvenliği ve log takibi yapmak"],
+        correct: 2
+    },
+    {
+        question: "SAP HANA veritabanı aşağıdaki hangi özelliğiyle ön plana çıkar?",
+        options: ["Disk tabanlı veri saklama", "Geleneksel dosya tabanı kullanımı", "In-memory veri işleme ile yüksek hız", "Sadece Oracle sistemlerinde çalışabilme", "Yalnızca test sistemlerinde kullanılabilme"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki veritabanlarından hangisi bellek (RAM) tabanlı çalışan ve SAP'nin yeni nesil ERP sistemlerinde tercih edilen veritabanıdır?",
+        options: ["Oracle", "Microsoft SQL Server", "SAP HANA", "IBM DB2", "PostgreSQL"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi SAP sisteminin ağ bağlantısı için önerilen altyapı türüdür?",
+        options: ["100 Mbps Ethernet", "1 Gbps veya daha yüksek Ethernet bağlantısı", "Dial-up bağlantı", "Kablosuz 2.4 GHz Wi-Fi", "Bluetooth aktarımı"],
+        correct: 1
+    },
+    {
+        question: "Transport Management System (TMS) SAP sisteminde ne amaçla kullanılır?",
+        options: ["Yedekleme ve kurtarma işlemleri için", "Kullanıcı hesaplarının taşınması için", "Sistem güncellemelerinin otomatik yapılması için", "Geliştirme ortamından test ve canlı ortama değişikliklerin aktarılması için", "SAP modüllerinin lisanslanması için"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdakilerden hangisi SAP sistemlerinde en yaygın kullanılan işletim sistemi olarak bilinir?",
+        options: ["Windows Server", "SUSE Linux Enterprise Server", "Ubuntu", "macOS", "FreeBSD"],
+        correct: 1
+    },
+    {
+        question: "SAP sisteminde bir kullanıcının yetkileri hangi işlem kodu (T-Code) ile tanımlanır?",
+        options: ["SU01", "ST03N", "SE11", "SPAM", "DB02"],
+        correct: 0
+    },
+    {
+        question: "SAP sisteminin loglarını, sistem mesajlarını ve hata kayıtlarını görmek için kullanılan işlem kodu aşağıdakilerden hangisidir?",
+        options: ["ST22", "SM21", "STMS", "SM12", "SUIM"],
+        correct: 1
+    },
+    {
+        question: "SAP HANA'da veritabanı yedekleme için kullanılan \"ana ve yedek veri merkezlerinin eşzamanlı çalışması\" prensibi aşağıdakilerden hangisidir?",
+        options: ["Offline Backup", "Point-in-Time Recovery", "Snapshot Backup", "HANA System Replication", "Manual Export"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdakilerden hangisi SAP sisteminde performans izleme ve analiz aracı olarak kullanılır?",
+        options: ["PFCG", "SE80", "ST03N", "SU53", "SM59"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi SAP Finans (FI) modülünün alt bileşenlerinden biri değildir?",
+        options: ["FI-GL", "FI-AR", "FI-HR", "FI-AP", "FI-AA"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi FI-AP (Borç Hesapları) modülünde yürütülen işlemler arasında yer alır?",
+        options: ["Çalışan maaş bordrosu oluşturma", "Tedarikçi faturası girme ve ödeme yapma", "Kredi skoru analizi", "Amortisman hesaplama", "Bütçe planlaması"],
+        correct: 1
+    },
+    {
+        question: "\"Genel muhasebe kayıtlarının tutulduğu, bilanço ve gelir tablosunun oluşturulduğu alt modül\" aşağıdakilerden hangisidir?",
+        options: ["FI-AR", "FI-AP", "FI-AA", "FI-GL", "CO-OM"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdaki SAP işlem kodlarından hangisi muhasebe belgesi oluşturmak için kullanılır?",
+        options: ["FB03", "SE16", "F-02", "SU01", "ST03N"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi finansal kapanış işlemleri arasında yer almaz?",
+        options: ["Dönem sonu muhasebe kayıtlarının kapatılması", "Bütçe ile gerçekleşen verilerin karşılaştırılması", "e-Defter ve e-Fatura işlemlerinin yürütülmesi", "Sabit kıymetlerin fiziksel sayımı yapılması", "Konsolidasyon raporlarının hazırlanması"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdakilerden hangisi SAP SD modülünde yer alan temel süreçlerden biri değildir?",
+        options: ["Sipariş Yönetimi", "Teslimat İşlemleri", "Faturalama", "Üretim Planlama", "Fiyatlandırma"],
+        correct: 3
+    },
+    {
+        question: "\"Müşteriden siparişin alınması, işlenmesi, teslimatının yapılması ve faturalandırılması\" adımlarını kapsayan süreç aşağıdakilerden hangisidir?",
+        options: ["Mal Kabul Süreci", "Satın Alma Süreci", "Sipariş Yönetim Süreci", "Muhasebe Süreci", "Stok Transfer Süreci"],
+        correct: 2
+    },
+    {
+        question: "SAP sisteminde bir müşteriye fatura kesildiğinde hangi modül otomatik olarak muhasebe kaydını oluşturur?",
+        options: ["CO", "MM", "FI", "WM", "PP"],
+        correct: 2
+    },
+    {
+        question: "SAP MM modülünde tedarikçiden alınan ürün teslim alındığında aşağıdaki işlemlerden hangisi gerçekleşir?",
+        options: ["Satış fiyatı güncellenir", "Stok seviyesi artar ve muhasebe kaydı oluşur", "Müşteri hesabı güncellenir", "Teslimat belgesi oluşturulur", "Ürün iade edilir"],
+        correct: 1
+    },
+    {
+        question: "SAP MM ve SD modüllerinin en önemli ortak noktası aşağıdakilerden hangisidir?",
+        options: ["Her ikisi de yalnızca üretim planlamasıyla ilgilenir", "Her ikisi de müşteri memnuniyeti anketleri düzenler", "Malzeme ana verisini ortak kullanmaları", "Her ikisi de sadece depo yönetimi ile ilgilenir", "Faturalama sürecini doğrudan yönetmeleri"],
+        correct: 2
+    },
+    {
+        question: "SAP SD modülünde müşteri ana verisi aşağıdaki süreçlerden hangisiyle en doğrudan ilişkilidir?",
+        options: ["Stok seviyesi güncellemesi", "Satın alma fiyatı belirleme", "Teslimat ve faturalama süreçleri", "Amortisman hesaplama", "Kalite kontrol süreçleri"],
+        correct: 2
+    },
+    {
+        question: "SAP MM modülünde satın alma işleminin ilk adımı aşağıdakilerden hangisidir?",
+        options: ["Mal kabul", "Fatura doğrulama", "Satın alma talebi oluşturma", "Satın alma siparişi gönderme", "Tedarikçiye ödeme yapma"],
+        correct: 2
+    },
+    {
+        question: "SAP sisteminde bir satış siparişi oluşturulduktan sonra gelen malzemenin sevk edilmesi ve irsaliyesinin hazırlanması hangi süreçtir?",
+        options: ["Faturalama süreci", "Sipariş yönetimi", "Teslimat süreci", "Müşteri ödeme süreci", "Mal kabul süreci"],
+        correct: 2
+    },
+    {
+        question: "SAP sisteminde \"FI\" modülüne muhasebe kaydı oluşturan MM süreci aşağıdakilerden hangisidir?",
+        options: ["Siparişin sisteme girilmesi", "Tedarikçiyle fiyat görüşmesi", "Mal kabul (malzeme teslim alımı)", "Müşteri ödemesi", "Amortisman güncellemesi"],
+        correct: 2
+    },
+    {
+        question: "SAP MM & SD modülleri ile ilgili aşağıdaki ifadelerden hangisi yanlıştır?",
+        options: ["SD modülü müşteri ile ilişkili süreçleri yönetir", "MM modülü depo ve stok işlemlerini takip eder", "Faturalama işlemi yalnızca MM modülü tarafından yürütülür", "Her iki modül de malzeme ana verisini kullanır", "MM süreci sonunda FI modülüne borç kaydı yansıtılır"],
+        correct: 2
+    },
+    {
+        question: "SAP SD modülünde satış işlemi gerçekleştikten sonra elde edilen gelirin kârlılığı hangi modül üzerinden analiz edilir?",
+        options: ["MM", "FI", "CO-PA", "WM", "HR"],
+        correct: 2
+    },
+    {
+        question: "SAP MM modülünde malzeme hareketleriyle ilgili detaylı işlemler hangi işlem kodu (T-code) üzerinden gerçekleştirilir?",
+        options: ["ME21N", "MIGO", "VF01", "F-02", "MBIA"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki süreç çiftlerinden hangisi doğru modül eşleşmesi içermektedir?",
+        options: ["Sipariş Yönetimi - MM", "Mal Kabul - SD", "Fatura Doğrulama - MM", "Teslimat Planlaması - FI", "Müşteri Ödemesi - MM"],
+        correct: 2
+    },
+    {
+        question: "SAP sisteminde, malzeme ana verisi ile ilgili olarak aşağıdakilerden hangisi doğrudur?",
+        options: ["Sadece MM modülü tarafından kullanılır", "Her malzeme için sadece fiyat bilgisi tutulur", "MM ve SD dahil olmak üzere birçok modül tarafından ortak kullanılır", "Müşteri bilgileri ile birlikte saklanır", "Amortisman hesaplarıyla ilişkilidir"],
+        correct: 2
+    },
+    {
+        question: "SAP SD modülünde fatura oluşturulduğunda aşağıdakilerden hangisi otomatik olarak gerçekleşir?",
+        options: ["Tedarikçiye ödeme yapılır", "Amortisman hesaplanır", "Müşteri ana verisi güncellenir", "Muhasebe kaydı oluşur (FI entegrasyonu)", "Stok seviyesi artırılır"],
+        correct: 3
+    },
+    {
+        question: "SAP BW'de verileri sınıflandırmak ve analiz etmek için kullanılan, \"müşteri\", \"ürün\", \"tarih\" gibi alanlara ne ad verilir?",
+        options: ["Key Figure", "DTP", "Characteristic", "ADSO", "InfoSet"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi SAP BW sisteminde veri taşıma ve yükleme işlemini yöneten bileşendir?",
+        options: ["InfoCube", "Start Routine", "DTP", "CKF", "Composite Provider"],
+        correct: 2
+    },
+    {
+        question: "\"2024 yılına ait satış toplamı\" gibi belirli bir filtreye göre sınırlandırılmış göstergeler, SAP BW'de hangi kavramla tanımlanır?",
+        options: ["RKF", "DSO", "Routine", "InfoObject", "Aggregation"],
+        correct: 0
+    },
+    {
+        question: "SAP BW Query Designer'da bir raporun yalnızca belirli koşulları sağlaması durumunda veri göstermesini sağlayan bileşen aşağıdakilerden hangisidir?",
+        options: ["Filter", "Exception", "CKF", "Condition", "Prompt"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdakilerden hangisi SAP BW'de farklı veri kaynaklarının birleştirilmesini sağlayan sanal sağlayıcı türüdür?",
+        options: ["InfoObject", "ADSO", "Composite Provider", "PSA", "Routine"],
+        correct: 2
+    },
+    {
+        question: "SAP BW'de veriyi analiz etmek için kullanılan sanal sağlayıcılardan biri aşağıdakilerden hangisidir?",
+        options: ["ADSO", "Composite Provider", "InfoObject", "PSA", "DTP"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi SAP BW'de raporlama sırasında hücre bazlı özel formül veya istisna tanımlamak için kullanılır?",
+        options: ["RKF", "Free Characteristics", "Structure", "Cell Editor", "Exception"],
+        correct: 3
+    },
+    {
+        question: "SAP BW sorgularında \"ciro / satış miktarı\" gibi formül bazlı yeni gösterge tanımlamak için kullanılan yapı aşağıdakilerden hangisidir?",
+        options: ["DTP", "CKF", "Transformation", "InfoSet", "Drilldown"],
+        correct: 1
+    },
+    {
+        question: "SAP BW'de verilerin özetlenmesi ve toplanması işlemi aşağıdakilerden hangisiyle ifade edilir?",
+        options: ["Aggregation", "Exception", "Prompt", "Routine", "Filtering"],
+        correct: 0
+    },
+    {
+        question: "SAP BEx sorgularında \"satırda görünsün ama filtreye etki etmesin\" özelliği taşıyan alanlar aşağıdakilerden hangisiyle tanımlanır?",
+        options: ["Filter", "Prompt", "Free Characteristics", "InfoProvider", "Metadata"],
+        correct: 2
+    },
+    {
+        question: "SAP BW'de veri ambarı veri akışında \"veri kaynağı\" ile \"bilgi sağlayıcı\" arasında yer alan işlem katmanı hangisidir?",
+        options: ["Composite Provider", "DTP", "Transformation", "InfoObject", "InfoSet"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi SAP BW raporlama süreçlerinde ön tanımlı sorgular oluşturmak ve bu sorguları kullanıcıya sunmak için kullanılan araçtır?",
+        options: ["HANA Studio", "SE16", "BEx Query Designer", "SAC", "RSA1"],
+        correct: 2
+    },
+    {
+        question: "SAP BW sisteminde bir veri kümesindeki tüm verileri işleyip filtre uygulamadan tüm seti kapsayan işlem yapmak için hangi \"routine\" türü kullanılır?",
+        options: ["End Routine", "Field Routine", "Start Routine", "DTP Routine", "Cell Routine"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi SAP BW veri modellemesinde, eski sistemlerde kullanılan ve yerini ADSO'ya bırakan veri yapısıdır?",
+        options: ["InfoObject", "DSO", "PSA", "CompositeProvider", "HANA View"],
+        correct: 1
+    },
+    {
+        question: "SAP BW sorgu ekranında kullanıcının rapor çalıştırılmadan önce kriter girmesini sağlayan bileşen aşağıdakilerden hangisidir?",
+        options: ["Free Characteristics", "Exception", "Prompt (Variable)", "Filter", "Condition"],
+        correct: 2
+    },
+    {
+        question: "SAP BW'de InfoObjects ile ilgili aşağıdaki ifadelerden hangisi yanlıştır?",
+        options: ["Tüm veri modelleme bileşenlerinin temel yapı taşıdır", "Key Figure türü sadece sayısal değerleri temsil eder", "Characteristic, örneğin müşteri ve tarih gibi alanlardır", "InfoObjects sadece ADSO içinde kullanılır", "InfoObjects hem sorgulamada hem veri modellemede kullanılır"],
+        correct: 3
+    },
+    {
+        question: "SAP BW sisteminde koşula bağlı olarak hücrelerde renklendirme, sembol gösterimi veya uyarı verme işlemleri hangi özellikle yapılır?",
+        options: ["Condition", "Filter", "Exception", "Prompt", "Field Routine"],
+        correct: 2
+    },
+    {
+        question: "SAP BW'de veri ambarına yüklenmeden önce, alınan verilerin geçici olarak tutulduğu alan aşağıdakilerden hangisidir?",
+        options: ["PSA", "Composite Provider", "Start Routine", "DSO", "InfoSet"],
+        correct: 0
+    },
+    {
+        question: "SAP BW'deki \"Drilldown\" işleminin amacı aşağıdakilerden hangisidir?",
+        options: ["Rapor başlığı oluşturmak", "Anahtar figürlere filtre uygulamak", "Satır bazında formül hesaplamak", "Veride alt kırılımlara inerek detay analizi yapmak", "Farklı sistemlerden gelen verileri birleştirmek"],
+        correct: 3
+    },
+    {
+        question: "SAP BW sorgu yapılarında kullanılan Structure öğesinin temel işlevi aşağıdakilerden hangisidir?",
+        options: ["Hücre başına özel formül tanımlamak", "Göstergeleri gruplamak ve düzenli sunmak", "InfoProvider'ları ilişkilendirmek", "Verileri yüklemeden önce kontrol etmek", "Veritabanında indeksleme yapmak"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi konsolidasyon sürecinde eliminasyon işlemlerinin amacıdır?",
+        options: ["Bağımsız denetim yapmak", "Grup dışı satışları artırmak", "Grup içi işlemleri rapor dışında bırakmak", "Azınlık paylarını artırmak", "Fatura kontrolü sağlamak"],
+        correct: 2
+    },
+    {
+        question: "%100 bağlı ortaklığı olan bir şirket, bağlı ortaklığının tüm gelir-gider kalemlerini hangi yöntemle konsolide eder?",
+        options: ["Özkaynak yöntemi", "Oransal konsolidasyon", "Tam konsolidasyon", "Pay bazlı konsolidasyon", "Sadece kar-zarar konsolidasyonu"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi azınlık payı ile ilgilidir?",
+        options: ["İç borçların azaltılması", "%50'den az ama kontrol edilmeyen payın raporlanması", "Ana şirketin vergilendirme işlemi", "Raporlama takvimlerinin belirlenmesi", "Hesap planı eşleştirme"],
+        correct: 1
+    },
+    {
+        question: "Konsolidasyon yapılırken farklı iştiraklerden gelen finansal verilerin tek bir sistemde birleştirilmesi için aşağıdakilerden hangisi tercih edilir?",
+        options: ["Excel", "SAP GUI", "SAP Group Reporting", "SAP SD Modülü", "DTP Aracı"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi konsolidasyon sürecinde SAP ERP sistemlerinin sağladığı bir avantaj değildir?",
+        options: ["SPK ve IFRS uyumlu raporlar hazırlamak", "Süreçleri izlenebilir hale getirmek", "Raporları manuel olarak elde düzenlemek", "Verileri tek merkezde toplamak", "IT bağımlılığını azaltmak"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi konsolidasyon sürecinde azınlık paylarının doğru şekilde gösterilmesi için dikkate alınmalıdır?",
+        options: ["SPK'ya bildirim yapılması", "Kontrol oranı %50'nin üzerinde olmalıdır", "Kar ve zararların grup dışı ortaklara ait kısmı ayrılmalıdır", "Bilanço tarihi 31 Mart olmalıdır", "Ana şirketin hisse senedi fiyatı dikkate alınmalıdır"],
+        correct: 2
+    },
+    {
+        question: "Konsolidasyon sürecinde aynı grubun farklı şirketleri arasındaki ticari işlemler aşağıdakilerden hangisiyle düzeltilir?",
+        options: ["Kar dağıtımı", "Aktif pasif uyumu", "Eliminasyon", "Konsolidasyon faizi", "Hedef sapma analizi"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki sistemlerden hangisi SAP'nin kurumsal grup raporlama ve konsolidasyon çözümüdür?",
+        options: ["SAP MM", "SAP BPC", "SAP SD", "SAP HCM", "SAP APO"],
+        correct: 1
+    },
+    {
+        question: "SAP Group Reporting sistemi ile ilgili aşağıdaki ifadelerden hangisi yanlıştır?",
+        options: ["SPK ve IFRS uyumlu raporlar üretilebilir", "Kullanıcı dostu ve Excel'e benzer arayüz sağlar", "Eliminasyon işlemleri otomatikleştirilebilir", "Sadece manuel veri girişi ile çalışır", "Self-servis raporlama yapılabilir"],
+        correct: 3
+    },
+    {
+        question: "Grup raporlamada SAP sisteminin IT bağımlılığını azaltması ne anlama gelir?",
+        options: ["Tüm raporları yazılımcılar oluşturur", "Sadece teknik personel veri görebilir", "İş birimleri kendi raporlarını ERP içinden çekebilir", "Veri analistleri sistemi yönetemez", "Sistem dışı müdahalelere açık hale gelir"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki işlemlerden hangisi grup içi eliminasyona örnektir?",
+        options: ["Ana şirketin iştirakine sermaye artırımı yapması", "Bağımsız denetçi tarafından rapor onaylanması", "Grup içi şirketin diğerine yaptığı satışın konsolidasyonda çıkarılması", "Azınlık paylarının bilançoda gösterilmesi", "Holdingin hisselerinin borsada işlem görmesi"],
+        correct: 2
+    },
+    {
+        question: "SAP sistemlerinde konsolidasyon sürecinin şeffaf ve denetlenebilir olmasını sağlayan özellik aşağıdakilerden hangisidir?",
+        options: ["Satın alma fişi oluşturma", "Otomatik veri silme", "Loglama ve izlenebilirlik", "Malzeme ana verisi kontrolü", "Müşteri risk skoru"],
+        correct: 2
+    },
+    {
+        question: "Konsolidasyonda oransal yöntem genellikle aşağıdaki hangi durumda kullanılır?",
+        options: ["%100 sahip olunan iştirak", "Grup dışı firmalar", "Ortak kontrol edilen işletmeler (örneğin %50-%50)", "Ana şirketin tek başına sahibi olduğu iştirak", "Finansal olmayan yatırımlar"],
+        correct: 2
+    },
+    {
+        question: "SAP sisteminde, grup şirketlerinin farklı muhasebe sistemlerinden gelen verilerin standart hale getirilmesi için aşağıdaki işlemlerden hangisi yapılmalıdır?",
+        options: ["İç satış artırımı", "Hesap planı eşleştirmesi", "Transfer fiyatı belirleme", "Ürün hiyerarşisi kurulumu", "Azınlık oranı hesaplama"],
+        correct: 1
+    },
+    {
+        question: "SAP ERP ile yapılan grup raporlamada aşağıdakilerden hangisi raporların güvenilirliğini artıran bir etkendir?",
+        options: ["Farklı kullanıcıların aynı anda veriyi düzenlemesi", "Veri girişinin yalnızca manuel yapılması", "Veri kaynağının sistem içinden otomatik alınması", "Her şirketin ayrı sistemde rapor üretmesi", "Eliminasyon işlemlerinin elle yapılması"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi ABAP diliyle ilişkili veritabanı işlemlerinden biri değildir?",
+        options: ["SELECT", "DELETE", "PRINT", "UPDATE", "INSERT"],
+        correct: 2
+    },
+    {
+        question: "SAP sisteminde veritabanı tabloları, alanlar ve veri tiplerinin tanımlandığı ekran aşağıdakilerden hangisidir?",
+        options: ["SE80", "SE38", "ST22", "SE11", "SU01"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdakilerden hangisi ABAP programlama dilinde veri tipi tanımlamak için doğru bir ifadedir?",
+        options: ["NUMBER $=10$ TYPE p.", "DATA: amount TYPE p DECIMALS 2.", "DEFINE: TEXT TYPE C.", "TABLE CREATE amount p.", "DECIMALS DATA amount $=2$."],
+        correct: 1
+    },
+    {
+        question: "SAP geliştirme projelerinde RICEFW kısaltmasındaki \"C\" harfı aşağıdakilerden hangisini ifade eder?",
+        options: ["Comment", "Code Editor", "Conversion", "Chart", "Calculation"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki SAP işlem kodlarından hangisi veritabanı nesnelerinin oluşturulması ve düzenlenmesi için kullanılır?",
+        options: ["SE38", "ST03N", "SE11", "SU53", "SM21"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki ABAP kod satırında ne yapılmaktadır? DATA: wa customer TYPE zcustomers.",
+        options: ["Yeni bir tablo tanımlanır", "Veri tipi zcustomers olan bir değişken tanımlanır", "Veri silinir", "Tablodan veri silinir", "İç tablo döngüsü başlatılır"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki ifadelerden hangisi internal table (iç tablo) tanımı için doğrudur?",
+        options: ["DATA: 1t list TYPE C.", "DATA: list TYPE ztable.", "DATA: 1t list TYPE TABLE OF ztable.", "DATA: 1t list TYPE ztable.", "DATA: lt_list VALUE ztable."],
+        correct: 2
+    },
+    {
+        question: "ABAP'ta bir internal table'ın içeriğinde döngü ile işlem yapmak için hangi yapı kullanılır?",
+        options: ["IF - ENDIF", "CASE - WHEN", "LOOP AT - ENDLOOP", "READ TABLE", "PERFORM - ENDFORM"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki kod satırı ABAP'ta ne işe yarar? SELECT FROM zorders INTO TABLE @DATA(lt orders).",
+        options: ["lt_orders adlı tabloyu siler", "zorders tablosunu boşaltır", "zorders tablosundaki tüm verileri It orders adlı internal table'a çeker", "zorders tablosunu oluşturur", "zorders tablosuna veri ekler"],
+        correct: 2
+    },
+    {
+        question: "ABAP'ta aşağıdakilerden hangisi bellekte geçici olarak veri tutmak için kullanılır?",
+        options: ["External table", "Transaction log", "Global class", "Internal table", "SmartForms"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdakilerden hangisi ABAP'ta karakter veri türünü tanımlamak için kullanılır?",
+        options: ["TYPE n", "TYPE i", "TYPE d", "TYPE c", "TYPE p"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdaki SAP işlem kodlarından hangisi ABAP programı yazmak ve çalıştırmak için kullanılır?",
+        options: ["SE11", "SE93", "SE38", "SU01", "ST22"],
+        correct: 2
+    },
+    {
+        question: "ABAP'ta bir internal table'dan tek bir satırın okunması için hangi ifade kullanılır?",
+        options: ["INSERT TABLE", "MODIFY TABLE", "DELETE TABLE", "READ TABLE", "FETCH ROW"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdakilerden hangisi ABAP'ta alt program (subroutine) tanımlamak için kullanılır?",
+        options: ["DEFINE - ENDDEFINE", "FUNCTION - ENDFUNCTION", "PERFORM - ENDFORM", "CLASS- ENDCLASS", "MODULE - ENDMODULE"],
+        correct: 2
+    },
+    {
+        question: "SAP ABAP Workbench ekranı (geliştirme ortamı) aşağıdakilerden hangisidir?",
+        options: ["SE11", "SE16", "SE80", "SE37", "SE84"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi bir SAP projesinde proje açılışı öncesinde yapılması gereken işlemlerden biri değildir?",
+        options: ["Talep olgunlaştırma dokümanının hazırlanması", "Risklerin önceden belirlenmesi", "TTD onayının alınması", "Taslak proje planının sponsor onayına sunulması", "ICT talep onayının alınması"],
+        correct: 2
+    },
+    {
+        question: "ERP projelerinde kullanılan Baseline 1 ve Baseline 2 sırasıyla hangi aşamaları ifade eder?",
+        options: ["Lansman öncesi plan - Lansman sonrası plan", "Analiz sonucu oluşturulan takvim - TTD sonrası netleşen geliştirme/test takvimi", "Geliştirme başlama - UAT test bitiş tarihi", "Proje kapanışı öncesi - Lessons learned sonrası", "ICT talep onayı - Proje kapanış maili"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi bir Change Request (CR) durumunda yapılması gereken doğru adımdır?",
+        options: ["Plan değişmeden uygulanır", "Test süreçleri askıya alınır", "Etki analizi yapılır, gerekli görülürse yönlendirme komitesine sunulur", "Tüm kullanıcılar bilgilendirilmeden sistem güncellenir", "Lansman iptal edilir ve proje başa alınır"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi Baby Sitting sürecinin temel amacı değildir?",
+        options: ["Lansman sonrası sistemin izlenmesi", "Kullanıcı taleplerinin toplanması", "Projenin iptal edilmesi", "Hataların takibi ve çözümü", "Geri bildirim alınması"],
+        correct: 2
+    },
+    {
+        question: "ERP projelerinde aşağıdakilerden hangisi analistin birincil görevidir?",
+        options: ["Sistemi test etmek", "Talebi analiz edip teknik dokümanı hazırlamak", "Lansman sonrası sistemi izlemek", "Proje takvimini oluşturmak", "Kullanıcı kabul testini gerçekleştirmek"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi bir SAP projesinde UAT (Kullanıcı Kabul Testi)'nin temel amacıdır?",
+        options: ["Yazılımcının fonksiyonları test etmesi", "Analistin yaptığı doğrulama testi", "Kullanıcının sistemin işlevselliğini kontrol etmesi", "Geliştiricinin entegrasyon testini yürütmesi", "Lansman sonrası sistem izleme"],
+        correct: 2
+    },
+    {
+        question: "ERP projelerinde kullanılan TTD (Technical Task Description) ile ilgili aşağıdakilerden hangisi doğrudur?",
+        options: ["Lansman sonrası oluşturulur", "Test sürecinden sonra yazılır", "Analist tarafından hazırlanır, geliştirme öncesi onaylanır", "Sadece geliştirici ekip tarafından hazırlanır", "Kullanıcıların doldurduğu formdur"],
+        correct: 2
+    },
+    {
+        question: "Bir ERP projesinde \"Lessons Learned\" toplantısının amacı nedir?",
+        options: ["Sistemdeki teknik hataları çözmek", "Kullanıcılara eğitimi başlatmak", "Proje sonuçlarını analiz ederek deneyimlerden ders çıkarmak", "Projeyi yeniden başlatmak", "Lansmanı iptal etmek"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki toplantılardan hangisi proje sürecinin başlangıcında yapılır?",
+        options: ["UAT toplantısı", "Lansman toplantısı", "Kick-Off toplantısı", "TTD review toplantısı", "Lessons Learned toplantısı"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi bir ERP projesindeki Yönlendirme Komitesinin (Steering Committee) rolü değildir?",
+        options: ["Kapsam değişikliklerini değerlendirmek", "Risk çözümüne katkı sağlamak", "Teknik testleri gerçekleştirmek", "Karar verici yönetici rolü üstlenmek", "Change Request onaylarını vermek"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi proje ekibindeki OFL (Operation Function Lead)'in sorumluluğudur?",
+        options: ["Proje planını oluşturmak", "Sistemin canlı ortamda iş süreçlerine uygun çalıştığını denetlemek", "Lansman tarihini belirlemek", "Kullanıcı eğitimi vermek", "Teknik analiz yapmak"],
+        correct: 1
+    },
+    {
+        question: "ERP projelerinde Kısmi Lansman (Partial Go-Live) uygulamasının temel avantajı nedir?",
+        options: ["Proje süresini kısaltmak", "Tüm kullanıcıların aynı anda sistemi test etmesi", "Canlıya geçişi aşamalı yaparak riskleri azaltmak", "Proje planını değiştirmeden uygulama yapmak", "Lansmanı iptal etmeden kullanıcı testlerini atlamak"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi Statü Raporları içinde yer alması beklenen bilgilerden biri değildir?",
+        options: ["Projenin güncel durumu", "Tamamlanan görevler", "Teknik test adımları", "Risk ve gecikmeler", "Kapsam değişikliği notları"],
+        correct: 2
+    },
+    {
+        question: "Proje boyunca Jira üzerinden takip edilen bilgiler arasında hangisi yer almaz?",
+        options: ["Görevler ve sorumlular", "Lansman sonrası müşteri memnuniyeti anketleri", "TTD ve analiz dokümanları", "Test senaryoları", "CR takipleri"],
+        correct: 1
+    },
+    {
+        question: "ERP projelerinde, proje kapanışı sırasında aşağıdakilerden hangisi yapılmaz?",
+        options: ["Lessons Learned toplantısı düzenlenir", "Proje Jira sisteminde kapatılır", "Kullanıcı Kabul Testi tekrar edilir", "OFL ile son kontroller yapılır", "Kapanış maili gönderilir"],
+        correct: 2
+    },
+    {
+        question: "Yazılım Geliştirme Yaşam Döngüsü (SDLC) sürecinde tasarım aşamasının temel amacı aşağıdakilerden hangisidir?",
+        options: ["Kullanıcılardan sistem gereksinimlerini toplamak", "Kodlama işlemini başlatmak", "Veritabanı ve arayüz planlarını oluşturmak", "Projeyi canlı ortama almak", "Sistem hatalarını test etmek"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi Agile (Çevik) yazılım geliştirme modeli ile Waterfall (Şelale) modeli arasındaki temel farklardan biri değildir?",
+        options: ["Agile modelde değişikliklere açıklık fazladır", "Waterfall modeli belge odaklıdır", "Agile modelde plan sabittir, esneklik azdır", "Waterfall modeli sıralı ve geri dönüşsüzdür", "Agile modelde başarı çalışan ürüne göre ölçülür"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi Turkcell'de kullanılan test ortamlarından biri değildir?",
+        options: ["Stable", "Lokal", "Agile", "Preprod", "Test"],
+        correct: 2
+    },
+    {
+        question: "Baby Sitting süreciyle ilgili aşağıdakilerden hangisi doğrudur?",
+        options: ["Kodlama tamamlandıktan sonra yapılır", "Analiz aşamasında başlar", "Lansman sonrası sistemin izlendiği dönemdir", "Kullanıcı gereksinimlerinin toplandığı süreçtir", "Agile ritüellerinin uygulandığı sprint toplantısıdır"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki SDLC modellerinden hangisi her geliştirme adımına eşleşen bir test adımı içeren modeldir?",
+        options: ["Agile", "Waterfall", "Spiral", "V-Model", "Big Bang"],
+        correct: 3
+    },
+    {
+        question: "SDLC sürecinde aşağıdakilerden hangisi analiz aşamasında yapılan işlemlerden biridir?",
+        options: ["Kodun derlenmesi", "Sistem mimarisinin tasarlanması", "Fonksiyonların test edilmesi", "Gereksinimlerin teknik anlamda değerlendirilmesi", "Lansman planının yapılması"],
+        correct: 3
+    },
+    {
+        question: "Turkcell SDLC uygulamasında, veritabanı geçişlerini otomatikleştiren araç aşağıdakilerden hangisidir?",
+        options: ["Jenkins", "Git", "Jira", "Deasy", "Confluence"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdakilerden hangisi Agile metodolojisinde kullanılan bir rol değildir?",
+        options: ["Product Owner", "Scrum Master", "Project Sponsor", "Developer", "Tester"],
+        correct: 2
+    },
+    {
+        question: "Spiral SDLC modelinin en belirgin özelliği aşağıdakilerden hangisidir?",
+        options: ["Her aşama geri dönüşsüzdür", "Test aşamaları tamamen kaldırılmıştır", "Risk analizi odaklı ve iteratif yapılıdır", "Tek seferde çalışan ürün hedeflenir", "Tüm proje dokümansız ilerler"],
+        correct: 2
+    },
+    {
+        question: "Yazılım test sürecinde, preprod ortamında yapılan testin amacı aşağıdakilerden hangisidir?",
+        options: ["Sadece geliştiriciye kod testini kolaylaştırmak", "Sistem hatalarını canlı ortamda çözmek", "Canlı ortama en yakın koşullarda son kontrolü yapmak", "Kullanıcı ihtiyaçlarını analiz etmek", "Lansman planını oluşturmak"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi Turkcell'in SDLC süreçlerinde kullanılan araçlardan biri değildir?",
+        options: ["Jenkins", "Jira", "Git", "Scrumban", "Waterfall"],
+        correct: 4
+    },
+    {
+        question: "Aşağıdakilerden hangisi \"Incremental\" SDLC modeline en uygun ifadedir?",
+        options: ["Tüm sistem aynı anda geliştirilir", "Risk analizi her aşamada yapılır", "Yazılım modül modül geliştirilir ve test edilir", "Süreçler tamamen belge temellidir", "Kullanıcının sürece dahil olması gerekmez"],
+        correct: 2
+    },
+    {
+        question: "SDLC'nin test aşamasında yapılan aşağıdaki işlemlerden hangisi hatalıdır?",
+        options: ["Kodun doğru çalışıp çalışmadığının test edilmesi", "Performans ve güvenlik kontrollerinin yapılması", "Tüm ortamların canlıya geçmeden test edilmesi", "Gereksinimlerin kullanıcılarla yeniden görüşülmesi", "Hataların analiz edilip düzeltilmesi"],
+        correct: 3
+    },
+    {
+        question: "V-Model'in diğer SDLC modellerinden farkı nedir?",
+        options: ["Test yapılmaz", "Kodlama öncesi canlıya geçilir", "Her geliştirme adımına karşılık gelen bir test süreci vardır", "Gereksinim toplama atlanır", "Risk değerlendirmesi yapılmaz"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki ifadelerden hangisi Agile metodolojisinin bir avantajı değildir?",
+        options: ["Değişen ihtiyaçlara hızlı cevap verilebilir", "Kullanıcı geri bildirimine dayanır", "Teslimatlar küçük ve sıklıkla yapılır", "Başlangıçta tüm proje detaylı ve sabit planlanır", "Takımlar kendi kararlarını alabilir"],
+        correct: 3
+    },
+    {
+        question: "Yazılım hatalarıyla ilgili olarak aşağıdaki eşleştirmelerden hangisi doğrudur?",
+        options: ["Error – Kullanıcıdan gelen hatalı giriş", "Fault – Sistem donanım arızası", "Failure – Kodun içinde var olan hata", "Fault – Kodda bulunan kusur", "Failure – Kullanıcının beklentisini aşan performans"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdakilerden hangisi test otomasyonunun temel görevlerinden biri değildir?",
+        options: ["Test senaryosunun otomatik olarak çalıştırılması", "Kullanıcı ara yüz tasarımı yapılması", "Test sonucunun değerlendirilmesi", "Ön koşulların hazırlanması", "Raporlamanın yapılması"],
+        correct: 1
+    },
+    {
+        question: "Turkcell’de test otomasyonunda kullanılan, Android ve iOS uygulamalara test yazmak için kullanılan araç aşağıdakilerden hangisidir?",
+        options: ["Testroyer", "Jenkins", "Appium", "JUnit", "Gauge"],
+        correct: 2
+    },
+    {
+        question: "XPath ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+        options: ["Sadece veritabanı sorgularında kullanılır", "Kod kalitesi ölçümleme dilidir", "Web sayfası öğelerini bulmak için kullanılır", "Jenkins içinde kod derlemeye yarar", "Unit test çerçevesidir"],
+        correct: 2
+    },
+    {
+        question: "Test olgunluk seviyeleri ile ilgili olarak Beizer’ın 3. seviyesinde testin amacı nedir?",
+        options: ["Kod içindeki bug’ları göstermek", "Testi debug ile aynı görmek", "Yazılımın doğruluğunu ispatlamak", "Sadece başarıyı kanıtlamak", "Riskleri azaltmak"],
+        correct: 4
+    },
+    {
+        question: "Aşağıdakilerden hangisi test otomasyonu sürecinde organizasyonel zorluklardan biri değildir?",
+        options: ["Ekiplerin test sürecine öncelik vermemesi", "Üst yönetim desteğinin az olması", "Farklı yazılım dillerinin birlikte çalışması", "Testin proje sürecinde ikinci planda kalması", "Proje baskısıyla testlerin atlanması"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki ifadelerden hangisi RPA (Robotic Process Automation) hakkında yanlıştır?",
+        options: ["İnsan hatasını azaltır", "Kural bazlı iş süreçlerini simüle eder", "Kod yazmayı gerektirir", "Maliyetleri düşürür", "Tekrarlayan işleri otomatikleştirir"],
+        correct: 2
+    },
+    {
+        question: "“Given – When – Then” yapısıyla senaryo yazmaya olanak sağlayan test yaklaşımı aşağıdakilerden hangisidir?",
+        options: ["Unit Testing", "System Testing", "BDD – Davranışa Dayalı Geliştirme", "TDD – Teste Dayalı Geliştirme", "Regression Testing"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki test çerçevelerinden hangisi Java dili için kullanılır?",
+        options: ["PHPUnit", "unittest", "JUnit", "NUnit", "PyTest"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki test çerçevelerinden hangisiyle yazılmış bir test, mobil uygulama testi için uygundur?",
+        options: ["JUnit", "Appium", "Jenkins", "SonarQube", "Git"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki araçlardan hangisi yazılım kalitesini ve kod güvenliğini analiz etmek amacıyla kullanılır?",
+        options: ["Jenkins", "SonarQube", "Appium", "Git", "Gauge"],
+        correct: 1
+    },
+    {
+        question: "Test senaryolarını sürekli entegrasyon sürecinde otomatik çalıştırmak için aşağıdaki araçlardan hangisi kullanılır?",
+        options: ["SonarQube", "Appium", "Jenkins", "JUnit", "RPA"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi test otomasyonunun yazılım geliştirme süreçlerine kattığı en önemli avantajlardan biri değildir?",
+        options: ["Test tekrarının hızlanması", "Test sonuçlarının izlenebilir olması", "Kodun doğrudan çalıştırılması", "Hata oranının azalması", "Süreçlerin belgelenmesi"],
+        correct: 2
+    },
+    {
+        question: "BDD (Davranışa Dayalı Geliştirme) yaklaşımının temel amacı aşağıdakilerden hangisidir?",
+        options: ["Kod kalitesini ölçmek", "Geliştiricilerin işini kolaylaştırmak", "Test senaryolarını teknik olmayan kişilerin de anlayabileceği şekilde yazmak", "Yazılım hatalarını veri tabanında bulmak", "Derleme süresini azaltmak"],
+        correct: 2
+    },
+    {
+        question: "XPath diliyle ilgili olarak aşağıdakilerden hangisi yanlıştır?",
+        options: ["Web sayfasındaki elementleri seçmeye yarar", "XML ve HTML yapılarını hedefler", "Mobil uygulama testlerinde kullanılamaz", "Appium gibi araçlarla birlikte çalışabilir", "Selektörleri belirlemek için kullanılır"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi Beizer’ın test olgunluk seviyesi içinde yer almaz?",
+        options: ["Test sadece hata göstermek içindir", "Test, yazılım geliştirme disiplinidir", "Test, sistemin çalıştığını göstermek içindir", "Test, kullanıcı deneyimini artırmak içindir", "Test, riskleri azaltmak içindir"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdakilerden hangisi test otomasyonu ile sağlanan faydalardan biri değildir?",
+        options: ["Testlerin her gün otomatik koşturulması", "Geliştiricilerin daha az kod yazması", "Hataların erken aşamada tespiti", "Raporlamaların düzenli yapılması", "Zaman tasarrufu sağlanması"],
+        correct: 1
+    },
+    {
+        question: "Turkcell’de testlerin otomatik çalışması, entegrasyon ve bildirim süreci aşağıdaki araçlardan hangisiyle sağlanır?",
+        options: ["Gauge", "Git", "Jenkins", "Appium", "Jira"],
+        correct: 2
+    },
+    {
+        question: "Testroyer aracı ile ilgili aşağıdakilerden hangisi doğrudur?",
+        options: ["Açık kaynak kodlu genel bir test aracıdır", "Sadece manuel testlerin dokümantasyonu için kullanılır", "Turkcell’e özgü bir test otomasyon platformudur", "Mobil uygulama testlerinde kullanılamaz", "Sadece unit testleri destekler"],
+        correct: 2
+    },
+    {
+        question: "Test otomasyonu senaryolarında ön koşulların hazırlanması süreci aşağıdakilerden hangisini kapsamaz?",
+        options: ["Test verilerinin oluşturulması", "Test ortamının kurulması", "UI tasarımı yapılması", "Sistem giriş bilgilerinin ayarlanması", "Script’in başlatma durumuna getirilmesi"],
+        correct: 2
+    }
 ];
 
 const quizBody = document.getElementById('quiz-body');
