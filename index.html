@@ -263,729 +263,1112 @@
 
 <script>
 const allQuestions = [
+    // Bölüm 1: Genel Kullanım ve API Testing
     {
-        question: "Aşağıdakilerden hangisi ERP sisteminin temel özelliklerinden biri değildir?",
-        options: ["Modüler yapı", "Gerçek zamanlı veri işleme", "Farklı sistemlerde bağımsız çalışan modüller", "Ortak veri tabanı kullanımı", "Aynı platform üzerinden yönetim"],
-        correct: 2
-    },
-    {
-        question: "\"Satın alma, muhasebe, insan kaynakları gibi departmanların aynı sistemde birlikte çalışmasını sağlayan yazılım türüne ... denir.\" Boşluğu en iyi tamamlayan ifade aşağıdakilerden hangisidir?",
-        options: ["CRM", "ERP", "SCM", "BI", "RPA"],
+        question: "Aşağıdakilerden hangisi bir API'nin temel işlevlerinden biri değildir?",
+        options: ["Veri paylaşımı", "Uygulama arayüzü tasarımı", "Sistemler arası iletişim", "Fonksiyon çağrısı", "Harici servis entegrasyonu"],
         correct: 1
     },
     {
-        question: "ERP sistemlerinde \"Three-Tier Architecture\" yapısında, kullanıcıların işlemleri yaptığı katman aşağıdakilerden hangisidir?",
-        options: ["Application Layer", "Data Layer", "Presentation Layer", "Process Layer", "Virtual Layer"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi bir ERP sisteminde yer alan fonksiyonel modüllerden biri değildir?",
-        options: ["Finans ve Muhasebe", "Satın Alma", "Üretim", "Antivirüs Koruma", "İnsan Kaynakları"],
-        correct: 3
-    },
-    {
-        question: "Aşağıdaki açıklamalardan hangisi \"ERP sistemlerinde departmanlar arası entegrasyon'un sağladığı bir fayda değildir?",
-        options: ["Aynı verinin birden fazla kez girilmesini önler", "Bilgiler gerçek zamanlı güncellenir", "Tüm bölümler ortak veriye ulaşabilir", "Her departmanın sadece kendi verilerine erişmesi sağlanır", "Karar alma süreçleri hızlanır"],
-        correct: 3
-    },
-    {
-        question: "Aşağıdakilerden hangisi ERP sistemlerinde kullanılan modüller arasında yer almaz?",
-        options: ["SD (Satış ve Dağıtım)", "FI (Finansal Muhasebe)", "HR (İnsan Kaynakları)", "SEO (Arama Motoru Optimizasyonu)", "MM (Malzeme Yönetimi)"],
-        correct: 3
-    },
-    {
-        question: "ERP sistemlerinde kullanılan \"RICEF\" yapısındaki \"C (Conversion)\" ne anlama gelir?",
-        options: ["Süreçlerin otomatikleştirilmesi", "Kullanıcı ekranlarının özelleştirilmesi", "Eski sistem verilerinin ERP'ye taşınması", "Tedarik zinciri süreçlerinin planlanması", "Finansal işlemlerin raporlanması"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi ERP sistemleri ile en yakından ilişkili olan bir yazılım dili veya aracı değildir?",
-        options: ["ABAP", "Python", "Java", "Tableau", "SAP GUI"],
-        correct: 3
-    },
-    {
-        question: "ERP sistemlerinde kullanılan \"Gerçek Zamanlı Veri\" kavramı aşağıdakilerden hangisini ifade eder?",
-        options: ["Gecikmeli olarak veri aktarımı", "Sadece günlük raporlamaya uygun veri", "Veri girişinin yalnızca manuel yapılması", "Verilerin eş zamanlı ve anında işlenmesi", "Her modülün kendi veri tabanına sahip olması"],
-        correct: 3
-    },
-    {
-        question: "Aşağıdaki ERP proje tiplerinden hangisi mevcut sistem üzerinde yeni modül eklenmesi veya iyileştirme yapılmasını ifade eder?",
-        options: ["Greenfield", "Brownfield", "Bluefield", "Blackfield", "Support"],
+        question: "REST API ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+        options: ["SOAP protokolüne dayanır", "HTTP üzerinden iletişim kurar", "XML zorunludur", "Durum bilgisi tutar", "Tarayıcı eklentisi gerektirir"],
         correct: 1
     },
     {
-        question: "Aşağıdakilerden hangisi ERP sistemlerinin kullanım amaçlarından biri değildir?",
-        options: ["Şirket kaynaklarını etkin kullanmak", "Bölümler arası veri paylaşımını sağlamak", "İş süreçlerini entegre yönetmek", "Veri analizini zorlaştırmak", "Tek bir sistemle tüm operasyonları yürütmek"],
+        question: "Aşağıdakilerden hangisi SOAP API'nin karakteristik özelliğidir?",
+        options: ["Stateless çalışması", "Yüksek güvenlik ve XML formatı", "Gherkin diliyle yazılır", "Swagger tabanlıdır", "JSON zorunludur"],
+        correct: 1
+    },
+    {
+        question: "GraphQL API'nin en belirgin özelliği nedir?",
+        options: ["HTTP dışı protokoller kullanması", "Kullanıcının istediği alanları sorgulayabilmesi", "Sadece tek endpoint kullanması", "Yalnızca XML desteklemesi", "Header zorunluluğu"],
+        correct: 1
+    },
+    {
+        question: "WebSocket API aşağıdakilerden hangisi için en uygundur?",
+        options: ["E-posta doğrulama", "Sadece REST yanıtları için", "Gerçek zamanlı veri aktarımı", "Form verisi işleme", "Veritabanı yedekleme"],
+        correct: 2
+    },
+    {
+        question: "Postman ile ilgili aşağıdakilerden hangisi yanlıştır?",
+        options: ["API istekleri test edilebilir", "Script yazılabilir", "JSON verileri gönderilebilir", "Sadece GET isteklerini destekler", "Header ayarları yapılabilir"],
         correct: 3
     },
     {
-        question: "Aşağıdakilerden hangisi ERP sisteminde yer alan kullanıcı tiplerinden biri değildir?",
-        options: ["Fonksiyonel danışman", "Teknik danışman", "Techno-functional danışman", "End-user (Son kullanıcı)", "Sistem müfettişi"],
+        question: "Postman'da birden fazla API isteğini gruplayarak yönetmek için ne kullanılır?",
+        options: ["Workspace", "Pre-request", "Collection", "Body", "Params"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi Postman'da sadece Body sekmesinde yapılan bir işlemdir?",
+        options: ["Authorization token ekleme", "JSON içerik gönderme", "Header ayarlama", "URL parametresi tanımlama", "Script çalıştırma"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki HTTP metodlarından hangisi veriyi güncellemek için kullanılır?",
+        options: ["DELETE", "POST", "PUT", "PATCH", "GET"],
+        correct: 2
+    },
+    {
+        question: "API'de veriyi silmek için kullanılan HTTP metodu nedir?",
+        options: ["PUT", "HEAD", "PATCH", "GET", "DELETE"],
         correct: 4
     },
     {
-        question: "Aşağıdakilerden hangisi SAP gibi bir ERP sisteminde sunum (presentation) katmanına örnektir?",
-        options: ["Veritabanı sunucusu", "SAP GUI", "ABAP programı", "In-memory computing", "Kod pushdown işlemi"],
+        question: "Aşağıdakilerden hangisi GET isteği ile ilgili doğru bir ifadedir?",
+        options: ["Veritabanına veri ekler", "Veri getirir", "Veriyi siler", "Token üretir", "JSON parse işlemi yapar"],
         correct: 1
     },
     {
-        question: "Aşağıdaki sistemlerden hangisi ERP dışı (Non-ERP) bir yazılım türü olarak kabul edilir?",
-        options: ["SAP", "Oracle EBS", "CRM", "Microsoft Dynamics", "S/4HANA"],
+        question: "POST isteği ile gönderilen verinin formatı genellikle nedir?",
+        options: ["HTML", "XML", "JSON", "CSV", "TXT"],
         correct: 2
     },
     {
-        question: "ERP sisteminde \"Form\" terimi neyi ifade eder?",
-        options: ["Veri giriş ekranlarını", "Yazıcıdan alınan okuma amaçlı çıktı belgeleri", "Sistem güncelleme dosyalarını", "Kullanıcı şifreleme modülünü", "E-posta iletilerini"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi SAP Basis yöneticisinin görevlerinden biri değildir?",
-        options: ["Sistem performansını izlemek", "SAP kullanıcı yetkilendirmelerini yapmak", "SAP sistemine yazılım geliştirmek", "Veritabanı yönetimini gerçekleştirmek", "Sistem güvenliği ve log takibi yapmak"],
-        correct: 2
-    },
-    {
-        question: "SAP HANA veritabanı aşağıdaki hangi özelliğiyle ön plana çıkar?",
-        options: ["Disk tabanlı veri saklama", "Geleneksel dosya tabanı kullanımı", "In-memory veri işleme ile yüksek hız", "Sadece Oracle sistemlerinde çalışabilme", "Yalnızca test sistemlerinde kullanılabilme"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdaki veritabanlarından hangisi bellek (RAM) tabanlı çalışan ve SAP'nin yeni nesil ERP sistemlerinde tercih edilen veritabanıdır?",
-        options: ["Oracle", "Microsoft SQL Server", "SAP HANA", "IBM DB2", "PostgreSQL"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi SAP sisteminin ağ bağlantısı için önerilen altyapı türüdür?",
-        options: ["100 Mbps Ethernet", "1 Gbps veya daha yüksek Ethernet bağlantısı", "Dial-up bağlantı", "Kablosuz 2.4 GHz Wi-Fi", "Bluetooth aktarımı"],
-        correct: 1
-    },
-    {
-        question: "Transport Management System (TMS) SAP sisteminde ne amaçla kullanılır?",
-        options: ["Yedekleme ve kurtarma işlemleri için", "Kullanıcı hesaplarının taşınması için", "Sistem güncellemelerinin otomatik yapılması için", "Geliştirme ortamından test ve canlı ortama değişikliklerin aktarılması için", "SAP modüllerinin lisanslanması için"],
+        question: "Aşağıdaki Postman sekmelerinden hangisi test doğrulaması için kullanılır?",
+        options: ["Headers", "Params", "Body", "Tests", "Scripts"],
         correct: 3
     },
     {
-        question: "Aşağıdakilerden hangisi SAP sistemlerinde en yaygın kullanılan işletim sistemi olarak bilinir?",
-        options: ["Windows Server", "SUSE Linux Enterprise Server", "Ubuntu", "macOS", "FreeBSD"],
+        question: "Aşağıdaki kod neyi kontrol eder? pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+        options: ["Token üretimini", "İstek sonucu HTTP 200 mü kontrol eder", "Gövde verisini JSON'a çevirir", "Kullanıcı adı doğrulamasını", "Header değerini kontrol eder"],
         correct: 1
     },
     {
-        question: "SAP sisteminde bir kullanıcının yetkileri hangi işlem kodu (T-Code) ile tanımlanır?",
-        options: ["SU01", "ST03N", "SE11", "SPAM", "DB02"],
+        question: "pm.environment.get(\"baseUrl\") komutu ne yapar?",
+        options: ["URL parametresini siler", "Global değişken tanımlar", "Ortam değişkenini çağırır", "JSON değerlerini kontrol eder", "Authorization sağlar"],
+        correct: 2
+    },
+    {
+        question: "Collection variable nerede kullanılır?",
+        options: ["Tüm workspace'te", "Sadece belirli bir koleksiyonda", "Yalnızca Postman Runner'da", "JSON Body içinde", "Header kısmında"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi Environment Variable için doğru bir kullanım örneğidir?",
+        options: ["[bookingId]", "{{baseUrl}}", "/users/:id", "token-value", "[env:prod]"],
+        correct: 1
+    },
+    {
+        question: "Postman'da \"Pre-request Script\" ne zaman çalışır?",
+        options: ["İstek gönderilmeden hemen önce", "JSON parse işleminden sonra", "Yanıt geldikten sonra", "API çağrısı tamamlandıktan sonra", "Response 404 ise"],
         correct: 0
     },
     {
-        question: "SAP sisteminin loglarını, sistem mesajlarını ve hata kayıtlarını görmek için kullanılan işlem kodu aşağıdakilerden hangisidir?",
-        options: ["ST22", "SM21", "STMS", "SM12", "SUIM"],
+        question: "Postman'da \"Runner\" aracı ne işe yarar?",
+        options: ["Token üretir", "JSON'ları XML'e çevirir", "Koleksiyon içindeki istekleri topluca çalıştırır", "Sunucu başlatır", "UI tasarımı yapar"],
+        correct: 2
+    },
+    {
+        question: "Postman ile aynı koleksiyon içinde birden fazla test çalıştırmak istiyorsanız hangi özellik kullanılır?",
+        options: ["Environment", "Runner", "Params", "Status Code", "XPath"],
         correct: 1
     },
     {
-        question: "SAP HANA'da veritabanı yedekleme için kullanılan \"ana ve yedek veri merkezlerinin eşzamanlı çalışması\" prensibi aşağıdakilerden hangisidir?",
-        options: ["Offline Backup", "Point-in-Time Recovery", "Snapshot Backup", "HANA System Replication", "Manual Export"],
+        question: "Aşağıdaki JSON verisi hangi işlemde kullanılır? { \"username\": \"test\", \"password\": \"1234\" }",
+        options: ["GET isteği", "Params ile gönderim", "Header kontrolü", "POST Body içeriği", "Test Script'i"],
         correct: 3
     },
     {
-        question: "Aşağıdakilerden hangisi SAP sisteminde performans izleme ve analiz aracı olarak kullanılır?",
-        options: ["PFCG", "SE80", "ST03N", "SU53", "SM59"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi SAP Finans (FI) modülünün alt bileşenlerinden biri değildir?",
-        options: ["FI-GL", "FI-AR", "FI-HR", "FI-AP", "FI-AA"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi FI-AP (Borç Hesapları) modülünde yürütülen işlemler arasında yer alır?",
-        options: ["Çalışan maaş bordrosu oluşturma", "Tedarikçi faturası girme ve ödeme yapma", "Kredi skoru analizi", "Amortisman hesaplama", "Bütçe planlaması"],
-        correct: 1
-    },
-    {
-        question: "\"Genel muhasebe kayıtlarının tutulduğu, bilanço ve gelir tablosunun oluşturulduğu alt modül\" aşağıdakilerden hangisidir?",
-        options: ["FI-AR", "FI-AP", "FI-AA", "FI-GL", "CO-OM"],
-        correct: 3
-    },
-    {
-        question: "Aşağıdaki SAP işlem kodlarından hangisi muhasebe belgesi oluşturmak için kullanılır?",
-        options: ["FB03", "SE16", "F-02", "SU01", "ST03N"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi finansal kapanış işlemleri arasında yer almaz?",
-        options: ["Dönem sonu muhasebe kayıtlarının kapatılması", "Bütçe ile gerçekleşen verilerin karşılaştırılması", "e-Defter ve e-Fatura işlemlerinin yürütülmesi", "Sabit kıymetlerin fiziksel sayımı yapılması", "Konsolidasyon raporlarının hazırlanması"],
-        correct: 3
-    },
-    {
-        question: "Aşağıdakilerden hangisi SAP SD modülünde yer alan temel süreçlerden biri değildir?",
-        options: ["Sipariş Yönetimi", "Teslimat İşlemleri", "Faturalama", "Üretim Planlama", "Fiyatlandırma"],
-        correct: 3
-    },
-    {
-        question: "\"Müşteriden siparişin alınması, işlenmesi, teslimatının yapılması ve faturalandırılması\" adımlarını kapsayan süreç aşağıdakilerden hangisidir?",
-        options: ["Mal Kabul Süreci", "Satın Alma Süreci", "Sipariş Yönetim Süreci", "Muhasebe Süreci", "Stok Transfer Süreci"],
-        correct: 2
-    },
-    {
-        question: "SAP sisteminde bir müşteriye fatura kesildiğinde hangi modül otomatik olarak muhasebe kaydını oluşturur?",
-        options: ["CO", "MM", "FI", "WM", "PP"],
-        correct: 2
-    },
-    {
-        question: "SAP MM modülünde tedarikçiden alınan ürün teslim alındığında aşağıdaki işlemlerden hangisi gerçekleşir?",
-        options: ["Satış fiyatı güncellenir", "Stok seviyesi artar ve muhasebe kaydı oluşur", "Müşteri hesabı güncellenir", "Teslimat belgesi oluşturulur", "Ürün iade edilir"],
-        correct: 1
-    },
-    {
-        question: "SAP MM ve SD modüllerinin en önemli ortak noktası aşağıdakilerden hangisidir?",
-        options: ["Her ikisi de yalnızca üretim planlamasıyla ilgilenir", "Her ikisi de müşteri memnuniyeti anketleri düzenler", "Malzeme ana verisini ortak kullanmaları", "Her ikisi de sadece depo yönetimi ile ilgilenir", "Faturalama sürecini doğrudan yönetmeleri"],
-        correct: 2
-    },
-    {
-        question: "SAP SD modülünde müşteri ana verisi aşağıdaki süreçlerden hangisiyle en doğrudan ilişkilidir?",
-        options: ["Stok seviyesi güncellemesi", "Satın alma fiyatı belirleme", "Teslimat ve faturalama süreçleri", "Amortisman hesaplama", "Kalite kontrol süreçleri"],
-        correct: 2
-    },
-    {
-        question: "SAP MM modülünde satın alma işleminin ilk adımı aşağıdakilerden hangisidir?",
-        options: ["Mal kabul", "Fatura doğrulama", "Satın alma talebi oluşturma", "Satın alma siparişi gönderme", "Tedarikçiye ödeme yapma"],
-        correct: 2
-    },
-    {
-        question: "SAP sisteminde bir satış siparişi oluşturulduktan sonra gelen malzemenin sevk edilmesi ve irsaliyesinin hazırlanması hangi süreçtir?",
-        options: ["Faturalama süreci", "Sipariş yönetimi", "Teslimat süreci", "Müşteri ödeme süreci", "Mal kabul süreci"],
-        correct: 2
-    },
-    {
-        question: "SAP sisteminde \"FI\" modülüne muhasebe kaydı oluşturan MM süreci aşağıdakilerden hangisidir?",
-        options: ["Siparişin sisteme girilmesi", "Tedarikçiyle fiyat görüşmesi", "Mal kabul (malzeme teslim alımı)", "Müşteri ödemesi", "Amortisman güncellemesi"],
-        correct: 2
-    },
-    {
-        question: "SAP MM & SD modülleri ile ilgili aşağıdaki ifadelerden hangisi yanlıştır?",
-        options: ["SD modülü müşteri ile ilişkili süreçleri yönetir", "MM modülü depo ve stok işlemlerini takip eder", "Faturalama işlemi yalnızca MM modülü tarafından yürütülür", "Her iki modül de malzeme ana verisini kullanır", "MM süreci sonunda FI modülüne borç kaydı yansıtılır"],
-        correct: 2
-    },
-    {
-        question: "SAP SD modülünde satış işlemi gerçekleştikten sonra elde edilen gelirin kârlılığı hangi modül üzerinden analiz edilir?",
-        options: ["MM", "FI", "CO-PA", "WM", "HR"],
-        correct: 2
-    },
-    {
-        question: "SAP MM modülünde malzeme hareketleriyle ilgili detaylı işlemler hangi işlem kodu (T-code) üzerinden gerçekleştirilir?",
-        options: ["ME21N", "MIGO", "VF01", "F-02", "MBIA"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdaki süreç çiftlerinden hangisi doğru modül eşleşmesi içermektedir?",
-        options: ["Sipariş Yönetimi - MM", "Mal Kabul - SD", "Fatura Doğrulama - MM", "Teslimat Planlaması - FI", "Müşteri Ödemesi - MM"],
-        correct: 2
-    },
-    {
-        question: "SAP sisteminde, malzeme ana verisi ile ilgili olarak aşağıdakilerden hangisi doğrudur?",
-        options: ["Sadece MM modülü tarafından kullanılır", "Her malzeme için sadece fiyat bilgisi tutulur", "MM ve SD dahil olmak üzere birçok modül tarafından ortak kullanılır", "Müşteri bilgileri ile birlikte saklanır", "Amortisman hesaplarıyla ilişkilidir"],
-        correct: 2
-    },
-    {
-        question: "SAP SD modülünde fatura oluşturulduğunda aşağıdakilerden hangisi otomatik olarak gerçekleşir?",
-        options: ["Tedarikçiye ödeme yapılır", "Amortisman hesaplanır", "Müşteri ana verisi güncellenir", "Muhasebe kaydı oluşur (FI entegrasyonu)", "Stok seviyesi artırılır"],
-        correct: 3
-    },
-    {
-        question: "SAP BW'de verileri sınıflandırmak ve analiz etmek için kullanılan, \"müşteri\", \"ürün\", \"tarih\" gibi alanlara ne ad verilir?",
-        options: ["Key Figure", "DTP", "Characteristic", "ADSO", "InfoSet"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi SAP BW sisteminde veri taşıma ve yükleme işlemini yöneten bileşendir?",
-        options: ["InfoCube", "Start Routine", "DTP", "CKF", "Composite Provider"],
-        correct: 2
-    },
-    {
-        question: "\"2024 yılına ait satış toplamı\" gibi belirli bir filtreye göre sınırlandırılmış göstergeler, SAP BW'de hangi kavramla tanımlanır?",
-        options: ["RKF", "DSO", "Routine", "InfoObject", "Aggregation"],
+        question: "Authorization: Bearer <token> ifadesi hangi HTTP başlığında yer alır?",
+        options: ["Header", "Params", "Body", "Tests", "Environment"],
         correct: 0
     },
     {
-        question: "SAP BW Query Designer'da bir raporun yalnızca belirli koşulları sağlaması durumunda veri göstermesini sağlayan bileşen aşağıdakilerden hangisidir?",
-        options: ["Filter", "Exception", "CKF", "Condition", "Prompt"],
-        correct: 3
-    },
-    {
-        question: "Aşağıdakilerden hangisi SAP BW'de farklı veri kaynaklarının birleştirilmesini sağlayan sanal sağlayıcı türüdür?",
-        options: ["InfoObject", "ADSO", "Composite Provider", "PSA", "Routine"],
+        question: "Test senaryosunda \"pm.expect(...).to.eql(...);\"kullanımı ne içindir?",
+        options: ["Token silmek", "Header değerini değiştirmek", "Belirli bir değerin eşitliğini kontrol etmek", "POST işlemini tetiklemek", "Log üretmek"],
         correct: 2
     },
     {
-        question: "SAP BW'de veriyi analiz etmek için kullanılan sanal sağlayıcılardan biri aşağıdakilerden hangisidir?",
-        options: ["ADSO", "Composite Provider", "InfoObject", "PSA", "DTP"],
+        question: "Runner çalıştırılırken test sonucu kaç şekilde sonuçlanabilir?",
+        options: ["Sadece başarılı", "Başarılı ve geçersiz", "Başarılı, başarısız, atlanan", "Yalnızca başarısız", "Doğrulanmamış"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi pm.response.responseTime kullanımı ile ilgilidir?",
+        options: ["Token süresi kontrolü", "Kullanıcı adı kontrolü", "Yanıt süresinin sınırlandırılması", "JSON schema doğrulama", "Status code testi"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi Tests sekmesinde yazılmaz?",
+        options: ["Status code kontrolü", "JSON field doğrulama", "UI görünümü", "Yanıt süresi ölçme", "Field değer karşılaştırma"],
+        correct: 2
+    },
+    {
+        question: "Postman'da birden fazla ortam için farklı baseUrl değerleri tanımlamak ne sağlar?",
+        options: ["UI özelleştirmesi", "Geliştirme, test, prod ortamlarına uygun istekler", "JSON validation", "Header kontrolü", "Token üretimi"],
         correct: 1
     },
     {
-        question: "Aşağıdakilerden hangisi SAP BW'de raporlama sırasında hücre bazlı özel formül veya istisna tanımlamak için kullanılır?",
-        options: ["RKF", "Free Characteristics", "Structure", "Cell Editor", "Exception"],
-        correct: 3
-    },
-    {
-        question: "SAP BW sorgularında \"ciro / satış miktarı\" gibi formül bazlı yeni gösterge tanımlamak için kullanılan yapı aşağıdakilerden hangisidir?",
-        options: ["DTP", "CKF", "Transformation", "InfoSet", "Drilldown"],
+        question: "API testinde bir isteğin sonucuna göre diğer istekte değişken kullanımı nasıl sağlanır?",
+        options: ["Params sekmesiyle", "Tests sekmesinde değer set edilerek", "Script yerine Console log kullanılarak", "Environment değil, Collection ile", "Token URL'ye yazılarak"],
         correct: 1
     },
     {
-        question: "SAP BW'de verilerin özetlenmesi ve toplanması işlemi aşağıdakilerden hangisiyle ifade edilir?",
-        options: ["Aggregation", "Exception", "Prompt", "Routine", "Filtering"],
+        question: "Aşağıdakilerden hangisi Postman'da test doğrulama yapılabilecek bir komut değildir?",
+        options: ["pm.setEnvironment()", "pm.response.to.have.status()", "pm.expect().to.eql()", "pm.test()", "pm.response.responseTime"],
         correct: 0
     },
     {
-        question: "SAP BEx sorgularında \"satırda görünsün ama filtreye etki etmesin\" özelliği taşıyan alanlar aşağıdakilerden hangisiyle tanımlanır?",
-        options: ["Filter", "Prompt", "Free Characteristics", "InfoProvider", "Metadata"],
-        correct: 2
+        question: "pm.variables.set(\"token\", value) komutu ne yapar?",
+        options: ["Body'de token değiştirir", "Geçici bir değişken oluşturur", "JSON içeriğini işler", "Token'ı siler", "BaseUrl değiştirir"],
+        correct: 1
     },
+    // Bölüm 2: BDD && TDD
     {
-        question: "SAP BW'de veri ambarı veri akışında \"veri kaynağı\" ile \"bilgi sağlayıcı\" arasında yer alan işlem katmanı hangisidir?",
-        options: ["Composite Provider", "DTP", "Transformation", "InfoObject", "InfoSet"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi SAP BW raporlama süreçlerinde ön tanımlı sorgular oluşturmak ve bu sorguları kullanıcıya sunmak için kullanılan araçtır?",
-        options: ["HANA Studio", "SE16", "BEx Query Designer", "SAC", "RSA1"],
-        correct: 2
-    },
-    {
-        question: "SAP BW sisteminde bir veri kümesindeki tüm verileri işleyip filtre uygulamadan tüm seti kapsayan işlem yapmak için hangi \"routine\" türü kullanılır?",
-        options: ["End Routine", "Field Routine", "Start Routine", "DTP Routine", "Cell Routine"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi SAP BW veri modellemesinde, eski sistemlerde kullanılan ve yerini ADSO'ya bırakan veri yapısıdır?",
-        options: ["InfoObject", "DSO", "PSA", "CompositeProvider", "HANA View"],
+        question: "BDD'nin temel amacı nedir?",
+        options: ["Kodun hızını artırmak", "Davranışları kullanıcı bakış açısıyla tanımlamak", "Yalnızca test kapsamını genişletmek", "Refactoring zorunluluğu getirmek", "Unit testleri azaltmak"],
         correct: 1
     },
     {
-        question: "SAP BW sorgu ekranında kullanıcının rapor çalıştırılmadan önce kriter girmesini sağlayan bileşen aşağıdakilerden hangisidir?",
-        options: ["Free Characteristics", "Exception", "Prompt (Variable)", "Filter", "Condition"],
+        question: "BDD sürecinde hangi rol doğrudan dahil değildir?",
+        options: ["Yazılımcı", "QA/Test mühendisi", "Sistem yöneticisi", "Ürün sahibi", "İş analisti"],
         correct: 2
     },
     {
-        question: "SAP BW'de InfoObjects ile ilgili aşağıdaki ifadelerden hangisi yanlıştır?",
-        options: ["Tüm veri modelleme bileşenlerinin temel yapı taşıdır", "Key Figure türü sadece sayısal değerleri temsil eder", "Characteristic, örneğin müşteri ve tarih gibi alanlardır", "InfoObjects sadece ADSO içinde kullanılır", "InfoObjects hem sorgulamada hem veri modellemede kullanılır"],
-        correct: 3
-    },
-    {
-        question: "SAP BW sisteminde koşula bağlı olarak hücrelerde renklendirme, sembol gösterimi veya uyarı verme işlemleri hangi özellikle yapılır?",
-        options: ["Condition", "Filter", "Exception", "Prompt", "Field Routine"],
-        correct: 2
-    },
-    {
-        question: "SAP BW'de veri ambarına yüklenmeden önce, alınan verilerin geçici olarak tutulduğu alan aşağıdakilerden hangisidir?",
-        options: ["PSA", "Composite Provider", "Start Routine", "DSO", "InfoSet"],
+        question: "BDD yaklaşımı hangi metodolojiyle daha uyumludur?",
+        options: ["Agile", "Waterfall", "Spiral", "V-Model", "RAD"],
         correct: 0
     },
     {
-        question: "SAP BW'deki \"Drilldown\" işleminin amacı aşağıdakilerden hangisidir?",
-        options: ["Rapor başlığı oluşturmak", "Anahtar figürlere filtre uygulamak", "Satır bazında formül hesaplamak", "Veride alt kırılımlara inerek detay analizi yapmak", "Farklı sistemlerden gelen verileri birleştirmek"],
+        question: "Gherkin dili aşağıdakilerden hangisiyle kullanılır?",
+        options: ["SOAP", "Cucumber/SpecFlow", "RESTful API", "Postman", "Jenkins"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi Gherkin sözdiziminde kullanılan bir anahtar kelime değildir?",
+        options: ["Given", "When", "Then", "Run", "Scenario"],
         correct: 3
     },
     {
-        question: "SAP BW sorgu yapılarında kullanılan Structure öğesinin temel işlevi aşağıdakilerden hangisidir?",
-        options: ["Hücre başına özel formül tanımlamak", "Göstergeleri gruplamak ve düzenli sunmak", "InfoProvider'ları ilişkilendirmek", "Verileri yüklemeden önce kontrol etmek", "Veritabanında indeksleme yapmak"],
+        question: "Aşağıdaki Gherkin ifadesi neyi tanımlar? Scenario: User logs in successfully",
+        options: ["Bir davranış senaryosu başlatır", "JSON veri şeması oluşturur", "API endpoint çağırır", "TestNG testini tetikler", "Database scriptini çalıştırır"],
+        correct: 0
+    },
+    {
+        question: "Gherkin'de \"Background\" ne için kullanılır?",
+        options: ["UI rengi ayarı", "Test verisi görselleştirme", "Her senaryoda ortak olan başlangıç adımlarını tanımlamak için", "Log ayarlarını değiştirmek için", "Database bağlantısı kurmak için"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi bir Gherkin \"Scenario Outline\" özelliğidir?",
+        options: ["Aynı adımları farklı verilerle tekrar kullanmak", "Kod derlemesi yapmak", "Selenium testlerini başlatmak", "UI navigasyonunu kaydetmek", "Response süresi ölçmek"],
+        correct: 0
+    },
+    {
+        question: "Gherkin syntax'ındaki \"Examples\" bloğu ne işe yarar?",
+        options: ["Veritabanı örneklerini listeler", "Senaryo için girilecek test verilerini tanımlar", "JSON örneklerini işler", "API çağrısı yapar", "Tag listesi üretir"],
         correct: 1
     },
     {
-        question: "Aşağıdakilerden hangisi konsolidasyon sürecinde eliminasyon işlemlerinin amacıdır?",
-        options: ["Bağımsız denetim yapmak", "Grup dışı satışları artırmak", "Grup içi işlemleri rapor dışında bırakmak", "Azınlık paylarını artırmak", "Fatura kontrolü sağlamak"],
-        correct: 2
-    },
-    {
-        question: "%100 bağlı ortaklığı olan bir şirket, bağlı ortaklığının tüm gelir-gider kalemlerini hangi yöntemle konsolide eder?",
-        options: ["Özkaynak yöntemi", "Oransal konsolidasyon", "Tam konsolidasyon", "Pay bazlı konsolidasyon", "Sadece kar-zarar konsolidasyonu"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi azınlık payı ile ilgilidir?",
-        options: ["İç borçların azaltılması", "%50'den az ama kontrol edilmeyen payın raporlanması", "Ana şirketin vergilendirme işlemi", "Raporlama takvimlerinin belirlenmesi", "Hesap planı eşleştirme"],
+        question: "Aşağıdakilerden hangisi Gherkin syntax'ında kullanılan yorum (comment) karakteridir?",
+        options: ["//", "#", "", ";;", "/* */"],
         correct: 1
     },
     {
-        question: "Konsolidasyon yapılırken farklı iştiraklerden gelen finansal verilerin tek bir sistemde birleştirilmesi için aşağıdakilerden hangisi tercih edilir?",
-        options: ["Excel", "SAP GUI", "SAP Group Reporting", "SAP SD Modülü", "DTP Aracı"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi konsolidasyon sürecinde SAP ERP sistemlerinin sağladığı bir avantaj değildir?",
-        options: ["SPK ve IFRS uyumlu raporlar hazırlamak", "Süreçleri izlenebilir hale getirmek", "Raporları manuel olarak elde düzenlemek", "Verileri tek merkezde toplamak", "IT bağımlılığını azaltmak"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi konsolidasyon sürecinde azınlık paylarının doğru şekilde gösterilmesi için dikkate alınmalıdır?",
-        options: ["SPK'ya bildirim yapılması", "Kontrol oranı %50'nin üzerinde olmalıdır", "Kar ve zararların grup dışı ortaklara ait kısmı ayrılmalıdır", "Bilanço tarihi 31 Mart olmalıdır", "Ana şirketin hisse senedi fiyatı dikkate alınmalıdır"],
-        correct: 2
-    },
-    {
-        question: "Konsolidasyon sürecinde aynı grubun farklı şirketleri arasındaki ticari işlemler aşağıdakilerden hangisiyle düzeltilir?",
-        options: ["Kar dağıtımı", "Aktif pasif uyumu", "Eliminasyon", "Konsolidasyon faizi", "Hedef sapma analizi"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdaki sistemlerden hangisi SAP'nin kurumsal grup raporlama ve konsolidasyon çözümüdür?",
-        options: ["SAP MM", "SAP BPC", "SAP SD", "SAP HCM", "SAP APO"],
+        question: "BDD'nin en büyük avantajlarından biri aşağıdakilerden hangisidir?",
+        options: ["Deployment süresini kısaltır", "Takımlar arasında daha iyi iş birliği sağlar", "UI hatalarını azaltır", "Network kullanımını optimize eder", "SQL performansını artırır"],
         correct: 1
     },
     {
-        question: "SAP Group Reporting sistemi ile ilgili aşağıdaki ifadelerden hangisi yanlıştır?",
-        options: ["SPK ve IFRS uyumlu raporlar üretilebilir", "Kullanıcı dostu ve Excel'e benzer arayüz sağlar", "Eliminasyon işlemleri otomatikleştirilebilir", "Sadece manuel veri girişi ile çalışır", "Self-servis raporlama yapılabilir"],
+        question: "Aşağıdakilerden hangisi BDD'nin doğrudan sunduğu bir çıktı değildir?",
+        options: ["Ortak dil", "Otomatik test", "Gherkin dokümantasyonu", "Debugger arayüzü", "Yaşayan dokümantasyon (living docs)"],
         correct: 3
     },
     {
-        question: "Grup raporlamada SAP sisteminin IT bağımlılığını azaltması ne anlama gelir?",
-        options: ["Tüm raporları yazılımcılar oluşturur", "Sadece teknik personel veri görebilir", "İş birimleri kendi raporlarını ERP içinden çekebilir", "Veri analistleri sistemi yönetemez", "Sistem dışı müdahalelere açık hale gelir"],
+        question: "BDD aşağıdakilerin hangisinde zorluk yaşayabilir?",
+        options: ["Basit senaryolar", "İş birliği ortamları", "Karmaşık edge-case senaryolar", "Kod tabanı olmayan projeler", "Geliştirici olmayan ortamlar"],
         correct: 2
     },
     {
-        question: "Aşağıdaki işlemlerden hangisi grup içi eliminasyona örnektir?",
-        options: ["Ana şirketin iştirakine sermaye artırımı yapması", "Bağımsız denetçi tarafından rapor onaylanması", "Grup içi şirketin diğerine yaptığı satışın konsolidasyonda çıkarılması", "Azınlık paylarının bilançoda gösterilmesi", "Holdingin hisselerinin borsada işlem görmesi"],
-        correct: 2
-    },
-    {
-        question: "SAP sistemlerinde konsolidasyon sürecinin şeffaf ve denetlenebilir olmasını sağlayan özellik aşağıdakilerden hangisidir?",
-        options: ["Satın alma fişi oluşturma", "Otomatik veri silme", "Loglama ve izlenebilirlik", "Malzeme ana verisi kontrolü", "Müşteri risk skoru"],
-        correct: 2
-    },
-    {
-        question: "Konsolidasyonda oransal yöntem genellikle aşağıdaki hangi durumda kullanılır?",
-        options: ["%100 sahip olunan iştirak", "Grup dışı firmalar", "Ortak kontrol edilen işletmeler (örneğin %50-%50)", "Ana şirketin tek başına sahibi olduğu iştirak", "Finansal olmayan yatırımlar"],
-        correct: 2
-    },
-    {
-        question: "SAP sisteminde, grup şirketlerinin farklı muhasebe sistemlerinden gelen verilerin standart hale getirilmesi için aşağıdaki işlemlerden hangisi yapılmalıdır?",
-        options: ["İç satış artırımı", "Hesap planı eşleştirmesi", "Transfer fiyatı belirleme", "Ürün hiyerarşisi kurulumu", "Azınlık oranı hesaplama"],
+        question: "Aşağıdakilerden hangisi BDD'nin sınırlılıklarındandır?",
+        options: ["Gherkin dilinin açık olması", "Stakeholder katılımı eksikliğinde süreç başarısız olur", "API testine uygun olmaması", "Automation'a destek vermemesi", "Yalnızca Python desteği sunması"],
         correct: 1
     },
     {
-        question: "SAP ERP ile yapılan grup raporlamada aşağıdakilerden hangisi raporların güvenilirliğini artıran bir etkendir?",
-        options: ["Farklı kullanıcıların aynı anda veriyi düzenlemesi", "Veri girişinin yalnızca manuel yapılması", "Veri kaynağının sistem içinden otomatik alınması", "Her şirketin ayrı sistemde rapor üretmesi", "Eliminasyon işlemlerinin elle yapılması"],
+        question: "Aşağıdakilerden hangisi BDD sürecinde bakım zorluğu yaratabilecek bir durumdur?",
+        options: ["Cucumber kullanmak", "Refactor yapılması", "Feature dosyalarının fazla ve düzensiz olması", "TestNG ile entegre olmak", "Azure DevOps'a bağlanmak"],
         correct: 2
     },
     {
-        question: "Aşağıdakilerden hangisi ABAP diliyle ilişkili veritabanı işlemlerinden biri değildir?",
-        options: ["SELECT", "DELETE", "PRINT", "UPDATE", "INSERT"],
-        correct: 2
+        question: "Cucumber için aşağıdaki ifadelerden hangisi doğrudur?",
+        options: ["Ruby tabanlıdır ve çoklu dil desteği sunar", "Sadece Python ile kullanılır", "BDD değil, TDD aracıdır", "UI testlerine özel geliştirilmiştir", "TestNG'ye alternatiftir"],
+        correct: 0
     },
     {
-        question: "SAP sisteminde veritabanı tabloları, alanlar ve veri tiplerinin tanımlandığı ekran aşağıdakilerden hangisidir?",
-        options: ["SE80", "SE38", "ST22", "SE11", "SU01"],
-        correct: 3
-    },
-    {
-        question: "Aşağıdakilerden hangisi ABAP programlama dilinde veri tipi tanımlamak için doğru bir ifadedir?",
-        options: ["NUMBER $=10$ TYPE p.", "DATA: amount TYPE p DECIMALS 2.", "DEFINE: TEXT TYPE C.", "TABLE CREATE amount p.", "DECIMALS DATA amount $=2$."],
+        question: "SpecFlow aşağıdaki platformlardan hangisine özeldir?",
+        options: ["Java Spring", ".NET Framework", "Ruby on Rails", "Python Flask", "Node.js"],
         correct: 1
     },
     {
-        question: "SAP geliştirme projelerinde RICEFW kısaltmasındaki \"C\" harfı aşağıdakilerden hangisini ifade eder?",
-        options: ["Comment", "Code Editor", "Conversion", "Chart", "Calculation"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdaki SAP işlem kodlarından hangisi veritabanı nesnelerinin oluşturulması ve düzenlenmesi için kullanılır?",
-        options: ["SE38", "ST03N", "SE11", "SU53", "SM21"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdaki ABAP kod satırında ne yapılmaktadır? DATA: wa customer TYPE zcustomers.",
-        options: ["Yeni bir tablo tanımlanır", "Veri tipi zcustomers olan bir değişken tanımlanır", "Veri silinir", "Tablodan veri silinir", "İç tablo döngüsü başlatılır"],
+        question: "Acceptance Test Driven Development (ATDD) ile ilgili hangisi doğrudur?",
+        options: ["Refactoring öncesinde yapılır", "Müşteriyle birlikte tanımlanan kabul kriterlerine göre test yazılır", "Kod yazıldıktan sonra test edilir", "Sadece backend kodunu test eder", "UI odaklı çalışır"],
         correct: 1
     },
     {
-        question: "Aşağıdaki ifadelerden hangisi internal table (iç tablo) tanımı için doğrudur?",
-        options: ["DATA: 1t list TYPE C.", "DATA: list TYPE ztable.", "DATA: 1t list TYPE TABLE OF ztable.", "DATA: 1t list TYPE ztable.", "DATA: lt_list VALUE ztable."],
-        correct: 2
-    },
-    {
-        question: "ABAP'ta bir internal table'ın içeriğinde döngü ile işlem yapmak için hangi yapı kullanılır?",
-        options: ["IF - ENDIF", "CASE - WHEN", "LOOP AT - ENDLOOP", "READ TABLE", "PERFORM - ENDFORM"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdaki kod satırı ABAP'ta ne işe yarar? SELECT FROM zorders INTO TABLE @DATA(lt orders).",
-        options: ["lt_orders adlı tabloyu siler", "zorders tablosunu boşaltır", "zorders tablosundaki tüm verileri It orders adlı internal table'a çeker", "zorders tablosunu oluşturur", "zorders tablosuna veri ekler"],
-        correct: 2
-    },
-    {
-        question: "ABAP'ta aşağıdakilerden hangisi bellekte geçici olarak veri tutmak için kullanılır?",
-        options: ["External table", "Transaction log", "Global class", "Internal table", "SmartForms"],
-        correct: 3
-    },
-    {
-        question: "Aşağıdakilerden hangisi ABAP'ta karakter veri türünü tanımlamak için kullanılır?",
-        options: ["TYPE n", "TYPE i", "TYPE d", "TYPE c", "TYPE p"],
-        correct: 3
-    },
-    {
-        question: "Aşağıdaki SAP işlem kodlarından hangisi ABAP programı yazmak ve çalıştırmak için kullanılır?",
-        options: ["SE11", "SE93", "SE38", "SU01", "ST22"],
-        correct: 2
-    },
-    {
-        question: "ABAP'ta bir internal table'dan tek bir satırın okunması için hangi ifade kullanılır?",
-        options: ["INSERT TABLE", "MODIFY TABLE", "DELETE TABLE", "READ TABLE", "FETCH ROW"],
-        correct: 3
-    },
-    {
-        question: "Aşağıdakilerden hangisi ABAP'ta alt program (subroutine) tanımlamak için kullanılır?",
-        options: ["DEFINE - ENDDEFINE", "FUNCTION - ENDFUNCTION", "PERFORM - ENDFORM", "CLASS- ENDCLASS", "MODULE - ENDMODULE"],
-        correct: 2
-    },
-    {
-        question: "SAP ABAP Workbench ekranı (geliştirme ortamı) aşağıdakilerden hangisidir?",
-        options: ["SE11", "SE16", "SE80", "SE37", "SE84"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi bir SAP projesinde proje açılışı öncesinde yapılması gereken işlemlerden biri değildir?",
-        options: ["Talep olgunlaştırma dokümanının hazırlanması", "Risklerin önceden belirlenmesi", "TTD onayının alınması", "Taslak proje planının sponsor onayına sunulması", "ICT talep onayının alınması"],
-        correct: 2
-    },
-    {
-        question: "ERP projelerinde kullanılan Baseline 1 ve Baseline 2 sırasıyla hangi aşamaları ifade eder?",
-        options: ["Lansman öncesi plan - Lansman sonrası plan", "Analiz sonucu oluşturulan takvim - TTD sonrası netleşen geliştirme/test takvimi", "Geliştirme başlama - UAT test bitiş tarihi", "Proje kapanışı öncesi - Lessons learned sonrası", "ICT talep onayı - Proje kapanış maili"],
+        question: "SpecFlow'un \"Discuss - Distill - Develop - Demo\" süreci neyi hedefler?",
+        options: ["UI kontrolü", "Kabul testi odaklı geliştirme", "Kod kompile süresini azaltma", "Gherkin dönüşümünü", "Performans analizini"],
         correct: 1
     },
     {
-        question: "Aşağıdakilerden hangisi bir Change Request (CR) durumunda yapılması gereken doğru adımdır?",
-        options: ["Plan değişmeden uygulanır", "Test süreçleri askıya alınır", "Etki analizi yapılır, gerekli görülürse yönlendirme komitesine sunulur", "Tüm kullanıcılar bilgilendirilmeden sistem güncellenir", "Lansman iptal edilir ve proje başa alınır"],
+        question: "BDD'de kullanılan Scenario Outline özelliği testlerde ne sağlar?",
+        options: ["Tekil örnekleri çoğaltır", "API performansı ölçer", "Aynı senaryoyu farklı verilerle tekrarlar", "TestNG entegrasyonu sağlar", "Build süresini kısaltır"],
         correct: 2
     },
     {
-        question: "Aşağıdakilerden hangisi Baby Sitting sürecinin temel amacı değildir?",
-        options: ["Lansman sonrası sistemin izlenmesi", "Kullanıcı taleplerinin toplanması", "Projenin iptal edilmesi", "Hataların takibi ve çözümü", "Geri bildirim alınması"],
-        correct: 2
+        question: "TDD'nin temel amacı nedir?",
+        options: ["Önce test yazıp sonra kod geliştirmektir", "UI otomasyonudur", "Gherkin senaryosu çalıştırmaktır", "Performans testi yapmaktır", "Database testini hızlandırmaktır"],
+        correct: 0
     },
     {
-        question: "ERP projelerinde aşağıdakilerden hangisi analistin birincil görevidir?",
-        options: ["Sistemi test etmek", "Talebi analiz edip teknik dokümanı hazırlamak", "Lansman sonrası sistemi izlemek", "Proje takvimini oluşturmak", "Kullanıcı kabul testini gerçekleştirmek"],
+        question: "TDD süreci hangi sıralamayı takip eder?",
+        options: ["Code → Refactor → Test", "Test → Code → Refactor", "Compile → Deploy → Test", "Debug → Build → Run", "Setup → Scenario → Given"],
         correct: 1
     },
     {
-        question: "Aşağıdakilerden hangisi bir SAP projesinde UAT (Kullanıcı Kabul Testi)'nin temel amacıdır?",
-        options: ["Yazılımcının fonksiyonları test etmesi", "Analistin yaptığı doğrulama testi", "Kullanıcının sistemin işlevselliğini kontrol etmesi", "Geliştiricinin entegrasyon testini yürütmesi", "Lansman sonrası sistem izleme"],
-        correct: 2
-    },
-    {
-        question: "ERP projelerinde kullanılan TTD (Technical Task Description) ile ilgili aşağıdakilerden hangisi doğrudur?",
-        options: ["Lansman sonrası oluşturulur", "Test sürecinden sonra yazılır", "Analist tarafından hazırlanır, geliştirme öncesi onaylanır", "Sadece geliştirici ekip tarafından hazırlanır", "Kullanıcıların doldurduğu formdur"],
-        correct: 2
-    },
-    {
-        question: "Bir ERP projesinde \"Lessons Learned\" toplantısının amacı nedir?",
-        options: ["Sistemdeki teknik hataları çözmek", "Kullanıcılara eğitimi başlatmak", "Proje sonuçlarını analiz ederek deneyimlerden ders çıkarmak", "Projeyi yeniden başlatmak", "Lansmanı iptal etmek"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdaki toplantılardan hangisi proje sürecinin başlangıcında yapılır?",
-        options: ["UAT toplantısı", "Lansman toplantısı", "Kick-Off toplantısı", "TTD review toplantısı", "Lessons Learned toplantısı"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi bir ERP projesindeki Yönlendirme Komitesinin (Steering Committee) rolü değildir?",
-        options: ["Kapsam değişikliklerini değerlendirmek", "Risk çözümüne katkı sağlamak", "Teknik testleri gerçekleştirmek", "Karar verici yönetici rolü üstlenmek", "Change Request onaylarını vermek"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi proje ekibindeki OFL (Operation Function Lead)'in sorumluluğudur?",
-        options: ["Proje planını oluşturmak", "Sistemin canlı ortamda iş süreçlerine uygun çalıştığını denetlemek", "Lansman tarihini belirlemek", "Kullanıcı eğitimi vermek", "Teknik analiz yapmak"],
+        question: "Aşağıdakilerden hangisi \"Red\" aşamasına karşılık gelir?",
+        options: ["Refactor sonrası test geçer", "Yeni yazılan testin başta başarısız olması", "Kodun tekrar yazılması", "Testin yeşil olması", "CI/CD'ye deploy edilmesi"],
         correct: 1
     },
     {
-        question: "ERP projelerinde Kısmi Lansman (Partial Go-Live) uygulamasının temel avantajı nedir?",
-        options: ["Proje süresini kısaltmak", "Tüm kullanıcıların aynı anda sistemi test etmesi", "Canlıya geçişi aşamalı yaparak riskleri azaltmak", "Proje planını değiştirmeden uygulama yapmak", "Lansmanı iptal etmeden kullanıcı testlerini atlamak"],
+        question: "\"Green\" aşaması neyi temsil eder?",
+        options: ["Testin başarısız olması", "Kodun refactor edilmesi", "Testin geçmesi için gereken minimum kodun yazılması", "Database bağlantısının kurulması", "Kod incelemesi"],
         correct: 2
     },
     {
-        question: "Aşağıdakilerden hangisi Statü Raporları içinde yer alması beklenen bilgilerden biri değildir?",
-        options: ["Projenin güncel durumu", "Tamamlanan görevler", "Teknik test adımları", "Risk ve gecikmeler", "Kapsam değişikliği notları"],
+        question: "Aşağıdakilerden hangisi TDD'nin bir avantajı değildir?",
+        options: ["Modüler kod", "Geriye dönük hata yakalama", "UI görselliği artırma", "Refactor kolaylığı", "Kod güveni"],
         correct: 2
     },
     {
-        question: "Proje boyunca Jira üzerinden takip edilen bilgiler arasında hangisi yer almaz?",
-        options: ["Görevler ve sorumlular", "Lansman sonrası müşteri memnuniyeti anketleri", "TTD ve analiz dokümanları", "Test senaryoları", "CR takipleri"],
+        question: "BDD ile TDD arasındaki temel fark nedir?",
+        options: ["Biri unit test yapmaz", "Biri kullanıcı davranışına, diğeri fonksiyona odaklanır", "TDD sadece frontend'de kullanılır", "BDD'de test yazılmaz", "TDD grafiksel betik ister"],
         correct: 1
     },
     {
-        question: "ERP projelerinde, proje kapanışı sırasında aşağıdakilerden hangisi yapılmaz?",
-        options: ["Lessons Learned toplantısı düzenlenir", "Proje Jira sisteminde kapatılır", "Kullanıcı Kabul Testi tekrar edilir", "OFL ile son kontroller yapılır", "Kapanış maili gönderilir"],
+        question: "Aşağıdakilerden hangisi hem TDD hem BDD'nin ortak özelliğidir?",
+        options: ["UI testi", "Gherkin syntax'ı", "Otomasyon testine uygundur", "Kod yazılmaz", "Database zorunludur"],
         correct: 2
     },
     {
-        question: "Yazılım Geliştirme Yaşam Döngüsü (SDLC) sürecinde tasarım aşamasının temel amacı aşağıdakilerden hangisidir?",
-        options: ["Kullanıcılardan sistem gereksinimlerini toplamak", "Kodlama işlemini başlatmak", "Veritabanı ve arayüz planlarını oluşturmak", "Projeyi canlı ortama almak", "Sistem hatalarını test etmek"],
+        question: "BDD aşağıdaki durumların hangisinde TDD'ye göre daha uygundur?",
+        options: ["Kodun performansını ölçmek", "Paydaşlarla test senaryosu anlaşılır kılmak", "Refactor kararı vermek", "Backend cache'i test etmek", "SQL validasyon yapmak"],
+        correct: 1
+    },
+    {
+        question: "BDD'nin dokümantasyon avantajı hangi özelliğinden gelir?",
+        options: ["Gherkin diliyle anlaşılır senaryo yazılması", "Selenium entegrasyonu", "Unit test ile çalışması", "Status code kontrolü", "Mock servisler üretmesi"],
+        correct: 0
+    },
+    {
+        question: "Aşağıdakilerden hangisi doğrudan TDD'ye ait bir yöntemdir?",
+        options: ["Red - Green - Refactor", "Feature - Scenario - Examples", "Given - When - Then", "Page Object Pattern", "Jenkins build"],
+        correct: 0
+    },
+    // Bölüm 3: Test Otomasyonu
+    {
+        question: "Test otomasyonunun temel amacı nedir?",
+        options: ["UI tasarımı yapmak", "Testleri hızlı ve hatasız şekilde tekrar çalıştırmak", "Log analizini manuel yapmak", "Kod refactor etmek", "SQL entegrasyonu kurmak"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi manuel testin otomasyon testine göre dezavantajıdır?",
+        options: ["Hızlı sonuç verme", "Ucuz yazılım lisans maliyeti", "İnsan hatası riskinin yüksek olması", "Tekrar çalıştırılabilir olması", "Otomatikleştirilebilir olması"],
         correct: 2
     },
     {
-        question: "Aşağıdakilerden hangisi Agile (Çevik) yazılım geliştirme modeli ile Waterfall (Şelale) modeli arasındaki temel farklardan biri değildir?",
-        options: ["Agile modelde değişikliklere açıklık fazladır", "Waterfall modeli belge odaklıdır", "Agile modelde plan sabittir, esneklik azdır", "Waterfall modeli sıralı ve geri dönüşsüzdür", "Agile modelde başarı çalışan ürüne göre ölçülür"],
+        question: "Aşağıdakilerden hangisi sadece otomasyon testi ile sağlanabilir?",
+        options: ["UI doğrulaması", "Ekran görüntüsü alma", "CI/CD entegrasyonu ile sürekli test", "Test senaryosu yazma", "Test sonucu yorumlama"],
         correct: 2
     },
     {
-        question: "Aşağıdakilerden hangisi Turkcell'de kullanılan test ortamlarından biri değildir?",
-        options: ["Stable", "Lokal", "Agile", "Preprod", "Test"],
+        question: "Otomasyon testinde erken hata tespiti neden önemlidir?",
+        options: ["Maliyeti ve hata çözüm süresini azaltır", "Daha fazla hata çıkarır", "Kullanıcıyı koddan uzaklaştırır", "Sadece tasarım testi sağlar", "Kod derlemesi gerekmez"],
+        correct: 0
+    },
+    {
+        question: "Aşağıdakilerden hangisi test otomasyonunun dezavantajıdır?",
+        options: ["Zaman tasarrufu", "Erken hata tespiti", "Yüksek ilk kurulum maliyeti", "CI/CD uyumu", "Tekrarlanabilirlik"],
         correct: 2
     },
     {
-        question: "Baby Sitting süreciyle ilgili aşağıdakilerden hangisi doğrudur?",
-        options: ["Kodlama tamamlandıktan sonra yapılır", "Analiz aşamasında başlar", "Lansman sonrası sistemin izlendiği dönemdir", "Kullanıcı gereksinimlerinin toplandığı süreçtir", "Agile ritüellerinin uygulandığı sprint toplantısıdır"],
+        question: "Aşağıdaki araçlardan hangisi web otomasyon testinde kullanılır?",
+        options: ["Postman", "Kibana", "Selenium", "SQL Profiler", "Prometheus"],
         correct: 2
     },
     {
-        question: "Aşağıdaki SDLC modellerinden hangisi her geliştirme adımına eşleşen bir test adımı içeren modeldir?",
-        options: ["Agile", "Waterfall", "Spiral", "V-Model", "Big Bang"],
+        question: "Aşağıdaki araçlardan hangisi mobil uygulama testleri için uygundur?",
+        options: ["Selenium Grid", "Appium", "Jenkins", "TestNG", "Cucumber"],
+        correct: 1
+    },
+    {
+        question: "Cypress'in en güçlü olduğu alan hangisidir?",
+        options: ["XML testleri", "JS tabanlı web uygulamalarında hızlı test", "Mobil uygulama testi", "Back-end test", "Database snapshot"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi REST API testleri için uygun bir araçtır?",
+        options: ["RestAssured", "Selenium", "Jenkins", "Espresso", "Playwright"],
+        correct: 0
+    },
+    {
+        question: "Karate framework'ünün temel özelliği nedir?",
+        options: ["C# desteklemesi", "Gherkin syntax ile API test yazımı", "Görsel regresyon testleri", "UI mimarisi içermesi", "Yalnızca mobil test"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi test otomasyon sürecinin adımlarından biridir?",
+        options: ["Test stratejisi belirleme", "Geliştirici kimliği oluşturma", "Versiyonlama yapma", "Logları e-posta ile atma", "Grafik tasarım yapma"],
+        correct: 0
+    },
+    {
+        question: "Aşağıdakilerden hangisi CI/CD ile sıkı entegrasyon sağlayan test aracıdır?",
+        options: ["Kibana", "GitHub Actions", "Figma", "BrowserStack", "Google Test"],
+        correct: 1
+    },
+    {
+        question: "CI/CD ile otomasyon test entegrasyonu ne sağlar?",
+        options: ["Daha iyi yazım dili", "Otomatik test çalıştırma ve sonuç izleme", "Kod karmaşıklığını artırır", "Logları siler", "UI performansını yavaşlatır"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki araçlardan hangisi test sonuçlarını grafiksel ve görsel olarak sunar?",
+        options: ["Allure Report", "Jenkins", "Espresso", "Postman", "Karate"],
+        correct: 0
+    },
+    {
+        question: "Aşağıdakilerden hangisi rapor oluşturma aracı değildir?",
+        options: ["ExtentReports", "Allure", "Selenium WebDriver", "HTML Report", "ReportNG"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi Selenium'un desteklediği bir tarayıcı değildir?",
+        options: ["Chrome", "Firefox", "Opera Mini", "Safari", "Edge"],
+        correct: 2
+    },
+    {
+        question: "WebDriver'in findElement() metodu ne işe yarar?",
+        options: ["Sayfadaki belirli bir öğeyi seçmek", "Sayfa başlığını değiştirmek", "Rapor üretmek", "Test senaryosu yazmak", "URL parametresi çağırmak"],
+        correct: 0
+    },
+    {
+        question: "Aşağıdakilerden hangisi sendKeys() metodunun kullanım örneğidir?",
+        options: ["Bir metin kutusuna bilgi girişi yapmak", "Log yazmak", "Screenshot almak", "Session başlatmak", "Header ayarlamak"],
+        correct: 0
+    },
+    {
+        question: "Aşağıdaki komutlardan hangisi tarayıcıyı tamamen kapatır?",
+        options: ["driver.close()", "driver.quit()", "element.clear()", "navigate().back()", "driver.kill()"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki WebDriver komutlarından hangisi seçili kutuyu kontrol eder?",
+        options: ["isDisplayed()", "isEnabled()", "getText()", "isSelected()", "clear()"],
         correct: 3
     },
     {
-        question: "SDLC sürecinde aşağıdakilerden hangisi analiz aşamasında yapılan işlemlerden biridir?",
-        options: ["Kodun derlenmesi", "Sistem mimarisinin tasarlanması", "Fonksiyonların test edilmesi", "Gereksinimlerin teknik anlamda değerlendirilmesi", "Lansman planının yapılması"],
-        correct: 3
-    },
-    {
-        question: "Turkcell SDLC uygulamasında, veritabanı geçişlerini otomatikleştiren araç aşağıdakilerden hangisidir?",
-        options: ["Jenkins", "Git", "Jira", "Deasy", "Confluence"],
-        correct: 3
-    },
-    {
-        question: "Aşağıdakilerden hangisi Agile metodolojisinde kullanılan bir rol değildir?",
-        options: ["Product Owner", "Scrum Master", "Project Sponsor", "Developer", "Tester"],
+        question: "Implicit wait ile ilgili aşağıdakilerden hangisi doğrudur?",
+        options: ["Sadece bir öğe için çalışır", "Kod içinde zorunlu değildir", "Tüm öğeler için varsayılan bekleme süresi tanımlar", "Manual olarak durdurulmalıdır", "Tarayıcıyı resetler"],
         correct: 2
     },
     {
-        question: "Spiral SDLC modelinin en belirgin özelliği aşağıdakilerden hangisidir?",
-        options: ["Her aşama geri dönüşsüzdür", "Test aşamaları tamamen kaldırılmıştır", "Risk analizi odaklı ve iteratif yapılıdır", "Tek seferde çalışan ürün hedeflenir", "Tüm proje dokümansız ilerler"],
+        question: "Explicit wait kullanım amacı nedir?",
+        options: ["Tarayıcıyı refresh etmek", "Belirli bir koşul sağlanana kadar beklemek", "JSON nesnesi oluşturmak", "Header tanımlamak", "Kullanıcı girişi yapmak"],
+        correct: 1
+    },
+    {
+        question: "Fluent wait ile ilgili hangisi yanlıştır?",
+        options: ["Özelleştirilebilir yoklama aralıkları sağlar", "Koşullar karşılanınca sona erer", "Yalnızca Chrome ile çalışır", "Hataları göz ardı edebilir", "Çok dinamik içerikler için uygundur"],
         correct: 2
     },
     {
-        question: "Yazılım test sürecinde, preprod ortamında yapılan testin amacı aşağıdakilerden hangisidir?",
-        options: ["Sadece geliştiriciye kod testini kolaylaştırmak", "Sistem hatalarını canlı ortamda çözmek", "Canlı ortama en yakın koşullarda son kontrolü yapmak", "Kullanıcı ihtiyaçlarını analiz etmek", "Lansman planını oluşturmak"],
+        question: "Sayfa Nesne Modeli (POM) yapısında ne sağlanır?",
+        options: ["Kod tekrarını artırır", "Kodun yeniden kullanılabilir ve düzenli olmasını sağlar", "Sadece API çağrısı yapılır", "JSON pars edilir", "Build optimize edilir"],
+        correct: 1
+    },
+    {
+        question: "POM yapısında her sayfa için ne oluşturulur?",
+        options: ["SQL script", "Sınıf (class)", "Screenshot", "REST servis", "Cucumber step"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi TestNG anotasyonlarından biridir?",
+        options: ["@BeforeMethod", "@Navigate", "@GetTitle", "@JsonTest", "@AssertEqual"],
+        correct: 0
+    },
+    {
+        question: "Selenium Grid'in amacı nedir?",
+        options: ["Rapor oluşturmak", "Farklı ortamlarda testleri paralel çalıştırmak", "UI oluşturmak", "Gherkin üretmek", "Yedek almak"],
+        correct: 1
+    },
+    {
+        question: "Grid mimarisinde testler hangi yapı üzerinden yönlendirilir?",
+        options: ["Server", "Hub", "Client", "Browser", "Script"],
+        correct: 1
+    },
+    {
+        question: "Selenium IDE'nin en önemli özelliği nedir?",
+        options: ["Postman ile entegredir", "Kod yazmadan test senaryoları kaydedebilir", "CI/CD araçlarını kontrol eder", "API testinde kullanılır", "Jenkins başlatır"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi Selenium WebDriver'ın bekleme fonksiyonlarından biri değildir?",
+        options: ["Implicit Wait", "Static Wait", "Explicit Wait", "Fluent Wait", "WebDriverWait"],
+        correct: 1
+    },
+    // Bölüm 4: CI/CD
+    {
+        question: "CI'nin (Continuous Integration) temel amacı nedir?",
+        options: ["UI testi yapmak", "Kod değişikliklerini sık ve otomatik şekilde entegre etmek", "API çağrısı yapmak", "Yalnızca kodu arşivlemek", "Veritabanı replikasyonu sağlamak"],
+        correct: 1
+    },
+    {
+        question: "CD'nin (Continuous Deployment) ana farkı nedir?",
+        options: ["Kod yazmayı kolaylaştırır", "Kod testini engeller", "Otomatik olarak testten canlı ortama dağıtım yapar", "Sadece staging'de kalır", "Git kullanımı gerektirmez"],
         correct: 2
     },
     {
-        question: "Aşağıdakilerden hangisi Turkcell'in SDLC süreçlerinde kullanılan araçlardan biri değildir?",
-        options: ["Jenkins", "Jira", "Git", "Scrumban", "Waterfall"],
+        question: "CI/CD sürecinin ilk adımı hangisidir?",
+        options: ["Monitor", "Build", "Deploy", "Pull Request", "Merge"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi CI/CD döngüsünde test ortamına dağıtım için kullanılır?",
+        options: ["GitHub", "Deploy aşaması", "Monitor ekranı", "Jenkins Plugin", "Database Backup"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi CI/CD'nin hedeflediği avantajlardan biri değildir?",
+        options: ["Hızlı teslim", "Yavaş ve güvenli sürüm", "Otomasyon", "Şeffaflık", "Sık güncelleme"],
+        correct: 1
+    },
+    {
+        question: "Monitoring sürecinde \"metrics\" nedir?",
+        options: ["Performansla ilgili sayısal veriler (CPU, bellek vs.)", "Test senaryoları", "Build logları", "UI test raporları", "CI süresini hesaplama aracı"],
+        correct: 0
+    },
+    {
+        question: "\"Logs\" ile ilgili aşağıdakilerden hangisi doğrudur?",
+        options: ["Görsel arayüz sağlar", "Sistem olaylarının detaylı kaydıdır", "Test senaryolarını özetler", "Yalnızca .txt formatındadır", "Kod satırlarını test eder"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi bir izleme aracı değildir?",
+        options: ["Grafana", "Prometheus", "Datadog", "Kibana", "Cucumber"],
         correct: 4
     },
     {
-        question: "Aşağıdakilerden hangisi \"Incremental\" SDLC modeline en uygun ifadedir?",
-        options: ["Tüm sistem aynı anda geliştirilir", "Risk analizi her aşamada yapılır", "Yazılım modül modül geliştirilir ve test edilir", "Süreçler tamamen belge temellidir", "Kullanıcının sürece dahil olması gerekmez"],
+        question: "Prometheus ne için kullanılır?",
+        options: ["Metrik toplamak ve zaman serisi verileri izlemek", "Kod testi yapmak", "UI component üretmek", "Kodları deploy etmek", "Veritabanı analiz etmek"],
+        correct: 0
+    },
+    {
+        question: "Grafana ile ilgili aşağıdakilerden hangisi doğrudur?",
+        options: ["SQL testi yapar", "Script çalıştırır", "Metrikleri görsel dashboard olarak sunar", "TestNG entegrasyonu sağlar", "API çağrısı başlatır"],
         correct: 2
     },
     {
-        question: "SDLC'nin test aşamasında yapılan aşağıdaki işlemlerden hangisi hatalıdır?",
-        options: ["Kodun doğru çalışıp çalışmadığının test edilmesi", "Performans ve güvenlik kontrollerinin yapılması", "Tüm ortamların canlıya geçmeden test edilmesi", "Gereksinimlerin kullanıcılarla yeniden görüşülmesi", "Hataların analiz edilip düzeltilmesi"],
+        question: "CI/CD süreçlerini otomatikleştirmek için en sık kullanılan araçlardan biri nedir?",
+        options: ["Jenkins", "Git", "Cucumber", "Postman", "Selenium IDE"],
+        correct: 0
+    },
+    {
+        question: "GitHub Actions ne işe yarar?",
+        options: ["Log arşivi tutar", "API yazımı sağlar", "GitHub üzerinden CI/CD adımlarını otomatikleştirir", "Sadece test senaryoları yazmak içindir", "Manual deploy yapar"],
+        correct: 2
+    },
+    {
+        question: "ELK Stack aşağıdaki öğelerden hangisini içermez?",
+        options: ["Elasticsearch", "Logstash", "Kibana", "Kafka"],
         correct: 3
     },
     {
-        question: "V-Model'in diğer SDLC modellerinden farkı nedir?",
-        options: ["Test yapılmaz", "Kodlama öncesi canlıya geçilir", "Her geliştirme adımına karşılık gelen bir test süreci vardır", "Gereksinim toplama atlanır", "Risk değerlendirmesi yapılmaz"],
+        question: "Datadog ile ne yapılabilir?",
+        options: ["Uygulama performansını ve altyapıyı izleme", "Kod build etmek", "Docker container oluşturmak", "Mobil test başlatmak", "UI simülasyonu yapmak"],
+        correct: 0
+    },
+    {
+        question: "Aşağıdakilerden hangisi DevOps süreçlerinde kullanılan bir dağıtım yönetimi aracıdır?",
+        options: ["Gherkin", "Swagger", "ArgoCD", "VS Code", "Maven"],
         correct: 2
     },
     {
-        question: "Aşağıdaki ifadelerden hangisi Agile metodolojisinin bir avantajı değildir?",
-        options: ["Değişen ihtiyaçlara hızlı cevap verilebilir", "Kullanıcı geri bildirimine dayanır", "Teslimatlar küçük ve sıklıkla yapılır", "Başlangıçta tüm proje detaylı ve sabit planlanır", "Takımlar kendi kararlarını alabilir"],
+        question: "CI/CD'de şeffaflığın (transparency) önemi nedir?",
+        options: ["UI tasarımını kolaylaştırır", "Geliştiricilerin hatayı hızlı teşhis etmesini sağlar", "Test süresini artırır", "Deployment'ı engeller", "API kullanımını azaltır"],
+        correct: 1
+    },
+    {
+        question: "CI/CD'de otomasyon neden gereklidir?",
+        options: ["Manuel adımları azaltır, sürekli test ve deploy sağlar", "Kod okunabilirliğini artırır", "Manual testleri siler", "Grafikleri optimize eder", "Gherkin ile bütünleşir"],
+        correct: 0
+    },
+    {
+        question: "\"Built-in Quality\" (Yerleşik kalite) ne demektir?",
+        options: ["Kalite sürecini dışa aktarmak", "Kalitenin baştan itibaren entegre edilmesi", "Deployment sonrası test", "UI görselliği", "Versiyon yönetimini dışlamak"],
+        correct: 1
+    },
+    {
+        question: "DORA metriklerinden biri olan \"Deployment Frequency\" neyi ölçer?",
+        options: ["UI yükleme süresi", "Gherkin performansı", "Sisteme ne sıklıkla yeni kod gönderildiği", "Kod okunabilirliği", "Build süresi"],
+        correct: 2
+    },
+    {
+        question: "Dayanıklılığı artırmak için CI/CD sürecine ne dahil edilmelidir?",
+        options: ["Sadece log kaydı", "XML validation", "Test kapsamı, gözlemlenebilirlik ve feature flag'ler", "Manual dağıtım", "Mock API verileri"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi CI/CD sürecindeki \"Deploy\" aşamasında yapılır?",
+        options: ["Kod gözden geçirilir", "Versiyon çıkarılır", "Uygulama canlı ortama aktarılır", "Pull request açılır", "Script yazılır"],
+        correct: 2
+    },
+    {
+        question: "CI/CD sürecinde \"Monitor\" adımı neden kritiktir?",
+        options: ["UI görselliği sağlar", "Build süresini uzatır", "Canlı sistemdeki hataların erken fark edilmesini sağlar", "Versiyonlama sunar", "Swagger dokümantasyonu oluşturur"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki araçlardan hangisi test sürecini başlatmak ve loglamak için sıklıkla kullanılır?",
+        options: ["Selenium", "Jira", "Jenkins", "Google Forms", "GitHub Copilot"],
+        correct: 2
+    },
+    {
+        question: "Bir CI/CD pipeline'da hangi araç \"test başlat - derle - sonuç topla\" döngüsünü yönetir?",
+        options: ["SpecFlow", "GitHub Actions", "Visual Studio", "REST Assured", "CSS Grid"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi CI/CD'ye entegre bir \"gözlemlenebilirlik (observability)\" aracıdır?",
+        options: ["Gherkin", "New Relic", "Mocha", "Bash", "IntelliJ"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki süreçlerden hangisi tam otomasyon CI/CD yapısında en kritik adımdır?",
+        options: ["Testlerin başarısına göre dağıtım kararının otomatik alınması", "UI elemanlarının elle kontrolü", "Versiyon notlarının manuel yazılması", "Mail ile test sonucu gönderilmesi", "Screenshot alınması"],
+        correct: 0
+    },
+    {
+        question: "CI/CD ile dağıtım sürecinde geri alma (rollback) neden önemlidir?",
+        options: ["Dağıtım hızını azaltır", "UI entegrasyonu yapar", "Hatalı dağıtımda sistemi geri yüklemeye olanak tanır", "Rapor gönderir", "Build loglarını siler"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi doğrudan bir \"pipeline\" bileşeni değildir?",
+        options: ["Build", "Test", "Deploy", "Budgeting", "Monitor"],
         correct: 3
     },
     {
-        question: "Yazılım hatalarıyla ilgili olarak aşağıdaki eşleştirmelerden hangisi doğrudur?",
-        options: ["Error – Kullanıcıdan gelen hatalı giriş", "Fault – Sistem donanım arızası", "Failure – Kodun içinde var olan hata", "Fault – Kodda bulunan kusur", "Failure – Kullanıcının beklentisini aşan performans"],
+        question: "CI/CD'nin yazılım geliştirme üzerindeki etkisi aşağıdakilerden hangisidir?",
+        options: ["Geliştirme sürecini hızlandırır ve güvenilirliği artırır", "Kod karmaşıklığını artırır", "Testleri azaltır", "UI kodlarını siler", "JSON performansını azaltır"],
+        correct: 0
+    },
+    {
+        question: "CI/CD sürecinde ortam değişkenlerinin (environment variables) kullanımı ne sağlar?",
+        options: ["Loglama süresini uzatır", "Aynı pipeline'ı farklı ortamlarda tekrar kullanabilme esnekliği sağlar", "UI senkronizasyonu kurar", "Deployment'ı sınırlar", "Version control'ü durdurur"],
+        correct: 1
+    },
+        {
+        question: "API kullanımı aşağıdakilerden hangisi için en uygundur?",
+        options: ["Veri tabanı yedekleme", "UI geliştirme", "Sistemler arası veri paylaşımı sağlamak", "CSS düzenleme", "Script derlemek"],
+        correct: 2
+    },
+    {
+        question: "REST API özelliği olarak hangisi doğrudur?",
+        options: ["Sunucuda oturum bilgisini saklar", "Sadece XML ile çalışır", "Her istek bağımsızdır ve HTTP kullanır", "Token olmadan çalışmaz", "Önbelleğe yazım yapar"],
+        correct: 2
+    },
+    {
+        question: "Postman'de \"Body\" sekmesi ne için kullanılır?",
+        options: ["Header düzenleme", "JSON yanıtını okuma", "Gönderilecek verinin içeriğini tanımlama", "Script tanımı yapma", "Parametre ayarı yapma"],
+        correct: 2
+    },
+    {
+        question: "\"GET\" metodunun amacı nedir?",
+        options: ["Veriyi almak", "Veriyi silmek", "Token oluşturmak", "Header tanımlamak", "Kullanıcı eklemek"],
+        correct: 0
+    },
+    {
+        question: "\"pm.expect(jsonData.name).to.eql('Ali');\" kodu neyi kontrol eder?",
+        options: ["Status kodu", "JSON içinde 'name' alanının Ali olup olmadığını", "Body değerini siler", "Header'ı işler", "GET metodu çalıştırır"],
+        correct: 1
+    },
+    {
+        question: "BDD'de senaryo yazım dili nedir?",
+        options: ["Java", "C#", "Gherkin", "Bash", "TypeScript"],
+        correct: 2
+    },
+    {
+        question: "\"Scenario Outline\" aşağıdakilerden hangisini sağlar?",
+        options: ["Kod içi refactor", "Aynı senaryonun farklı verilerle tekrarı", "Raporlama", "Tek bir test için statik değer", "JSON karşılaştırma"],
+        correct: 1
+    },
+    {
+        question: "\"Given - When - Then\" yapısı hangi bağlamda kullanılır?",
+        options: ["TDD test metodları", "Jenkins pipeline", "Kullanıcı davranışı senaryosu tanımlama (BDD)", "Selenium navigasyonu", "Webhook yapılandırması"],
+        correct: 2
+    },
+    {
+        question: "BDD ile TDD arasındaki fark nedir?",
+        options: ["Aynı işlevde kullanılır", "Biri davranış, diğeri kod odaklıdır", "Her ikisi de manuel çalışır", "TDD daha anlaşılırdır", "BDD yalnızca mobil testte çalışır"],
+        correct: 1
+    },
+    {
+        question: "\"Red - Green - Refactor\" hangi geliştirme sürecine aittir?",
+        options: ["CI/CD", "UI Design", "BDD", "TDD", "Version Control"],
         correct: 3
     },
     {
-        question: "Aşağıdakilerden hangisi test otomasyonunun temel görevlerinden biri değildir?",
-        options: ["Test senaryosunun otomatik olarak çalıştırılması", "Kullanıcı ara yüz tasarımı yapılması", "Test sonucunun değerlendirilmesi", "Ön koşulların hazırlanması", "Raporlamanın yapılması"],
+        question: "Test otomasyonunun en büyük avantajı nedir?",
+        options: ["Hataları erken yakalama ve tekrarlanabilirlik", "Kod yazım kolaylığı", "UI güzelliği", "Database yönetimi", "Git entegrasyonu"],
+        correct: 0
+    },
+    {
+        question: "Selenium WebDriver'ın temel işlevi nedir?",
+        options: ["API testi yapmak", "CI/CD başlatmak", "Web sayfaları üzerinde kullanıcı aksiyonlarını simüle etmek", "Postman senaryoları oluşturmak", "JSON ayrıştırmak"],
+        correct: 2
+    },
+    {
+        question: "TestNG ne sağlar?",
+        options: ["Gherkin senaryosu yazar", "Testleri sıralı, raporlu ve organize çalıştırır", "HTML şablonu oluşturur", "Chrome uzantısıdır", "Prometheus ile log tutar"],
         correct: 1
     },
     {
-        question: "Turkcell’de test otomasyonunda kullanılan, Android ve iOS uygulamalara test yazmak için kullanılan araç aşağıdakilerden hangisidir?",
-        options: ["Testroyer", "Jenkins", "Appium", "JUnit", "Gauge"],
-        correct: 2
+        question: "Implicit wait nedir?",
+        options: ["Tüm öğeler için global bekleme tanımıdır", "Sadece hata olduğunda çalışır", "Refactor sonrası kullanılır", "Jenkins üzerinden tetiklenir", "TestNG'nin bir özelliğidir"],
+        correct: 0
     },
     {
-        question: "XPath ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
-        options: ["Sadece veritabanı sorgularında kullanılır", "Kod kalitesi ölçümleme dilidir", "Web sayfası öğelerini bulmak için kullanılır", "Jenkins içinde kod derlemeye yarar", "Unit test çerçevesidir"],
-        correct: 2
-    },
-    {
-        question: "Test olgunluk seviyeleri ile ilgili olarak Beizer’ın 3. seviyesinde testin amacı nedir?",
-        options: ["Kod içindeki bug’ları göstermek", "Testi debug ile aynı görmek", "Yazılımın doğruluğunu ispatlamak", "Sadece başarıyı kanıtlamak", "Riskleri azaltmak"],
-        correct: 4
-    },
-    {
-        question: "Aşağıdakilerden hangisi test otomasyonu sürecinde organizasyonel zorluklardan biri değildir?",
-        options: ["Ekiplerin test sürecine öncelik vermemesi", "Üst yönetim desteğinin az olması", "Farklı yazılım dillerinin birlikte çalışması", "Testin proje sürecinde ikinci planda kalması", "Proje baskısıyla testlerin atlanması"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdaki ifadelerden hangisi RPA (Robotic Process Automation) hakkında yanlıştır?",
-        options: ["İnsan hatasını azaltır", "Kural bazlı iş süreçlerini simüle eder", "Kod yazmayı gerektirir", "Maliyetleri düşürür", "Tekrarlayan işleri otomatikleştirir"],
-        correct: 2
-    },
-    {
-        question: "“Given – When – Then” yapısıyla senaryo yazmaya olanak sağlayan test yaklaşımı aşağıdakilerden hangisidir?",
-        options: ["Unit Testing", "System Testing", "BDD – Davranışa Dayalı Geliştirme", "TDD – Teste Dayalı Geliştirme", "Regression Testing"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdaki test çerçevelerinden hangisi Java dili için kullanılır?",
-        options: ["PHPUnit", "unittest", "JUnit", "NUnit", "PyTest"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdaki test çerçevelerinden hangisiyle yazılmış bir test, mobil uygulama testi için uygundur?",
-        options: ["JUnit", "Appium", "Jenkins", "SonarQube", "Git"],
+        question: "Allure Report'un amacı nedir?",
+        options: ["Versiyonlama", "Etkileşimli test raporları oluşturmak", "Log ayıklamak", "Database kontrolü", "Pull request tetiklemek"],
         correct: 1
     },
     {
-        question: "Aşağıdaki araçlardan hangisi yazılım kalitesini ve kod güvenliğini analiz etmek amacıyla kullanılır?",
-        options: ["Jenkins", "SonarQube", "Appium", "Git", "Gauge"],
+        question: "CI/CD'de \"Monitor\" aşaması ne işe yarar?",
+        options: ["UI testini kontrol eder", "Canlı ortamda hataları erken tespit eder", "Kod push eder", "Gherkin çalıştırır", "Tarayıcı başlatır"],
         correct: 1
     },
     {
-        question: "Test senaryolarını sürekli entegrasyon sürecinde otomatik çalıştırmak için aşağıdaki araçlardan hangisi kullanılır?",
-        options: ["SonarQube", "Appium", "Jenkins", "JUnit", "RPA"],
+        question: "Prometheus'un temel rolü nedir?",
+        options: ["Selenium tetiklemek", "JSON işlemek", "Metrik toplamak", "API test etmek", "Jenkins'e veri yazmak"],
         correct: 2
     },
     {
-        question: "Aşağıdakilerden hangisi test otomasyonunun yazılım geliştirme süreçlerine kattığı en önemli avantajlardan biri değildir?",
-        options: ["Test tekrarının hızlanması", "Test sonuçlarının izlenebilir olması", "Kodun doğrudan çalıştırılması", "Hata oranının azalması", "Süreçlerin belgelenmesi"],
+        question: "GitHub Actions ile ne yapılır?",
+        options: ["Mobil test", "SQL işlemi", "CI/CD iş akışı oluşturmak ve tetiklemek", "Kod arşivleme", "Gherkin yazmak"],
         correct: 2
     },
     {
-        question: "BDD (Davranışa Dayalı Geliştirme) yaklaşımının temel amacı aşağıdakilerden hangisidir?",
-        options: ["Kod kalitesini ölçmek", "Geliştiricilerin işini kolaylaştırmak", "Test senaryolarını teknik olmayan kişilerin de anlayabileceği şekilde yazmak", "Yazılım hatalarını veri tabanında bulmak", "Derleme süresini azaltmak"],
+        question: "Jenkins aşağıdakilerden hangisi için kullanılır?",
+        options: ["CI/CD sürecini otomatikleştirmek", "API endpoint oluşturmak", "TestNG'ye veri aktarmak", "Only mobile testing", "HTML builder olarak çalışmak"],
+        correct: 0
+    },
+    {
+        question: "ArgoCD'nin temel kullanım alanı nedir?",
+        options: ["Visual Studio uyarlaması", "Mobil test çerçevesi", "Kubernetes ortamlarına uygulama dağıtımı (CD)", "UI test framework'ü", "Database aracı"],
+        correct: 2
+    },
+    // ÖRNEK SINAV 2
+    {
+        question: "Postman'de \"Pre-request Script\" ne zaman çalışır?",
+        options: ["İstek gönderilmeden hemen önce", "Yanıt alındıktan sonra", "Sadece DELETE işlemi için", "Body JSON verisi alındığında", "Runner başlatıldığında"],
+        correct: 0
+    },
+    {
+        question: "pm.response.to.have.status(200); komutu neyi doğrular?",
+        options: ["Token oluşturulduğunu", "HTTP yanıtının 200 olup olmadığını", "JSON formatının doğru olduğunu", "GET isteğinin çalıştığını", "Parametre gönderimini"],
+        correct: 1
+    },
+    {
+        question: "Collection variable tanımlamak ne sağlar?",
+        options: ["API dokümantasyonu", "Aynı koleksiyondaki farklı isteklerde ortak değer kullanımı", "Başka koleksiyonları çağırma", "JSON validation", "Header token üretimi"],
+        correct: 1
+    },
+    {
+        question: "BDD senaryosunda \"Background\" ne işe yarar?",
+        options: ["Her senaryoda ortak başlangıç adımlarını belirtmek için kullanılır", "Gherkin dosyasını kapatır", "UI bileşeni üretir", "TestNG'ye aktarım yapar", "Status code saklar"],
+        correct: 0
+    },
+    {
+        question: "Aşağıdakilerden hangisi Gherkin sözdiziminde yorum satırı başlatmak için kullanılır?",
+        options: ["//", "#", "", "%%", "/***/"],
+        correct: 1
+    },
+    {
+        question: "SpecFlow aşağıdaki ortamlardan hangisinde yaygındır?",
+        options: ["Python", "Node.js", ".NET", "JavaScript", "Ruby"],
         correct: 2
     },
     {
-        question: "XPath diliyle ilgili olarak aşağıdakilerden hangisi yanlıştır?",
-        options: ["Web sayfasındaki elementleri seçmeye yarar", "XML ve HTML yapılarını hedefler", "Mobil uygulama testlerinde kullanılamaz", "Appium gibi araçlarla birlikte çalışabilir", "Selektörleri belirlemek için kullanılır"],
+        question: "TDD sürecinde \"Green\" aşaması neyi temsil eder?",
+        options: ["Refactor sonrası testin başarısız olması", "Yazılan testin geçmesi için yeterli kodun yazılması", "Kodun üretime alınması", "Senaryonun silinmesi", "Başarısız senaryonun yeniden denenmesi"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi BDD'nin doğrudan avantajlarından biridir?",
+        options: ["Daha az test yazılması", "Takımlar arası ortak dil oluşturması", "Performans optimizasyonu", "Derleme süresini kısaltma", "API endpoint üretme"],
+        correct: 1
+    },
+    {
+        question: "Test otomasyonunda kullanılan click() metodu ne yapar?",
+        options: ["Sayfayı yeniler", "JSON döner", "Belirli bir öğeye tıklama simülasyonu yapar", "Scroll yapar", "TestNG başlatır"],
         correct: 2
     },
     {
-        question: "Aşağıdakilerden hangisi Beizer’ın test olgunluk seviyesi içinde yer almaz?",
-        options: ["Test sadece hata göstermek içindir", "Test, yazılım geliştirme disiplinidir", "Test, sistemin çalıştığını göstermek içindir", "Test, kullanıcı deneyimini artırmak içindir", "Test, riskleri azaltmak içindir"],
+        question: "Fluent Wait ile ilgili aşağıdakilerden hangisi doğrudur?",
+        options: ["Sabit zaman aralığıyla çalışır", "Sadece POST isteklerinde kullanılır", "Özelleştirilebilir yoklama aralığı ve istisna yönetimi sunar", "WebDriver ile uyumlu değildir", "Runner'da çalışmaz"],
+        correct: 2
+    },
+    {
+        question: "TestNG'de @AfterMethod anotasyonu ne işe yarar?",
+        options: ["Her test metodundan sonra çalışacak işlemleri tanımlar", "Setup başlatır", "Sadece sınıf başında çalışır", "CI/CD entegrasyonunu kapatır", "Jenkins tetikleme komutu verir"],
+        correct: 0
+    },
+    {
+        question: "Selenium IDE'nin kullanım amacı nedir?",
+        options: ["Gherkin yazmak", "API test etmek", "Tarayıcı eylemlerini kayıt/oynatmak", "Raporlamak", "Version kontrol"],
+        correct: 2
+    },
+    {
+        question: "CI/CD'de \"Automation\"ın anlamı nedir?",
+        options: ["Kod yorumlamak", "Test, build ve dağıtım işlemlerinin manuel müdahale olmadan çalışması", "API kodu üretmek", "Logları silmek", "UI mocklamak"],
+        correct: 1
+    },
+    {
+        question: "\"Built-in Quality\" kavramı hangi amacı ifade eder?",
+        options: ["Ürün testi yapılmaz", "Test dışarıdan yapılır", "Kalitenin geliştirmenin her aşamasına entegre edilmesi", "Versiyon kontrolü", "Performans ölçümü"],
+        correct: 2
+    },
+    {
+        question: "Jenkins'in amacı nedir?",
+        options: ["REST API geliştirmek", "CI/CD iş akışlarını tetiklemek ve yönetmek", "JavaScript frameworkü oluşturmak", "Script yazmak", "Versiyon tutmak"],
+        correct: 1
+    },
+    {
+        question: "Elastic Stack ile aşağıdakilerden hangisi yapılmaz?",
+        options: ["Log toplama", "Veri analizi", "Unit test yazma", "Görselleştirme", "Uyarı tanımlama"],
+        correct: 2
+    },
+    {
+        question: "Prometheus + Grafana kombinasyonu hangi avantajı sunar?",
+        options: ["Metrik toplama ve görsel gösterim", "Deployment entegrasyonu", "Web testi", "Test case yazımı", "Script dönüştürme"],
+        correct: 0
+    },
+    {
+        question: "\"Deployment Frequency\" metriği neyi ölçer?",
+        options: ["CI build süresi", "Test yoğunluğu", "Sisteme ne sıklıkla yeni kod gönderildiğini", "Web testi sonucu", "UI bileşen değişimi"],
+        correct: 2
+    },
+    {
+        question: "CI/CD'de rollback neden önemlidir?",
+        options: ["Build süresini hızlandırmak için", "Logları temizlemek için", "Hatalı dağıtımlarda önceki sürüme dönmeyi sağlamak için", "Postman senaryosunu iptal eder", "Debug yapmak için"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi bir pipeline bileşeni değildir?",
+        options: ["Test", "Deploy", "Branding", "Monitor", "Build"],
+        correct: 2
+    },
+    // ÖRNEK SINAV 3
+    {
+        question: "Postman'da \"Tests\" sekmesinin amacı nedir?",
+        options: ["Header düzenlemek", "API yanıtını kodla doğrulamak", "JSON body oluşturmak", "UI testi yapmak", "Request URL'i değiştirmek"],
+        correct: 1
+    },
+    {
+        question: "Postman'daki pm.environment.get() fonksiyonu ne işe yarar?",
+        options: ["Global değişken siler", "Ortam değişkeninin değerini getirir", "Collection siler", "UI stilini değiştirir", "Test sonuçlarını arşivler"],
+        correct: 1
+    },
+    {
+        question: "Postman Runner ne için kullanılır?",
+        options: ["Database yedeği almak", "Birden fazla isteği topluca çalıştırmak", "JavaScript debug yapmak", "JSON schema üretmek", "UI test kaydı"],
+        correct: 1
+    },
+    {
+        question: "BDD'nin yazılım testine katkısı nedir?",
+        options: ["Kod karmaşıklığını artırır", "Paydaşların davranış odaklı test senaryolarını anlamasını sağlar", "Otomasyon testine engel olur", "Süreçleri yavaşlatır", "UI mocklama sürecidir"],
+        correct: 1
+    },
+    {
+        question: "\"Given - When - Then\" kalıbı ne sağlar?",
+        options: ["Selenium'da UI geçişi", "Kullanıcı davranışının sistemde nasıl işlemesi gerektiğini ifade eder", "Jenkins tetikleyici yazar", "Build komutu üretir", "JSON içerik üretir"],
+        correct: 1
+    },
+    {
+        question: "Scenario Outline ve Examples birlikteliği ne amaçla kullanılır?",
+        options: ["Unit test çalıştırmak", "Aynı senaryoyu farklı verilerle test etmek", "WebDriver tetiklemek", "Monitor grafiği üretmek", "Jenkins pipeline başlatmak"],
+        correct: 1
+    },
+    {
+        question: "SpecFlow kullanımı hangi programlama diliyle yaygındır?",
+        options: ["Python", "Ruby", "C# (.NET)", "Kotlin", "Bash"],
+        correct: 2
+    },
+    {
+        question: "TDD'de \"Refactor\" aşaması ne anlama gelir?",
+        options: ["Testi silmek", "Testler geçtikten sonra kodu sadeleştirerek iyileştirmek", "Gherkin senaryosu yazmak", "Log kaydını silmek", "HTML rapor oluşturmak"],
+        correct: 1
+    },
+    {
+        question: "TDD'nin birincil amacı nedir?",
+        options: ["UI tasarlamak", "Test odaklı kod üretmek", "Performans ölçmek", "API cache sistemi kurmak", "Metrik izlemek"],
+        correct: 1
+    },
+    {
+        question: "Test otomasyonunda clear() metodu ne yapar?",
+        options: ["Bir input alanını sıfırlar", "TestNG testini kapatır", "JSON içerik oluşturur", "Token üretir", "WebDriver durdurur"],
+        correct: 0
+    },
+    {
+        question: "Selenium WebDriver'da getAttribute() fonksiyonu ne döndürür?",
+        options: ["Bir öğenin istenen HTML özniteliğini (örneğin: href)", "Sayfa başlığını", "UI rengini", "Kullanıcı adını", "Status code"],
+        correct: 0
+    },
+    {
+        question: "Selenium'da isDisplayed() neyi kontrol eder?",
+        options: ["Sayfa başlığını", "Bir öğenin ekranda görünüp görünmediğini", "Attribute değerini", "JSON içinde anahtar adı", "Status kodunu"],
+        correct: 1
+    },
+    {
+        question: "Implicit Wait özelliği nasıl çalışır?",
+        options: ["Sadece bir öğe için geçerlidir", "Tüm öğeler için global bekleme süresi tanımlar", "JavaScript'e özgüdür", "JSON response sürelerini ölçer", "Jenkins'te devreye girer"],
+        correct: 1
+    },
+    {
+        question: "POM'un yazılım testine sağladığı avantaj nedir?",
+        options: ["Testleri uzatır", "Kodun modüler, bakımı kolay ve okunabilir olmasını sağlar", "JSON üretir", "Header değiştirir", "CI/CD başlatır"],
+        correct: 1
+    },
+    {
+        question: "Allure Report aşağıdakilerden hangisini sunmaz?",
+        options: ["Görsel raporlama", "Başarı/başarısızlık logları", "Kod compile etme", "Test adımı bazında görseller", "HTML çıktılar"],
+        correct: 2
+    },
+    {
+        question: "CI/CD'de kullanılan \"Build\" aşamasında ne yapılır?",
+        options: ["Monitoring yapılır", "Kod derlenir ve yapı dosyası oluşturulur", "Log kaydı alınır", "UI tasarımı yapılır", "Deploy edilir"],
+        correct: 1
+    },
+    {
+        question: "\"Version control system (VCS)\" ne sağlar?",
+        options: ["Test senaryosu üretimi", "Kod değişikliklerini takip ve geri alabilme", "Dashboard çizimi", "API cache tutma", "HTML export"],
+        correct: 1
+    },
+    {
+        question: "ELK Stack bileşenlerinden Kibana'nın rolü nedir?",
+        options: ["Kod compile eder", "Logları analiz eder ve grafiklerle gösterir", "JSON üretir", "Unit test çalıştırır", "Feature flag kontrol eder"],
+        correct: 1
+    },
+    {
+        question: "\"Deployment frequency\" metriği ne işe yarar?",
+        options: ["Build zamanını ölçer", "Log boyutunu verir", "Kodun ne sıklıkla canlıya alındığını gösterir", "API başarısı", "Status kontrolü"],
+        correct: 2
+    },
+    {
+        question: "CI/CD süreçlerinde \"security\" neden önemlidir?",
+        options: ["Logları şifreler", "UI mock üretir", "Dağıtıma giren kodların denetlenebilirliğini ve güvenliğini sağlar", "TestNG ile eşleşir", "JSON içeriğini temizler"],
+        correct: 2
+    },
+    // ÖRNEK SINAV 4
+    {
+        question: "Postman'da \"Environment Variable\" tanımlamanın temel amacı nedir?",
+        options: ["JSON'u dinamikleştirmek", "Farklı ortamlarda aynı isteği yeniden kullanılabilir hâle getirmek", "Header tanımı oluşturmak", "Test sonuçlarını gizlemek", "Otomatik GET çağrısı yapmak"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki değişken söz dizimlerinden hangisi Postman'da environment değişkenine aittir?",
+        options: ["#ENV:baseUrl", "[baseUrl]", "{{baseUrl}}", "/env/baseUrl", "$baseUrl"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi Postman test script'lerinde kullanılmaz?",
+        options: ["pm.test()", "html.report()", "pm.expect()", "pm.response", "pm.environment.get()"],
+        correct: 1
+    },
+    {
+        question: "BDD'nin \"living documentation\" özelliği neyi ifade eder?",
+        options: ["Gherkin senaryolarının hem test hem belge olarak kullanılabilmesini", "API testleri oluşturmayı", "Yalnızca CI/CD uyumluluğunu", "XML dokümantasyonu", "Build çıktısı"],
+        correct: 0
+    },
+    {
+        question: "Aşağıdaki Gherkin bileşenlerinden hangisi \"çoklu veriyle çalışmayı\" sağlar?",
+        options: ["Given", "Then", "Scenario Outline", "Background", "Feature"],
+        correct: 2
+    },
+    {
+        question: "Gherkin ile tanımlanmış senaryoların otomatik olarak çalışması için ne gerekir?",
+        options: ["Selenium Grid", "Jenkins", "Cucumber veya SpecFlow gibi bir framework", "Visual Studio", "TestNG XML dosyası"],
+        correct: 2
+    },
+    {
+        question: "\"Refactor\" aşaması ne zaman yapılmalıdır?",
+        options: ["Testler başarısızken", "Gherkin tamamlandıktan sonra", "Tüm testler geçtikten sonra kodun iyileştirilmesi için", "Loglar oluşturulmadan önce", "JSON parse işleminden önce"],
+        correct: 2
+    },
+    {
+        question: "TDD'nin avantajlarından biri değildir:",
+        options: ["Modüler kod", "Daha karmaşık yazılım mimarisi", "Hata riskini azaltma", "Kod güveni", "Refactor kolaylığı"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki WebDriver komutlarından hangisi sayfa başlığını verir?",
+        options: ["getText()", "is Displayed()", "findElement()", "getTitle()", "getAttribute()"],
         correct: 3
     },
     {
-        question: "Aşağıdakilerden hangisi test otomasyonu ile sağlanan faydalardan biri değildir?",
-        options: ["Testlerin her gün otomatik koşturulması", "Geliştiricilerin daha az kod yazması", "Hataların erken aşamada tespiti", "Raporlamaların düzenli yapılması", "Zaman tasarrufu sağlanması"],
+        question: "Selenium'da navigate().refresh() komutu ne yapar?",
+        options: ["Sayfayı yeniler", "Öğe bulur", "Oturumu kapatır", "JSON verisini işler", "WebDriver'ı kapatır"],
+        correct: 0
+    },
+    {
+        question: "Selenium Grid'de \"Node\" neyi ifade eder?",
+        options: ["Versiyon kontrol sistemi", "Testin yürütüldüğü tarayıcı çalıştırıcı makine", "Log kayıt merkezi", "HTML raporlayıcı", "Page Object sınıfı"],
         correct: 1
     },
     {
-        question: "Turkcell’de testlerin otomatik çalışması, entegrasyon ve bildirim süreci aşağıdaki araçlardan hangisiyle sağlanır?",
-        options: ["Gauge", "Git", "Jenkins", "Appium", "Jira"],
+        question: "Explicit Wait'in avantajı nedir?",
+        options: ["Kod sadeleştirir", "Her öğe için tek kullanılır", "Belirli koşul gerçekleşene kadar hedeflenen öğe için bekleme sağlar", "CI/CD'yi hızlandırır", "JSON mapping'i kolaylaştırır"],
         correct: 2
     },
     {
-        question: "Testroyer aracı ile ilgili aşağıdakilerden hangisi doğrudur?",
-        options: ["Açık kaynak kodlu genel bir test aracıdır", "Sadece manuel testlerin dokümantasyonu için kullanılır", "Turkcell’e özgü bir test otomasyon platformudur", "Mobil uygulama testlerinde kullanılamaz", "Sadece unit testleri destekler"],
+        question: "TestNG'de @BeforeClass anotasyonu ne zaman çalışır?",
+        options: ["Her testten önce", "Test bitince", "Sınıftaki testlerden önce bir kez", "CI/CD sonrası", "Browser kapanınca"],
         correct: 2
     },
     {
-        question: "Test otomasyonu senaryolarında ön koşulların hazırlanması süreci aşağıdakilerden hangisini kapsamaz?",
-        options: ["Test verilerinin oluşturulması", "Test ortamının kurulması", "UI tasarımı yapılması", "Sistem giriş bilgilerinin ayarlanması", "Script’in başlatma durumuna getirilmesi"],
+        question: "CI/CD sürecinin en önemli otomasyon avantajı nedir?",
+        options: ["Daha çok insan kaynağı ihtiyacı", "Kodun hızlı, sürekli ve güvenli bir şekilde devreye alınması", "UI karmaşıklığı", "Kodun daha az test edilmesi", "JSON temizliği"],
+        correct: 1
+    },
+    {
+        question: "Monitor aşaması neden kritik sayılır?",
+        options: ["Deploy'u engeller", "Canlı sistemdeki performans ve hata durumlarını izler", "Kod versiyonlarını listeler", "Kullanıcı arayüzünü analiz eder", "GitHub branch'lerini sıralar"],
+        correct: 1
+    },
+    {
+        question: "Kibana hangi yapının parçasıdır?",
+        options: ["Prometheus", "ELK Stack", "Jenkins", "Playwright", "Appium"],
+        correct: 1
+    },
+    {
+        question: "Datadog ile ne yapılamaz?",
+        options: ["Uygulama performans izleme", "Altyapı takibi", "Test senaryosu çalıştırma", "Anomali tespiti", "APM takibi"],
+        correct: 2
+    },
+    {
+        question: "CI/CD süreçlerinde kullanılan \"Speed\" başarı kriteri hangi metrikle ölçülür?",
+        options: ["Test coverage", "Screenshot count", "Deployment frequency & Lead time", "JSON satırı", "WebSocket mesajları"],
+        correct: 2
+    },
+    {
+        question: "ArgoCD hangi platformla doğrudan ilişkilidir?",
+        options: ["Flask", "Kubernetes", "Postman", "Jenkins", "Selenium IDE"],
+        correct: 1
+    },
+    {
+        question: "GitHub Actions kullanımı aşağıdakilerden hangisini sağlar?",
+        options: ["UI test başlatmak", "Kod push sonrası otomatik işlem adımı tetiklemek", "REST endpoint oluşturmak", "Swagger UI döndürmek", "JSON dosyası temizlemek"],
+        correct: 1
+    },
+    // ÖRNEK SINAV 5
+    {
+        question: "Postman'da bir koleksiyon içindeki tüm istekleri sırasıyla çalıştırmak için hangi araç kullanılır?",
+        options: ["Test", "Runner", "Collection Viewer", "JSON Formatter", "Request Batch"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki seçeneklerden hangisi Postman'da test script'lerinde \"yanıt süresi\"ni kontrol eder?",
+        options: ["pm.request.size", "pm.response.responseTime", "pm.body.json", "pm.tokenCheck", "pm.statusMatch"],
+        correct: 1
+    },
+    {
+        question: "Bir API'ye POST isteği gönderilirken genellikle hangi içerik türü kullanılır?",
+        options: ["text/html", "application/json", "application/xml", "image/png", "multipart/form"],
+        correct: 1
+    },
+    {
+        question: "Gherkin dilinde \"Examples\" bloğu ne işe yarar?",
+        options: ["TestNG entegrasyonu", "Farklı veri girdileriyle aynı senaryoyu çalıştırmak", "Build dosyası oluşturmak", "JSON verisini temizlemek", "Yorum eklemek"],
+        correct: 1
+    },
+    {
+        question: "\"Feature: Kullanıcı giriş yapar\" ifadesi Gherkin'de neyi tanımlar?",
+        options: ["JSON dökümanı", "UI elementi", "Test edilen özelliği veya modülü", "Jenkins job tanımı", "CI/CD pipeline"],
+        correct: 2
+    },
+    {
+        question: "Cucumber kullanımıyla ilgili aşağıdakilerden hangisi yanlıştır?",
+        options: ["Açık kaynaklıdır", "Ruby tabanlıdır", "Sadece mobil testler içindir", "Gherkin syntax kullanır", "Java, C# gibi dilleri destekler"],
+        correct: 2
+    },
+    {
+        question: "BDD yaklaşımı hangi durumda daha etkisizdir?",
+        options: ["Basit senaryolarda", "Otomasyon olmayan yapılarda", "Geniş ekiplerde", "Çok karmaşık ve edge-case içeren senaryolarda", "Agile organizasyonlarda"],
+        correct: 3
+    },
+    {
+        question: "TDD'de ilk adım olarak ne yapılır?",
+        options: ["Deploy", "Test yazılır", "Kod çalıştırılır", "Log alınır", "Monitor başlatılır"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi Selenium WebDriver'ın \"bekleme (wait)\" türlerinden biridir?",
+        options: ["Custom Wait", "Session Delay", "JavaScript Wait", "Fluent Wait", "Polling Wait"],
+        correct: 3
+    },
+    {
+        question: "driver.navigate().back(); komutu ne yapar?",
+        options: ["WebDriver'ı kapatır", "Sayfayı yeniler", "Tarayıcı geçmişinde bir önceki sayfaya gider", "URL'yi değiştirir", "Sayfa başlığını alır"],
+        correct: 2
+    },
+    {
+        question: "element.isEnabled() komutu neyi kontrol eder?",
+        options: ["Element DOM'da var mı", "Elementin kullanıcı etkileşimine açık olup olmadığını", "Elementin sınıfı", "Elementin text'i", "JSON content var mı"],
+        correct: 1
+    },
+    {
+        question: "Selenium IDE'nin temel avantajı nedir?",
+        options: ["Kod yazmadan test senaryosu oluşturulabilmesi", "JSON düzenleyicisi", "Build yönetimi", "Tarayıcı eylemlerini kaydetme ve oynatma kolaylığı", "Token üretme"],
+        correct: 3
+    },
+    {
+        question: "TestNG'de @AfterSuite anotasyonu ne zaman çalışır?",
+        options: ["Her testten sonra", "Class bazında", "Tüm suite tamamlandıktan sonra bir kez", "Jenkins tetiklenince", "Gherkin çalışınca"],
+        correct: 2
+    },
+    {
+        question: "Selenium Grid ne zaman kullanılır?",
+        options: ["Sadece API testlerinde", "Paralel test yürütme ve çapraz tarayıcı testlerinde", "Gherkin yorumlama için", "TestNG çalıştırmak için", "Raporları analiz etmek için"],
+        correct: 1
+    },
+    {
+        question: "Jenkins dosya yapılandırmasında \"pipeline\" nedir?",
+        options: ["Log klasörü", "Otomatik test ve deploy akışını tanımlayan yapı", "Browser sürücü listesi", "Database sürümü", "YAML kod yorumlayıcı"],
+        correct: 1
+    },
+    {
+        question: "CI/CD sürecinde \"Build\" adımında ne yapılmaz?",
+        options: ["Derleme", "Versiyon üretme", "Canlıya dağıtım (production deploy)", "Unit testler", "Artefact oluşturma"],
+        correct: 2
+    },
+    {
+        question: "Monitoring sistemlerinin en önemli avantajı nedir?",
+        options: ["Swagger üretimi", "Tarayıcı testleri", "Sorunları erken tespit ederek önlem alma imkânı", "JSON güzelleştirme", "Kod tekrarını azaltma"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi \"özgün\" bir izleme aracı değildir?",
+        options: ["Prometheus", "Grafana", "Selenium IDE", "New Relic", "Zabbix"],
+        correct: 2
+    },
+    {
+        question: "\"Transparency\" CI/CD süreçlerinde neyi ifade eder?",
+        options: ["Sadece test coverage'1", "Süreç içinde hataların ve ilerlemenin açık ve izlenebilir olması", "API dokümantasyonunun otomatik olması", "Tüm testlerin UI ile gösterilmesi", "Deployment sonucu mail atılması"],
+        correct: 1
+    },
+    {
+        question: "ArgoCD aşağıdaki ihtiyaçlardan hangisini karşılar?",
+        options: ["Gherkin parser", "JSON validator", "Kubernetes ortamına otomatik dağıtım (CD)", "Database versiyonlama", "Test script yazımı"],
         correct: 2
     }
 ];
