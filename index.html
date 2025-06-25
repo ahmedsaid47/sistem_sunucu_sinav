@@ -304,6 +304,48 @@ const allQuestions = [
         correct: 2
     },
     {
+        question: "RAG sistemleri neden yenconst allQuestions = [
+    {
+        question: "RAG sistemlerinin klasik LLM’lere göre en önemli farkı nedir?",
+        options: ["Daha hızlı inference süresi", "Eğitim verisinin dışına çıkabilmesi", "Daha kısa cevap üretmesi", "Sadece görsel veriyle çalışması"],
+        correct: 1
+    },
+    {
+        question: "RAG mimarisinde retriever’ın görevi nedir?",
+        options: ["Belgeyi tokenize etmek", "Model çıktısını sıralamak", "Soruya en alakalı belgeleri getirmek", "Dil modeli parametrelerini eğitmek"],
+        correct: 2
+    },
+    {
+        question: "Generator (üretici) modül hangi girdiye göre çalışır?",
+        options: ["İnternet bağlantısına", "Doğrudan kullanıcı sorusuna", "Retriever’dan gelen belgeler ve soru kombinasyonuna", "Sadece embed edilmiş vektöre"],
+        correct: 2
+    },
+    {
+        question: "RAG sisteminde “embedding” işlemi neden yapılır?",
+        options: ["Token’ları şifrelemek için", "Cevapları tabloya dökmek için", "Metinleri anlamsal vektörlere çevirmek için", "JSON formatına dönüştürmek için"],
+        correct: 2
+    },
+    {
+        question: "Embedding’lerin saklandığı veritabanı türü nedir?",
+        options: ["NoSQL", "Time-series", "Vektör veritabanı", "Graph DB"],
+        correct: 2
+    },
+    {
+        question: "Vektör veritabanlarında arama genellikle hangi yöntemle yapılır?",
+        options: ["Regex", "Nearest Neighbor Search", "Keyword Scoring", "Hash Bloom Index"],
+        correct: 1
+    },
+    {
+        question: "RAG’in halüsinasyon riskini azaltmasının temel nedeni nedir?",
+        options: ["Modelin kendini eğitmesi", "Sadece sabit veriyle çalışması", "Cevabını harici kaynaklara dayandırması", "Web search’e bağlı kalması"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi RAG mimarisinin bir parçası değildir?",
+        options: ["Retriever", "Generator", "Optimizer", "Embedding Encoder"],
+        correct: 2
+    },
+    {
         question: "RAG sistemleri neden yeniden eğitime gerek duymaz?",
         options: ["Self-supervised oldukları için", "Harici veri indeksleri güncellenebilir olduğu için", "Sadece önceden tanımlı soruları yanıtladığı için", "Pre-trained olmadığı için"],
         correct: 1
@@ -512,6 +554,106 @@ const allQuestions = [
         question: "Aşağıdakilerden hangisi RAG sisteminin modüler olmasının bir sonucudur?",
         options: ["GPU’ya ihtiyaç duyulmaması", "Her bileşenin ayrı optimize edilebilmesi", "Belge kaynağının değiştirilememesi", "Prompt’ların sabit olması"],
         correct: 1
+    },
+    {
+        question: "Aşağıdaki fonksiyon ne tür bir zincirin parçasıdır?",
+        options: ["Token işleme zinciri", "Embed kontrol zinciri", "Halüsinasyon değerlendirme zinciri", "Rewriter tetikleme zinciri"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki kodun çıktısı ne olur?",
+        options: ["GENERATE", "None", "WEBSEARCH", "REWRITE"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki zincirin işlevi nedir?",
+        options: ["Belgeleri embedding’le karşılaştırır", "Belgeleri halüsinasyona göre filtreler", "Belge alaka düzeyini sayısal skorla ölçer", "Belgenin kaynağını belirler"],
+        correct: 2
+    },
+    {
+        question: "Bu node zincirde hangi amaçla çalışır?",
+        options: ["Cevap üretimi ile web araması arasında seçim yapar", "Belgeyi embed eder", "Zinciri başlatır", "Modelin çıktısını görselleştirir"],
+        correct: 0
+    },
+    {
+        question: "Bu yapı hangi durumda “GENERATION REJECTED” çıktısını verir?",
+        options: ["Cevap, belgelerle tamamen tutarlıysa", "Halüsinasyon şüphesi varsa", "Token boyutu 512’den küçükse", "Kullanıcı promptu eksikse"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki route_question fonksiyonu ne işe yarar?",
+        options: ["Embedding türünü belirler", "Veri kaynağını tespit eder", "LLM’i sıfırlar", "Prompt’ları test eder"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki kod ne zaman çalışır?",
+        options: ["Belgeler yetersizse", "Halüsinasyon varsa", "Web araması gerekiyorsa", "Zincir durduysa"],
+        correct: 0
+    },
+    {
+        question: "RunnableLambda(self_reflection_fn) ifadesi hangi aşamada kullanılır?",
+        options: ["Soru yönlendirme", "Embed doğrulama", "Cevapların içsel tutarlılığı", "Web araması başlatma"],
+        correct: 2
+    },
+    {
+        question: "StrOutputParser() ne tür çıktı üretir?",
+        options: ["Integer", "Boolean", "JSON", "String"],
+        correct: 3
+    },
+    {
+        question: "Aşağıdaki zincirin tamamlanma hedefi nedir?",
+        options: ["Belge embed’lemek", "Kullanıcıya gösterilecek nihai cevabı üretmek", "JSON belgelerini saklamak", "Node seçimi yapmak"],
+        correct: 1
+    },
+    {
+        question: "reflection_score.binary_score == \"no\" çıktısı ne anlama gelir?",
+        options: ["Cevap belgelerle uyumlu", "Cevap yetersiz", "Cevap çelişkili veya şüpheli", "Web araması başarılı"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdaki retrieve() fonksiyonu ne yapar?",
+        options: ["Belgeleri yeniden yazmak", "Embedleri çözmek", "Soruya göre vektör tabanlı belgeleri getirir", "Sadece web kaynağı kullanmak"],
+        correct: 2
+    },
+    {
+        question: "Bu kodun amacı nedir?",
+        options: ["Metinleri HTML'e dönüştürmek", "JSON verisini Document nesnesine dönüştürmek", "Metadata’yı embed etmek", "API endpoint tanımlamak"],
+        correct: 1
+    },
+    {
+        question: "LangGraph içinde “set_entry_point” fonksiyonu ne işe yarar?",
+        options: ["Belgeleri filtreler", "Akışın başlayacağı ilk node'u belirler", "JSON output oluşturur", "LLM’i başlatır"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki yapı zincire ne kazandırır?",
+        options: ["Web search fonksiyonu", "Modeli prompt’a göre yönlendirme", "Cevapların içsel analizini zincire dahil etme", "Zinciri kapatma"],
+        correct: 2
+    },
+    {
+        question: "JsonOutputParser() ne yapar?",
+        options: ["Cevapları görselleştirir", "JSON string’ini Python objesine dönüştürür", "Token embed’i başlatır", "Zinciri yeniden oluşturur"],
+        correct: 1
+    },
+    {
+        question: "Bu kontrol neyi ölçer?",
+        options: ["Cevap kaynaklarla uyumlu mu", "Belge türü doğru mu", "Token limiti yeterli mi", "Halüsinasyon var mı"],
+        correct: 0
+    },
+    {
+        question: "workflow.add_conditional_edges(...) ne işe yarar?",
+        options: ["Zinciri başlatır", "Düğümler arası koşullu geçiş sağlar", "Belgeleri sıralar", "LLM çıktısını işler"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki kod bloğu ne yapar?",
+        options: ["Embed skoru hesaplar", "Belgenin ilgili olup olmadığını değerlendirir", "Token limitini ölçer", "JSON'u formatlar"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdaki kod zincirinde hangi araç kullanılmaz?",
+        options: ["LLM", "Prompt", "Document", "Parser"],
+        correct: 2
     }
 ];
 
