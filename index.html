@@ -263,1113 +263,255 @@
 
 <script>
 const allQuestions = [
-    // Bölüm 1: Genel Kullanım ve API Testing
     {
-        question: "Aşağıdakilerden hangisi bir API'nin temel işlevlerinden biri değildir?",
-        options: ["Veri paylaşımı", "Uygulama arayüzü tasarımı", "Sistemler arası iletişim", "Fonksiyon çağrısı", "Harici servis entegrasyonu"],
+        question: "RAG sistemlerinin klasik LLM’lere göre en önemli farkı nedir?",
+        options: ["Daha hızlı inference süresi", "Eğitim verisinin dışına çıkabilmesi", "Daha kısa cevap üretmesi", "Sadece görsel veriyle çalışması"],
         correct: 1
     },
     {
-        question: "REST API ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
-        options: ["SOAP protokolüne dayanır", "HTTP üzerinden iletişim kurar", "XML zorunludur", "Durum bilgisi tutar", "Tarayıcı eklentisi gerektirir"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi SOAP API'nin karakteristik özelliğidir?",
-        options: ["Stateless çalışması", "Yüksek güvenlik ve XML formatı", "Gherkin diliyle yazılır", "Swagger tabanlıdır", "JSON zorunludur"],
-        correct: 1
-    },
-    {
-        question: "GraphQL API'nin en belirgin özelliği nedir?",
-        options: ["HTTP dışı protokoller kullanması", "Kullanıcının istediği alanları sorgulayabilmesi", "Sadece tek endpoint kullanması", "Yalnızca XML desteklemesi", "Header zorunluluğu"],
-        correct: 1
-    },
-    {
-        question: "WebSocket API aşağıdakilerden hangisi için en uygundur?",
-        options: ["E-posta doğrulama", "Sadece REST yanıtları için", "Gerçek zamanlı veri aktarımı", "Form verisi işleme", "Veritabanı yedekleme"],
+        question: "RAG mimarisinde retriever’ın görevi nedir?",
+        options: ["Belgeyi tokenize etmek", "Model çıktısını sıralamak", "Soruya en alakalı belgeleri getirmek", "Dil modeli parametrelerini eğitmek"],
         correct: 2
     },
     {
-        question: "Postman ile ilgili aşağıdakilerden hangisi yanlıştır?",
-        options: ["API istekleri test edilebilir", "Script yazılabilir", "JSON verileri gönderilebilir", "Sadece GET isteklerini destekler", "Header ayarları yapılabilir"],
+        question: "Generator (üretici) modül hangi girdiye göre çalışır?",
+        options: ["İnternet bağlantısına", "Doğrudan kullanıcı sorusuna", "Retriever’dan gelen belgeler ve soru kombinasyonuna", "Sadece embed edilmiş vektöre"],
+        correct: 2
+    },
+    {
+        question: "RAG sisteminde “embedding” işlemi neden yapılır?",
+        options: ["Token’ları şifrelemek için", "Cevapları tabloya dökmek için", "Metinleri anlamsal vektörlere çevirmek için", "JSON formatına dönüştürmek için"],
+        correct: 2
+    },
+    {
+        question: "Embedding’lerin saklandığı veritabanı türü nedir?",
+        options: ["NoSQL", "Time-series", "Vektör veritabanı", "Graph DB"],
+        correct: 2
+    },
+    {
+        question: "Vektör veritabanlarında arama genellikle hangi yöntemle yapılır?",
+        options: ["Regex", "Nearest Neighbor Search", "Keyword Scoring", "Hash Bloom Index"],
+        correct: 1
+    },
+    {
+        question: "RAG’in halüsinasyon riskini azaltmasının temel nedeni nedir?",
+        options: ["Modelin kendini eğitmesi", "Sadece sabit veriyle çalışması", "Cevabını harici kaynaklara dayandırması", "Web search’e bağlı kalması"],
+        correct: 2
+    },
+    {
+        question: "Aşağıdakilerden hangisi RAG mimarisinin bir parçası değildir?",
+        options: ["Retriever", "Generator", "Optimizer", "Embedding Encoder"],
+        correct: 2
+    },
+    {
+        question: "RAG sistemleri neden yeniden eğitime gerek duymaz?",
+        options: ["Self-supervised oldukları için", "Harici veri indeksleri güncellenebilir olduğu için", "Sadece önceden tanımlı soruları yanıtladığı için", "Pre-trained olmadığı için"],
+        correct: 1
+    },
+    {
+        question: "RAG ile elde edilen cevapların doğrulanabilirliği neye bağlıdır?",
+        options: ["Modelin parameter tuning’ine", "Prompt uzunluğuna", "Cevabın dayandığı belgenin izlenebilirliğine", "Vektörlerin boyutuna"],
+        correct: 2
+    },
+    {
+        question: "Dense retrieval sistemi nasıl çalışır?",
+        options: ["Anahtar kelime eşleşmesine bakar", "Sadece regex kullanır", "Semantik benzerliğe dayalı vektör eşleştirmesi yapar", "Sadece kullanıcı geçmişine göre filtreleme yapar"],
+        correct: 2
+    },
+    {
+        question: "Sparse retrieval aşağıdaki hangi algoritmayı kullanmaz?",
+        options: ["TF-IDF", "BM25", "Jaccard", "BERT"],
         correct: 3
     },
     {
-        question: "Postman'da birden fazla API isteğini gruplayarak yönetmek için ne kullanılır?",
-        options: ["Workspace", "Pre-request", "Collection", "Body", "Params"],
+        question: "Dense retrieval’in avantajı nedir?",
+        options: ["Sadece hızlı çalışması", "Kelime sıklığına duyarsız olması", "Anlamsal benzerlikleri yakalayabilmesi", "API bağımsız olması"],
         correct: 2
     },
     {
-        question: "Aşağıdakilerden hangisi Postman'da sadece Body sekmesinde yapılan bir işlemdir?",
-        options: ["Authorization token ekleme", "JSON içerik gönderme", "Header ayarlama", "URL parametresi tanımlama", "Script çalıştırma"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdaki HTTP metodlarından hangisi veriyi güncellemek için kullanılır?",
-        options: ["DELETE", "POST", "PUT", "PATCH", "GET"],
+        question: "Sparse retrieval’in zayıf noktası nedir?",
+        options: ["Token embedding kullanması", "Sadece vektör benzerliğiyle çalışması", "Eş anlamlı ifadeleri kaçırması", "GPU gerektirmesi"],
         correct: 2
     },
     {
-        question: "API'de veriyi silmek için kullanılan HTTP metodu nedir?",
-        options: ["PUT", "HEAD", "PATCH", "GET", "DELETE"],
-        correct: 4
-    },
-    {
-        question: "Aşağıdakilerden hangisi GET isteği ile ilgili doğru bir ifadedir?",
-        options: ["Veritabanına veri ekler", "Veri getirir", "Veriyi siler", "Token üretir", "JSON parse işlemi yapar"],
-        correct: 1
-    },
-    {
-        question: "POST isteği ile gönderilen verinin formatı genellikle nedir?",
-        options: ["HTML", "XML", "JSON", "CSV", "TXT"],
+        question: "Embedding işlemi sırasında hangi model kullanılmaz?",
+        options: ["SentenceTransformer", "OpenAI Embedding", "TF-IDF", "HuggingFace Embedding"],
         correct: 2
     },
     {
-        question: "Aşağıdaki Postman sekmelerinden hangisi test doğrulaması için kullanılır?",
-        options: ["Headers", "Params", "Body", "Tests", "Scripts"],
-        correct: 3
-    },
-    {
-        question: "Aşağıdaki kod neyi kontrol eder? pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
-        options: ["Token üretimini", "İstek sonucu HTTP 200 mü kontrol eder", "Gövde verisini JSON'a çevirir", "Kullanıcı adı doğrulamasını", "Header değerini kontrol eder"],
-        correct: 1
-    },
-    {
-        question: "pm.environment.get(\"baseUrl\") komutu ne yapar?",
-        options: ["URL parametresini siler", "Global değişken tanımlar", "Ortam değişkenini çağırır", "JSON değerlerini kontrol eder", "Authorization sağlar"],
+        question: "FAISS nedir?",
+        options: ["Transformer modeli", "Dense retriever", "Vektör arama kütüphanesi", "Sentence optimizer"],
         correct: 2
     },
     {
-        question: "Collection variable nerede kullanılır?",
-        options: ["Tüm workspace'te", "Sadece belirli bir koleksiyonda", "Yalnızca Postman Runner'da", "JSON Body içinde", "Header kısmında"],
+        question: "RAG pipeline’ında “Grade (Node)” ne yapar?",
+        options: ["Sorguyu yeniden yazar", "Belge benzerlik skorlarını hesaplar", "Modelin cevabını özetler", "Web’den veri çeker"],
         correct: 1
     },
     {
-        question: "Aşağıdakilerden hangisi Environment Variable için doğru bir kullanım örneğidir?",
-        options: ["[bookingId]", "{{baseUrl}}", "/users/:id", "token-value", "[env:prod]"],
+        question: "RAG mimarisinde “Generate (Node)” hangi veriyle çalışır?",
+        options: ["Raw kullanıcı girdisi", "Belge metni + soru", "Sadece retriever çıktısı", "Embedding vektörü"],
         correct: 1
     },
     {
-        question: "Postman'da \"Pre-request Script\" ne zaman çalışır?",
-        options: ["İstek gönderilmeden hemen önce", "JSON parse işleminden sonra", "Yanıt geldikten sonra", "API çağrısı tamamlandıktan sonra", "Response 404 ise"],
+        question: "Hallucination detection’ın amacı nedir?",
+        options: ["Cevabı zenginleştirmek", "Modelin eğitim hatalarını bulmak", "Kaynağa dayanmayan cümleleri tespit etmek", "Cevabın stilini değiştirmek"],
+        correct: 2
+    },
+    {
+        question: "QA Alignment neyi kontrol eder?",
+        options: ["Soru-cevap semantik uyumunu", "Cevabın dilbilgisini", "Kaynak linklerinin formatını", "Belge embedding oranını"],
         correct: 0
     },
     {
-        question: "Postman'da \"Runner\" aracı ne işe yarar?",
-        options: ["Token üretir", "JSON'ları XML'e çevirir", "Koleksiyon içindeki istekleri topluca çalıştırır", "Sunucu başlatır", "UI tasarımı yapar"],
-        correct: 2
-    },
-    {
-        question: "Postman ile aynı koleksiyon içinde birden fazla test çalıştırmak istiyorsanız hangi özellik kullanılır?",
-        options: ["Environment", "Runner", "Params", "Status Code", "XPath"],
+        question: "Advanced RAG’de “Query Analysis” neyi belirler?",
+        options: ["Belgenin PDF olup olmadığını", "Sorgunun indeksle mi yoksa web aramasıyla mı çözüleceğini", "Cevap formatını", "Belge sayısını"],
         correct: 1
     },
     {
-        question: "Aşağıdaki JSON verisi hangi işlemde kullanılır? { \"username\": \"test\", \"password\": \"1234\" }",
-        options: ["GET isteği", "Params ile gönderim", "Header kontrolü", "POST Body içeriği", "Test Script'i"],
-        correct: 3
+        question: "RAG + Self-Reflection sisteminde en son kontrol adımı nedir?",
+        options: ["Re-write", "Grade", "QA Alignment", "Index refresh"],
+        correct: 2
     },
     {
-        question: "Authorization: Bearer <token> ifadesi hangi HTTP başlığında yer alır?",
-        options: ["Header", "Params", "Body", "Tests", "Environment"],
+        question: "Self-reflection şu durumda devreye girer:",
+        options: ["Soru çok kısa olduğunda", "Model cevabı oluşturduktan sonra doğruluğunu kontrol etmek için", "Web araması tamamlanmadığında", "Belge vektörü boşsa"],
+        correct: 1
+    },
+    {
+        question: "“Re-write Question” Node ne zaman çalışır?",
+        options: ["Embedding başarısız olursa", "Sorgu çok belirsiz ya da bağlamsızsa", "Model cevap veremezse", "Belge yüklenmezse"],
+        correct: 1
+    },
+    {
+        question: "“Docs Relevant?” kontrolü ne işe yarar?",
+        options: ["Belgelerin etik olup olmadığını kontrol eder", "Belge sayısına göre belgeyi özetler", "Getirilen belgelerin yeterince alakalı olup olmadığını belirler", "Kullanıcıyı loglar"],
+        correct: 2
+    },
+    {
+        question: "Web Search modülü hangi durumda devreye girer?",
+        options: ["PDF eksikse", "Indeks dışı sorgu geldiğinde", "Token sınırı aşıldığında", "Embed vektörü çok kısa olduğunda"],
+        correct: 1
+    },
+    {
+        question: "Advanced RAG mimarilerinde “loop” yapısı hangi amaçla kurulur?",
+        options: ["Aynı cevabı tekrar etmek için", "Self-improvement için", "Prompt formatını test etmek için", "Model parametresi değiştirmek için"],
+        correct: 1
+    },
+    {
+        question: "Reflection prompt ne işe yarar?",
+        options: ["Prompt’un rengini değiştirir", "Cevap üretilmeden önce self-check yapar", "Belge filtrelemesi yapar", "Sorguyu düz metne dönüştürür"],
+        correct: 1
+    },
+    {
+        question: "RAG sisteminin “tekrar deneme” (retry) mekanizması aşağıdaki durumlarda devreye girmez:",
+        options: ["Belge puanı düşükse", "Cevap çok kısa ise", "Soru çok iyi yazılmışsa", "QA alignment başarısızsa"],
+        correct: 2
+    },
+    {
+        question: "“Generate Node” sonucu doğrudan kabul edilmezse ilk yapılması gereken nedir?",
+        options: ["Soru yeniden yazılır", "Web Search yapılır", "Belge eklenir", "Kullanıcıya hata verilir"],
         correct: 0
     },
     {
-        question: "Test senaryosunda \"pm.expect(...).to.eql(...);\"kullanımı ne içindir?",
-        options: ["Token silmek", "Header değerini değiştirmek", "Belirli bir değerin eşitliğini kontrol etmek", "POST işlemini tetiklemek", "Log üretmek"],
-        correct: 2
-    },
-    {
-        question: "Runner çalıştırılırken test sonucu kaç şekilde sonuçlanabilir?",
-        options: ["Sadece başarılı", "Başarılı ve geçersiz", "Başarılı, başarısız, atlanan", "Yalnızca başarısız", "Doğrulanmamış"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi pm.response.responseTime kullanımı ile ilgilidir?",
-        options: ["Token süresi kontrolü", "Kullanıcı adı kontrolü", "Yanıt süresinin sınırlandırılması", "JSON schema doğrulama", "Status code testi"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi Tests sekmesinde yazılmaz?",
-        options: ["Status code kontrolü", "JSON field doğrulama", "UI görünümü", "Yanıt süresi ölçme", "Field değer karşılaştırma"],
-        correct: 2
-    },
-    {
-        question: "Postman'da birden fazla ortam için farklı baseUrl değerleri tanımlamak ne sağlar?",
-        options: ["UI özelleştirmesi", "Geliştirme, test, prod ortamlarına uygun istekler", "JSON validation", "Header kontrolü", "Token üretimi"],
+        question: "Adaptive-RAG’in getirdiği en büyük yenilik aşağıdakilerden hangisidir?",
+        options: ["Belgeleri PDF’e dönüştürme", "Sorunun karmaşıklığına göre belge sayısını ayarlama", "Web tabanlı yanıt üretme", "Belge özetleme yapma"],
         correct: 1
     },
     {
-        question: "API testinde bir isteğin sonucuna göre diğer istekte değişken kullanımı nasıl sağlanır?",
-        options: ["Params sekmesiyle", "Tests sekmesinde değer set edilerek", "Script yerine Console log kullanılarak", "Environment değil, Collection ile", "Token URL'ye yazılarak"],
+        question: "Adaptive-RAG’in verimliliği nasıl artar?",
+        options: ["Cevapları daha kısa tutarak", "Basit sorulara az, karmaşık sorulara çok belge getirerek", "Embedding boyutunu küçülterek", "Modeli yeniden eğiterek"],
         correct: 1
     },
     {
-        question: "Aşağıdakilerden hangisi Postman'da test doğrulama yapılabilecek bir komut değildir?",
-        options: ["pm.setEnvironment()", "pm.response.to.have.status()", "pm.expect().to.eql()", "pm.test()", "pm.response.responseTime"],
+        question: "Self-RAG mimarisinde kullanılan “Reflection Prompt”un işlevi nedir?",
+        options: ["Modelin cevap verirken hata yapmasını teşvik eder", "Modelin kendi cevabını değerlendirmesine olanak tanır", "Kullanıcıdan yeni veri alır", "Token sayısını hesaplar"],
+        correct: 1
+    },
+    {
+        question: "Self-RAG sistemi kaç aşamadan oluşur?",
+        options: ["2", "3", "4", "5"],
+        correct: 2
+    },
+    {
+        question: "Self-RAG’in klasik RAG’e göre katkısı nedir?",
+        options: ["Doğruluk oranını %10’a kadar artırması", "Daha az GPU kullanması", "Tüm verileri taraması", "Web tarayıcısı üzerinden çalışması"],
         correct: 0
     },
     {
-        question: "pm.variables.set(\"token\", value) komutu ne yapar?",
-        options: ["Body'de token değiştirir", "Geçici bir değişken oluşturur", "JSON içeriğini işler", "Token'ı siler", "BaseUrl değiştirir"],
-        correct: 1
-    },
-    // Bölüm 2: BDD && TDD
-    {
-        question: "BDD'nin temel amacı nedir?",
-        options: ["Kodun hızını artırmak", "Davranışları kullanıcı bakış açısıyla tanımlamak", "Yalnızca test kapsamını genişletmek", "Refactoring zorunluluğu getirmek", "Unit testleri azaltmak"],
+        question: "Corrective-RAG sisteminde hangi veri türü retriever’ı eğitmek için kullanılır?",
+        options: ["Token geçmişi", "Önceden hatalı bulunmuş yanıtlar", "Doğru cevap listesi", "LLM’in parametre ağırlıkları"],
         correct: 1
     },
     {
-        question: "BDD sürecinde hangi rol doğrudan dahil değildir?",
-        options: ["Yazılımcı", "QA/Test mühendisi", "Sistem yöneticisi", "Ürün sahibi", "İş analisti"],
+        question: "Corrective-RAG’in hedefi nedir?",
+        options: ["Belge filtrelemesi", "Sistematik hataların tekrarını önlemek", "Yeni belge üretmek", "Web üzerinden bilgi çekmek"],
+        correct: 1
+    },
+    {
+        question: "Aşağıdakilerden hangisi Corrective-RAG’in içeriğinde YOKTUR?",
+        options: ["Geri bildirim kullanımı", "Retriever + Generator ortak eğitimi", "Self-evaluation", "Hatalı cevap üzerinden düzeltme"],
         correct: 2
     },
     {
-        question: "BDD yaklaşımı hangi metodolojiyle daha uyumludur?",
-        options: ["Agile", "Waterfall", "Spiral", "V-Model", "RAD"],
+        question: "Adaptive-RAG ve Self-RAG’in ortak noktası nedir?",
+        options: ["Her ikisi de tek belgeyle çalışır", "Her ikisi de cevabı sorgular ve geliştirir", "Her ikisi sabit retriever kullanır", "Web search entegrasyonu içerir"],
+        correct: 1
+    },
+    {
+        question: "Self-RAG ve Corrective-RAG farkı nedir?",
+        options: ["Self-RAG kendi kendine değerlendirme yapar, Corrective-RAG dışarıdan geri bildirimle eğitilir", "Self-RAG görsel verilerle çalışır, Corrective-RAG çalışmaz", "Corrective-RAG sadece web içeriklerini işler", "Self-RAG sadece JSON dosyalarıyla eğitilir"],
         correct: 0
     },
     {
-        question: "Gherkin dili aşağıdakilerden hangisiyle kullanılır?",
-        options: ["SOAP", "Cucumber/SpecFlow", "RESTful API", "Postman", "Jenkins"],
+        question: "Aşağıdakilerden hangisi RAG sisteminin bilinen endüstri kullanımlarındandır?",
+        options: ["Excel hücre tamamlama", "Meta BlenderBot 3", "Spotify müzik sıralayıcı", "Twitter öneri motoru"],
         correct: 1
     },
     {
-        question: "Aşağıdakilerden hangisi Gherkin sözdiziminde kullanılan bir anahtar kelime değildir?",
-        options: ["Given", "When", "Then", "Run", "Scenario"],
-        correct: 3
-    },
-    {
-        question: "Aşağıdaki Gherkin ifadesi neyi tanımlar? Scenario: User logs in successfully",
-        options: ["Bir davranış senaryosu başlatır", "JSON veri şeması oluşturur", "API endpoint çağırır", "TestNG testini tetikler", "Database scriptini çalıştırır"],
+        question: "OpenAI’nin ChatGPT’de kullandığı RAG benzeri yapı nedir?",
+        options: ["Browse + Retrieval Plugin", "RLHF", "Diffusion encoder", "Image captioning"],
         correct: 0
     },
     {
-        question: "Gherkin'de \"Background\" ne için kullanılır?",
-        options: ["UI rengi ayarı", "Test verisi görselleştirme", "Her senaryoda ortak olan başlangıç adımlarını tanımlamak için", "Log ayarlarını değiştirmek için", "Database bağlantısı kurmak için"],
+        question: "Cohere’in RAG sistemi hangi amaçla tasarlanmıştır?",
+        options: ["Görüntü sınıflandırma", "Hukuk belgeleri oluşturma", "Seyahat danışmanı olarak veritabanı sorgulama", "Web scrapping"],
         correct: 2
     },
     {
-        question: "Aşağıdakilerden hangisi bir Gherkin \"Scenario Outline\" özelliğidir?",
-        options: ["Aynı adımları farklı verilerle tekrar kullanmak", "Kod derlemesi yapmak", "Selenium testlerini başlatmak", "UI navigasyonunu kaydetmek", "Response süresi ölçmek"],
-        correct: 0
-    },
-    {
-        question: "Gherkin syntax'ındaki \"Examples\" bloğu ne işe yarar?",
-        options: ["Veritabanı örneklerini listeler", "Senaryo için girilecek test verilerini tanımlar", "JSON örneklerini işler", "API çağrısı yapar", "Tag listesi üretir"],
+        question: "IBM Watsonx RAG sistemleri hangi sektörde örneklenmiştir?",
+        options: ["E-ticaret", "Çağrı merkezi konuşma analizi", "Eğitim içeriği oluşturma", "Sosyal medya filtreleme"],
         correct: 1
     },
     {
-        question: "Aşağıdakilerden hangisi Gherkin syntax'ında kullanılan yorum (comment) karakteridir?",
-        options: ["//", "#", "", ";;", "/* */"],
+        question: "Microsoft Copilot’un RAG kullanım örneği nedir?",
+        options: ["Video içeriği oluşturmak", "Belgeleri okuyup özetleme", "Token embedding hesaplamak", "JSON token’ları üretmek"],
         correct: 1
     },
     {
-        question: "BDD'nin en büyük avantajlarından biri aşağıdakilerden hangisidir?",
-        options: ["Deployment süresini kısaltır", "Takımlar arasında daha iyi iş birliği sağlar", "UI hatalarını azaltır", "Network kullanımını optimize eder", "SQL performansını artırır"],
+        question: "Meta’nın Atlas modelinin bir özelliği nedir?",
+        options: ["Dil dönüştürme için kullanılması", "Retrieval-augmented few-shot learning desteği", "Görüntü sentezi yapması", "Etik filtreleme"],
         correct: 1
     },
     {
-        question: "Aşağıdakilerden hangisi BDD'nin doğrudan sunduğu bir çıktı değildir?",
-        options: ["Ortak dil", "Otomatik test", "Gherkin dokümantasyonu", "Debugger arayüzü", "Yaşayan dokümantasyon (living docs)"],
-        correct: 3
+        question: "RAG sisteminde bağlamın doğru seçilmesi neden önemlidir?",
+        options: ["Token maliyetini artırmak için", "Cevapları anlamsal olarak zenginleştirmek için", "Web taraması için zaman kazanmak", "Embedding hesaplamasını atlamak için"],
+        correct: 1
     },
     {
-        question: "BDD aşağıdakilerin hangisinde zorluk yaşayabilir?",
-        options: ["Basit senaryolar", "İş birliği ortamları", "Karmaşık edge-case senaryolar", "Kod tabanı olmayan projeler", "Geliştirici olmayan ortamlar"],
+        question: "RAG sistemlerinde top-K seçimi neyi etkiler?",
+        options: ["Modelin dilini", "Belge uzunluğunu", "Kaç adet belge kullanılacağını", "Token embedding ağırlığını"],
         correct: 2
     },
     {
-        question: "Aşağıdakilerden hangisi BDD'nin sınırlılıklarındandır?",
-        options: ["Gherkin dilinin açık olması", "Stakeholder katılımı eksikliğinde süreç başarısız olur", "API testine uygun olmaması", "Automation'a destek vermemesi", "Yalnızca Python desteği sunması"],
+        question: "QA alignment başarısız olduğunda yapılması gereken ilk işlem nedir?",
+        options: ["Cevap silinir", "Soru yeniden yazılır", "Belgeler arşivlenir", "Token sayısı azaltılır"],
         correct: 1
     },
     {
-        question: "Aşağıdakilerden hangisi BDD sürecinde bakım zorluğu yaratabilecek bir durumdur?",
-        options: ["Cucumber kullanmak", "Refactor yapılması", "Feature dosyalarının fazla ve düzensiz olması", "TestNG ile entegre olmak", "Azure DevOps'a bağlanmak"],
-        correct: 2
-    },
-    {
-        question: "Cucumber için aşağıdaki ifadelerden hangisi doğrudur?",
-        options: ["Ruby tabanlıdır ve çoklu dil desteği sunar", "Sadece Python ile kullanılır", "BDD değil, TDD aracıdır", "UI testlerine özel geliştirilmiştir", "TestNG'ye alternatiftir"],
-        correct: 0
-    },
-    {
-        question: "SpecFlow aşağıdaki platformlardan hangisine özeldir?",
-        options: ["Java Spring", ".NET Framework", "Ruby on Rails", "Python Flask", "Node.js"],
-        correct: 1
-    },
-    {
-        question: "Acceptance Test Driven Development (ATDD) ile ilgili hangisi doğrudur?",
-        options: ["Refactoring öncesinde yapılır", "Müşteriyle birlikte tanımlanan kabul kriterlerine göre test yazılır", "Kod yazıldıktan sonra test edilir", "Sadece backend kodunu test eder", "UI odaklı çalışır"],
-        correct: 1
-    },
-    {
-        question: "SpecFlow'un \"Discuss - Distill - Develop - Demo\" süreci neyi hedefler?",
-        options: ["UI kontrolü", "Kabul testi odaklı geliştirme", "Kod kompile süresini azaltma", "Gherkin dönüşümünü", "Performans analizini"],
-        correct: 1
-    },
-    {
-        question: "BDD'de kullanılan Scenario Outline özelliği testlerde ne sağlar?",
-        options: ["Tekil örnekleri çoğaltır", "API performansı ölçer", "Aynı senaryoyu farklı verilerle tekrarlar", "TestNG entegrasyonu sağlar", "Build süresini kısaltır"],
-        correct: 2
-    },
-    {
-        question: "TDD'nin temel amacı nedir?",
-        options: ["Önce test yazıp sonra kod geliştirmektir", "UI otomasyonudur", "Gherkin senaryosu çalıştırmaktır", "Performans testi yapmaktır", "Database testini hızlandırmaktır"],
-        correct: 0
-    },
-    {
-        question: "TDD süreci hangi sıralamayı takip eder?",
-        options: ["Code → Refactor → Test", "Test → Code → Refactor", "Compile → Deploy → Test", "Debug → Build → Run", "Setup → Scenario → Given"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi \"Red\" aşamasına karşılık gelir?",
-        options: ["Refactor sonrası test geçer", "Yeni yazılan testin başta başarısız olması", "Kodun tekrar yazılması", "Testin yeşil olması", "CI/CD'ye deploy edilmesi"],
-        correct: 1
-    },
-    {
-        question: "\"Green\" aşaması neyi temsil eder?",
-        options: ["Testin başarısız olması", "Kodun refactor edilmesi", "Testin geçmesi için gereken minimum kodun yazılması", "Database bağlantısının kurulması", "Kod incelemesi"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi TDD'nin bir avantajı değildir?",
-        options: ["Modüler kod", "Geriye dönük hata yakalama", "UI görselliği artırma", "Refactor kolaylığı", "Kod güveni"],
-        correct: 2
-    },
-    {
-        question: "BDD ile TDD arasındaki temel fark nedir?",
-        options: ["Biri unit test yapmaz", "Biri kullanıcı davranışına, diğeri fonksiyona odaklanır", "TDD sadece frontend'de kullanılır", "BDD'de test yazılmaz", "TDD grafiksel betik ister"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi hem TDD hem BDD'nin ortak özelliğidir?",
-        options: ["UI testi", "Gherkin syntax'ı", "Otomasyon testine uygundur", "Kod yazılmaz", "Database zorunludur"],
-        correct: 2
-    },
-    {
-        question: "BDD aşağıdaki durumların hangisinde TDD'ye göre daha uygundur?",
-        options: ["Kodun performansını ölçmek", "Paydaşlarla test senaryosu anlaşılır kılmak", "Refactor kararı vermek", "Backend cache'i test etmek", "SQL validasyon yapmak"],
-        correct: 1
-    },
-    {
-        question: "BDD'nin dokümantasyon avantajı hangi özelliğinden gelir?",
-        options: ["Gherkin diliyle anlaşılır senaryo yazılması", "Selenium entegrasyonu", "Unit test ile çalışması", "Status code kontrolü", "Mock servisler üretmesi"],
-        correct: 0
-    },
-    {
-        question: "Aşağıdakilerden hangisi doğrudan TDD'ye ait bir yöntemdir?",
-        options: ["Red - Green - Refactor", "Feature - Scenario - Examples", "Given - When - Then", "Page Object Pattern", "Jenkins build"],
-        correct: 0
-    },
-    // Bölüm 3: Test Otomasyonu
-    {
-        question: "Test otomasyonunun temel amacı nedir?",
-        options: ["UI tasarımı yapmak", "Testleri hızlı ve hatasız şekilde tekrar çalıştırmak", "Log analizini manuel yapmak", "Kod refactor etmek", "SQL entegrasyonu kurmak"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi manuel testin otomasyon testine göre dezavantajıdır?",
-        options: ["Hızlı sonuç verme", "Ucuz yazılım lisans maliyeti", "İnsan hatası riskinin yüksek olması", "Tekrar çalıştırılabilir olması", "Otomatikleştirilebilir olması"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi sadece otomasyon testi ile sağlanabilir?",
-        options: ["UI doğrulaması", "Ekran görüntüsü alma", "CI/CD entegrasyonu ile sürekli test", "Test senaryosu yazma", "Test sonucu yorumlama"],
-        correct: 2
-    },
-    {
-        question: "Otomasyon testinde erken hata tespiti neden önemlidir?",
-        options: ["Maliyeti ve hata çözüm süresini azaltır", "Daha fazla hata çıkarır", "Kullanıcıyı koddan uzaklaştırır", "Sadece tasarım testi sağlar", "Kod derlemesi gerekmez"],
-        correct: 0
-    },
-    {
-        question: "Aşağıdakilerden hangisi test otomasyonunun dezavantajıdır?",
-        options: ["Zaman tasarrufu", "Erken hata tespiti", "Yüksek ilk kurulum maliyeti", "CI/CD uyumu", "Tekrarlanabilirlik"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdaki araçlardan hangisi web otomasyon testinde kullanılır?",
-        options: ["Postman", "Kibana", "Selenium", "SQL Profiler", "Prometheus"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdaki araçlardan hangisi mobil uygulama testleri için uygundur?",
-        options: ["Selenium Grid", "Appium", "Jenkins", "TestNG", "Cucumber"],
-        correct: 1
-    },
-    {
-        question: "Cypress'in en güçlü olduğu alan hangisidir?",
-        options: ["XML testleri", "JS tabanlı web uygulamalarında hızlı test", "Mobil uygulama testi", "Back-end test", "Database snapshot"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi REST API testleri için uygun bir araçtır?",
-        options: ["RestAssured", "Selenium", "Jenkins", "Espresso", "Playwright"],
-        correct: 0
-    },
-    {
-        question: "Karate framework'ünün temel özelliği nedir?",
-        options: ["C# desteklemesi", "Gherkin syntax ile API test yazımı", "Görsel regresyon testleri", "UI mimarisi içermesi", "Yalnızca mobil test"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi test otomasyon sürecinin adımlarından biridir?",
-        options: ["Test stratejisi belirleme", "Geliştirici kimliği oluşturma", "Versiyonlama yapma", "Logları e-posta ile atma", "Grafik tasarım yapma"],
-        correct: 0
-    },
-    {
-        question: "Aşağıdakilerden hangisi CI/CD ile sıkı entegrasyon sağlayan test aracıdır?",
-        options: ["Kibana", "GitHub Actions", "Figma", "BrowserStack", "Google Test"],
-        correct: 1
-    },
-    {
-        question: "CI/CD ile otomasyon test entegrasyonu ne sağlar?",
-        options: ["Daha iyi yazım dili", "Otomatik test çalıştırma ve sonuç izleme", "Kod karmaşıklığını artırır", "Logları siler", "UI performansını yavaşlatır"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdaki araçlardan hangisi test sonuçlarını grafiksel ve görsel olarak sunar?",
-        options: ["Allure Report", "Jenkins", "Espresso", "Postman", "Karate"],
-        correct: 0
-    },
-    {
-        question: "Aşağıdakilerden hangisi rapor oluşturma aracı değildir?",
-        options: ["ExtentReports", "Allure", "Selenium WebDriver", "HTML Report", "ReportNG"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi Selenium'un desteklediği bir tarayıcı değildir?",
-        options: ["Chrome", "Firefox", "Opera Mini", "Safari", "Edge"],
-        correct: 2
-    },
-    {
-        question: "WebDriver'in findElement() metodu ne işe yarar?",
-        options: ["Sayfadaki belirli bir öğeyi seçmek", "Sayfa başlığını değiştirmek", "Rapor üretmek", "Test senaryosu yazmak", "URL parametresi çağırmak"],
-        correct: 0
-    },
-    {
-        question: "Aşağıdakilerden hangisi sendKeys() metodunun kullanım örneğidir?",
-        options: ["Bir metin kutusuna bilgi girişi yapmak", "Log yazmak", "Screenshot almak", "Session başlatmak", "Header ayarlamak"],
-        correct: 0
-    },
-    {
-        question: "Aşağıdaki komutlardan hangisi tarayıcıyı tamamen kapatır?",
-        options: ["driver.close()", "driver.quit()", "element.clear()", "navigate().back()", "driver.kill()"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdaki WebDriver komutlarından hangisi seçili kutuyu kontrol eder?",
-        options: ["isDisplayed()", "isEnabled()", "getText()", "isSelected()", "clear()"],
-        correct: 3
-    },
-    {
-        question: "Implicit wait ile ilgili aşağıdakilerden hangisi doğrudur?",
-        options: ["Sadece bir öğe için çalışır", "Kod içinde zorunlu değildir", "Tüm öğeler için varsayılan bekleme süresi tanımlar", "Manual olarak durdurulmalıdır", "Tarayıcıyı resetler"],
-        correct: 2
-    },
-    {
-        question: "Explicit wait kullanım amacı nedir?",
-        options: ["Tarayıcıyı refresh etmek", "Belirli bir koşul sağlanana kadar beklemek", "JSON nesnesi oluşturmak", "Header tanımlamak", "Kullanıcı girişi yapmak"],
-        correct: 1
-    },
-    {
-        question: "Fluent wait ile ilgili hangisi yanlıştır?",
-        options: ["Özelleştirilebilir yoklama aralıkları sağlar", "Koşullar karşılanınca sona erer", "Yalnızca Chrome ile çalışır", "Hataları göz ardı edebilir", "Çok dinamik içerikler için uygundur"],
-        correct: 2
-    },
-    {
-        question: "Sayfa Nesne Modeli (POM) yapısında ne sağlanır?",
-        options: ["Kod tekrarını artırır", "Kodun yeniden kullanılabilir ve düzenli olmasını sağlar", "Sadece API çağrısı yapılır", "JSON pars edilir", "Build optimize edilir"],
-        correct: 1
-    },
-    {
-        question: "POM yapısında her sayfa için ne oluşturulur?",
-        options: ["SQL script", "Sınıf (class)", "Screenshot", "REST servis", "Cucumber step"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi TestNG anotasyonlarından biridir?",
-        options: ["@BeforeMethod", "@Navigate", "@GetTitle", "@JsonTest", "@AssertEqual"],
-        correct: 0
-    },
-    {
-        question: "Selenium Grid'in amacı nedir?",
-        options: ["Rapor oluşturmak", "Farklı ortamlarda testleri paralel çalıştırmak", "UI oluşturmak", "Gherkin üretmek", "Yedek almak"],
-        correct: 1
-    },
-    {
-        question: "Grid mimarisinde testler hangi yapı üzerinden yönlendirilir?",
-        options: ["Server", "Hub", "Client", "Browser", "Script"],
-        correct: 1
-    },
-    {
-        question: "Selenium IDE'nin en önemli özelliği nedir?",
-        options: ["Postman ile entegredir", "Kod yazmadan test senaryoları kaydedebilir", "CI/CD araçlarını kontrol eder", "API testinde kullanılır", "Jenkins başlatır"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi Selenium WebDriver'ın bekleme fonksiyonlarından biri değildir?",
-        options: ["Implicit Wait", "Static Wait", "Explicit Wait", "Fluent Wait", "WebDriverWait"],
-        correct: 1
-    },
-    // Bölüm 4: CI/CD
-    {
-        question: "CI'nin (Continuous Integration) temel amacı nedir?",
-        options: ["UI testi yapmak", "Kod değişikliklerini sık ve otomatik şekilde entegre etmek", "API çağrısı yapmak", "Yalnızca kodu arşivlemek", "Veritabanı replikasyonu sağlamak"],
-        correct: 1
-    },
-    {
-        question: "CD'nin (Continuous Deployment) ana farkı nedir?",
-        options: ["Kod yazmayı kolaylaştırır", "Kod testini engeller", "Otomatik olarak testten canlı ortama dağıtım yapar", "Sadece staging'de kalır", "Git kullanımı gerektirmez"],
-        correct: 2
-    },
-    {
-        question: "CI/CD sürecinin ilk adımı hangisidir?",
-        options: ["Monitor", "Build", "Deploy", "Pull Request", "Merge"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi CI/CD döngüsünde test ortamına dağıtım için kullanılır?",
-        options: ["GitHub", "Deploy aşaması", "Monitor ekranı", "Jenkins Plugin", "Database Backup"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi CI/CD'nin hedeflediği avantajlardan biri değildir?",
-        options: ["Hızlı teslim", "Yavaş ve güvenli sürüm", "Otomasyon", "Şeffaflık", "Sık güncelleme"],
-        correct: 1
-    },
-    {
-        question: "Monitoring sürecinde \"metrics\" nedir?",
-        options: ["Performansla ilgili sayısal veriler (CPU, bellek vs.)", "Test senaryoları", "Build logları", "UI test raporları", "CI süresini hesaplama aracı"],
-        correct: 0
-    },
-    {
-        question: "\"Logs\" ile ilgili aşağıdakilerden hangisi doğrudur?",
-        options: ["Görsel arayüz sağlar", "Sistem olaylarının detaylı kaydıdır", "Test senaryolarını özetler", "Yalnızca .txt formatındadır", "Kod satırlarını test eder"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi bir izleme aracı değildir?",
-        options: ["Grafana", "Prometheus", "Datadog", "Kibana", "Cucumber"],
-        correct: 4
-    },
-    {
-        question: "Prometheus ne için kullanılır?",
-        options: ["Metrik toplamak ve zaman serisi verileri izlemek", "Kod testi yapmak", "UI component üretmek", "Kodları deploy etmek", "Veritabanı analiz etmek"],
-        correct: 0
-    },
-    {
-        question: "Grafana ile ilgili aşağıdakilerden hangisi doğrudur?",
-        options: ["SQL testi yapar", "Script çalıştırır", "Metrikleri görsel dashboard olarak sunar", "TestNG entegrasyonu sağlar", "API çağrısı başlatır"],
-        correct: 2
-    },
-    {
-        question: "CI/CD süreçlerini otomatikleştirmek için en sık kullanılan araçlardan biri nedir?",
-        options: ["Jenkins", "Git", "Cucumber", "Postman", "Selenium IDE"],
-        correct: 0
-    },
-    {
-        question: "GitHub Actions ne işe yarar?",
-        options: ["Log arşivi tutar", "API yazımı sağlar", "GitHub üzerinden CI/CD adımlarını otomatikleştirir", "Sadece test senaryoları yazmak içindir", "Manual deploy yapar"],
-        correct: 2
-    },
-    {
-        question: "ELK Stack aşağıdaki öğelerden hangisini içermez?",
-        options: ["Elasticsearch", "Logstash", "Kibana", "Kafka"],
-        correct: 3
-    },
-    {
-        question: "Datadog ile ne yapılabilir?",
-        options: ["Uygulama performansını ve altyapıyı izleme", "Kod build etmek", "Docker container oluşturmak", "Mobil test başlatmak", "UI simülasyonu yapmak"],
-        correct: 0
-    },
-    {
-        question: "Aşağıdakilerden hangisi DevOps süreçlerinde kullanılan bir dağıtım yönetimi aracıdır?",
-        options: ["Gherkin", "Swagger", "ArgoCD", "VS Code", "Maven"],
-        correct: 2
-    },
-    {
-        question: "CI/CD'de şeffaflığın (transparency) önemi nedir?",
-        options: ["UI tasarımını kolaylaştırır", "Geliştiricilerin hatayı hızlı teşhis etmesini sağlar", "Test süresini artırır", "Deployment'ı engeller", "API kullanımını azaltır"],
-        correct: 1
-    },
-    {
-        question: "CI/CD'de otomasyon neden gereklidir?",
-        options: ["Manuel adımları azaltır, sürekli test ve deploy sağlar", "Kod okunabilirliğini artırır", "Manual testleri siler", "Grafikleri optimize eder", "Gherkin ile bütünleşir"],
-        correct: 0
-    },
-    {
-        question: "\"Built-in Quality\" (Yerleşik kalite) ne demektir?",
-        options: ["Kalite sürecini dışa aktarmak", "Kalitenin baştan itibaren entegre edilmesi", "Deployment sonrası test", "UI görselliği", "Versiyon yönetimini dışlamak"],
-        correct: 1
-    },
-    {
-        question: "DORA metriklerinden biri olan \"Deployment Frequency\" neyi ölçer?",
-        options: ["UI yükleme süresi", "Gherkin performansı", "Sisteme ne sıklıkla yeni kod gönderildiği", "Kod okunabilirliği", "Build süresi"],
-        correct: 2
-    },
-    {
-        question: "Dayanıklılığı artırmak için CI/CD sürecine ne dahil edilmelidir?",
-        options: ["Sadece log kaydı", "XML validation", "Test kapsamı, gözlemlenebilirlik ve feature flag'ler", "Manual dağıtım", "Mock API verileri"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi CI/CD sürecindeki \"Deploy\" aşamasında yapılır?",
-        options: ["Kod gözden geçirilir", "Versiyon çıkarılır", "Uygulama canlı ortama aktarılır", "Pull request açılır", "Script yazılır"],
-        correct: 2
-    },
-    {
-        question: "CI/CD sürecinde \"Monitor\" adımı neden kritiktir?",
-        options: ["UI görselliği sağlar", "Build süresini uzatır", "Canlı sistemdeki hataların erken fark edilmesini sağlar", "Versiyonlama sunar", "Swagger dokümantasyonu oluşturur"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdaki araçlardan hangisi test sürecini başlatmak ve loglamak için sıklıkla kullanılır?",
-        options: ["Selenium", "Jira", "Jenkins", "Google Forms", "GitHub Copilot"],
-        correct: 2
-    },
-    {
-        question: "Bir CI/CD pipeline'da hangi araç \"test başlat - derle - sonuç topla\" döngüsünü yönetir?",
-        options: ["SpecFlow", "GitHub Actions", "Visual Studio", "REST Assured", "CSS Grid"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi CI/CD'ye entegre bir \"gözlemlenebilirlik (observability)\" aracıdır?",
-        options: ["Gherkin", "New Relic", "Mocha", "Bash", "IntelliJ"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdaki süreçlerden hangisi tam otomasyon CI/CD yapısında en kritik adımdır?",
-        options: ["Testlerin başarısına göre dağıtım kararının otomatik alınması", "UI elemanlarının elle kontrolü", "Versiyon notlarının manuel yazılması", "Mail ile test sonucu gönderilmesi", "Screenshot alınması"],
-        correct: 0
-    },
-    {
-        question: "CI/CD ile dağıtım sürecinde geri alma (rollback) neden önemlidir?",
-        options: ["Dağıtım hızını azaltır", "UI entegrasyonu yapar", "Hatalı dağıtımda sistemi geri yüklemeye olanak tanır", "Rapor gönderir", "Build loglarını siler"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi doğrudan bir \"pipeline\" bileşeni değildir?",
-        options: ["Build", "Test", "Deploy", "Budgeting", "Monitor"],
-        correct: 3
-    },
-    {
-        question: "CI/CD'nin yazılım geliştirme üzerindeki etkisi aşağıdakilerden hangisidir?",
-        options: ["Geliştirme sürecini hızlandırır ve güvenilirliği artırır", "Kod karmaşıklığını artırır", "Testleri azaltır", "UI kodlarını siler", "JSON performansını azaltır"],
-        correct: 0
-    },
-    {
-        question: "CI/CD sürecinde ortam değişkenlerinin (environment variables) kullanımı ne sağlar?",
-        options: ["Loglama süresini uzatır", "Aynı pipeline'ı farklı ortamlarda tekrar kullanabilme esnekliği sağlar", "UI senkronizasyonu kurar", "Deployment'ı sınırlar", "Version control'ü durdurur"],
-        correct: 1
-    },
-        {
-        question: "API kullanımı aşağıdakilerden hangisi için en uygundur?",
-        options: ["Veri tabanı yedekleme", "UI geliştirme", "Sistemler arası veri paylaşımı sağlamak", "CSS düzenleme", "Script derlemek"],
-        correct: 2
-    },
-    {
-        question: "REST API özelliği olarak hangisi doğrudur?",
-        options: ["Sunucuda oturum bilgisini saklar", "Sadece XML ile çalışır", "Her istek bağımsızdır ve HTTP kullanır", "Token olmadan çalışmaz", "Önbelleğe yazım yapar"],
-        correct: 2
-    },
-    {
-        question: "Postman'de \"Body\" sekmesi ne için kullanılır?",
-        options: ["Header düzenleme", "JSON yanıtını okuma", "Gönderilecek verinin içeriğini tanımlama", "Script tanımı yapma", "Parametre ayarı yapma"],
-        correct: 2
-    },
-    {
-        question: "\"GET\" metodunun amacı nedir?",
-        options: ["Veriyi almak", "Veriyi silmek", "Token oluşturmak", "Header tanımlamak", "Kullanıcı eklemek"],
-        correct: 0
-    },
-    {
-        question: "\"pm.expect(jsonData.name).to.eql('Ali');\" kodu neyi kontrol eder?",
-        options: ["Status kodu", "JSON içinde 'name' alanının Ali olup olmadığını", "Body değerini siler", "Header'ı işler", "GET metodu çalıştırır"],
-        correct: 1
-    },
-    {
-        question: "BDD'de senaryo yazım dili nedir?",
-        options: ["Java", "C#", "Gherkin", "Bash", "TypeScript"],
-        correct: 2
-    },
-    {
-        question: "\"Scenario Outline\" aşağıdakilerden hangisini sağlar?",
-        options: ["Kod içi refactor", "Aynı senaryonun farklı verilerle tekrarı", "Raporlama", "Tek bir test için statik değer", "JSON karşılaştırma"],
-        correct: 1
-    },
-    {
-        question: "\"Given - When - Then\" yapısı hangi bağlamda kullanılır?",
-        options: ["TDD test metodları", "Jenkins pipeline", "Kullanıcı davranışı senaryosu tanımlama (BDD)", "Selenium navigasyonu", "Webhook yapılandırması"],
-        correct: 2
-    },
-    {
-        question: "BDD ile TDD arasındaki fark nedir?",
-        options: ["Aynı işlevde kullanılır", "Biri davranış, diğeri kod odaklıdır", "Her ikisi de manuel çalışır", "TDD daha anlaşılırdır", "BDD yalnızca mobil testte çalışır"],
-        correct: 1
-    },
-    {
-        question: "\"Red - Green - Refactor\" hangi geliştirme sürecine aittir?",
-        options: ["CI/CD", "UI Design", "BDD", "TDD", "Version Control"],
-        correct: 3
-    },
-    {
-        question: "Test otomasyonunun en büyük avantajı nedir?",
-        options: ["Hataları erken yakalama ve tekrarlanabilirlik", "Kod yazım kolaylığı", "UI güzelliği", "Database yönetimi", "Git entegrasyonu"],
-        correct: 0
-    },
-    {
-        question: "Selenium WebDriver'ın temel işlevi nedir?",
-        options: ["API testi yapmak", "CI/CD başlatmak", "Web sayfaları üzerinde kullanıcı aksiyonlarını simüle etmek", "Postman senaryoları oluşturmak", "JSON ayrıştırmak"],
-        correct: 2
-    },
-    {
-        question: "TestNG ne sağlar?",
-        options: ["Gherkin senaryosu yazar", "Testleri sıralı, raporlu ve organize çalıştırır", "HTML şablonu oluşturur", "Chrome uzantısıdır", "Prometheus ile log tutar"],
-        correct: 1
-    },
-    {
-        question: "Implicit wait nedir?",
-        options: ["Tüm öğeler için global bekleme tanımıdır", "Sadece hata olduğunda çalışır", "Refactor sonrası kullanılır", "Jenkins üzerinden tetiklenir", "TestNG'nin bir özelliğidir"],
-        correct: 0
-    },
-    {
-        question: "Allure Report'un amacı nedir?",
-        options: ["Versiyonlama", "Etkileşimli test raporları oluşturmak", "Log ayıklamak", "Database kontrolü", "Pull request tetiklemek"],
-        correct: 1
-    },
-    {
-        question: "CI/CD'de \"Monitor\" aşaması ne işe yarar?",
-        options: ["UI testini kontrol eder", "Canlı ortamda hataları erken tespit eder", "Kod push eder", "Gherkin çalıştırır", "Tarayıcı başlatır"],
-        correct: 1
-    },
-    {
-        question: "Prometheus'un temel rolü nedir?",
-        options: ["Selenium tetiklemek", "JSON işlemek", "Metrik toplamak", "API test etmek", "Jenkins'e veri yazmak"],
-        correct: 2
-    },
-    {
-        question: "GitHub Actions ile ne yapılır?",
-        options: ["Mobil test", "SQL işlemi", "CI/CD iş akışı oluşturmak ve tetiklemek", "Kod arşivleme", "Gherkin yazmak"],
-        correct: 2
-    },
-    {
-        question: "Jenkins aşağıdakilerden hangisi için kullanılır?",
-        options: ["CI/CD sürecini otomatikleştirmek", "API endpoint oluşturmak", "TestNG'ye veri aktarmak", "Only mobile testing", "HTML builder olarak çalışmak"],
-        correct: 0
-    },
-    {
-        question: "ArgoCD'nin temel kullanım alanı nedir?",
-        options: ["Visual Studio uyarlaması", "Mobil test çerçevesi", "Kubernetes ortamlarına uygulama dağıtımı (CD)", "UI test framework'ü", "Database aracı"],
-        correct: 2
-    },
-    // ÖRNEK SINAV 2
-    {
-        question: "Postman'de \"Pre-request Script\" ne zaman çalışır?",
-        options: ["İstek gönderilmeden hemen önce", "Yanıt alındıktan sonra", "Sadece DELETE işlemi için", "Body JSON verisi alındığında", "Runner başlatıldığında"],
-        correct: 0
-    },
-    {
-        question: "pm.response.to.have.status(200); komutu neyi doğrular?",
-        options: ["Token oluşturulduğunu", "HTTP yanıtının 200 olup olmadığını", "JSON formatının doğru olduğunu", "GET isteğinin çalıştığını", "Parametre gönderimini"],
-        correct: 1
-    },
-    {
-        question: "Collection variable tanımlamak ne sağlar?",
-        options: ["API dokümantasyonu", "Aynı koleksiyondaki farklı isteklerde ortak değer kullanımı", "Başka koleksiyonları çağırma", "JSON validation", "Header token üretimi"],
-        correct: 1
-    },
-    {
-        question: "BDD senaryosunda \"Background\" ne işe yarar?",
-        options: ["Her senaryoda ortak başlangıç adımlarını belirtmek için kullanılır", "Gherkin dosyasını kapatır", "UI bileşeni üretir", "TestNG'ye aktarım yapar", "Status code saklar"],
-        correct: 0
-    },
-    {
-        question: "Aşağıdakilerden hangisi Gherkin sözdiziminde yorum satırı başlatmak için kullanılır?",
-        options: ["//", "#", "", "%%", "/***/"],
-        correct: 1
-    },
-    {
-        question: "SpecFlow aşağıdaki ortamlardan hangisinde yaygındır?",
-        options: ["Python", "Node.js", ".NET", "JavaScript", "Ruby"],
-        correct: 2
-    },
-    {
-        question: "TDD sürecinde \"Green\" aşaması neyi temsil eder?",
-        options: ["Refactor sonrası testin başarısız olması", "Yazılan testin geçmesi için yeterli kodun yazılması", "Kodun üretime alınması", "Senaryonun silinmesi", "Başarısız senaryonun yeniden denenmesi"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi BDD'nin doğrudan avantajlarından biridir?",
-        options: ["Daha az test yazılması", "Takımlar arası ortak dil oluşturması", "Performans optimizasyonu", "Derleme süresini kısaltma", "API endpoint üretme"],
-        correct: 1
-    },
-    {
-        question: "Test otomasyonunda kullanılan click() metodu ne yapar?",
-        options: ["Sayfayı yeniler", "JSON döner", "Belirli bir öğeye tıklama simülasyonu yapar", "Scroll yapar", "TestNG başlatır"],
-        correct: 2
-    },
-    {
-        question: "Fluent Wait ile ilgili aşağıdakilerden hangisi doğrudur?",
-        options: ["Sabit zaman aralığıyla çalışır", "Sadece POST isteklerinde kullanılır", "Özelleştirilebilir yoklama aralığı ve istisna yönetimi sunar", "WebDriver ile uyumlu değildir", "Runner'da çalışmaz"],
-        correct: 2
-    },
-    {
-        question: "TestNG'de @AfterMethod anotasyonu ne işe yarar?",
-        options: ["Her test metodundan sonra çalışacak işlemleri tanımlar", "Setup başlatır", "Sadece sınıf başında çalışır", "CI/CD entegrasyonunu kapatır", "Jenkins tetikleme komutu verir"],
-        correct: 0
-    },
-    {
-        question: "Selenium IDE'nin kullanım amacı nedir?",
-        options: ["Gherkin yazmak", "API test etmek", "Tarayıcı eylemlerini kayıt/oynatmak", "Raporlamak", "Version kontrol"],
-        correct: 2
-    },
-    {
-        question: "CI/CD'de \"Automation\"ın anlamı nedir?",
-        options: ["Kod yorumlamak", "Test, build ve dağıtım işlemlerinin manuel müdahale olmadan çalışması", "API kodu üretmek", "Logları silmek", "UI mocklamak"],
-        correct: 1
-    },
-    {
-        question: "\"Built-in Quality\" kavramı hangi amacı ifade eder?",
-        options: ["Ürün testi yapılmaz", "Test dışarıdan yapılır", "Kalitenin geliştirmenin her aşamasına entegre edilmesi", "Versiyon kontrolü", "Performans ölçümü"],
-        correct: 2
-    },
-    {
-        question: "Jenkins'in amacı nedir?",
-        options: ["REST API geliştirmek", "CI/CD iş akışlarını tetiklemek ve yönetmek", "JavaScript frameworkü oluşturmak", "Script yazmak", "Versiyon tutmak"],
-        correct: 1
-    },
-    {
-        question: "Elastic Stack ile aşağıdakilerden hangisi yapılmaz?",
-        options: ["Log toplama", "Veri analizi", "Unit test yazma", "Görselleştirme", "Uyarı tanımlama"],
-        correct: 2
-    },
-    {
-        question: "Prometheus + Grafana kombinasyonu hangi avantajı sunar?",
-        options: ["Metrik toplama ve görsel gösterim", "Deployment entegrasyonu", "Web testi", "Test case yazımı", "Script dönüştürme"],
-        correct: 0
-    },
-    {
-        question: "\"Deployment Frequency\" metriği neyi ölçer?",
-        options: ["CI build süresi", "Test yoğunluğu", "Sisteme ne sıklıkla yeni kod gönderildiğini", "Web testi sonucu", "UI bileşen değişimi"],
-        correct: 2
-    },
-    {
-        question: "CI/CD'de rollback neden önemlidir?",
-        options: ["Build süresini hızlandırmak için", "Logları temizlemek için", "Hatalı dağıtımlarda önceki sürüme dönmeyi sağlamak için", "Postman senaryosunu iptal eder", "Debug yapmak için"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi bir pipeline bileşeni değildir?",
-        options: ["Test", "Deploy", "Branding", "Monitor", "Build"],
-        correct: 2
-    },
-    // ÖRNEK SINAV 3
-    {
-        question: "Postman'da \"Tests\" sekmesinin amacı nedir?",
-        options: ["Header düzenlemek", "API yanıtını kodla doğrulamak", "JSON body oluşturmak", "UI testi yapmak", "Request URL'i değiştirmek"],
-        correct: 1
-    },
-    {
-        question: "Postman'daki pm.environment.get() fonksiyonu ne işe yarar?",
-        options: ["Global değişken siler", "Ortam değişkeninin değerini getirir", "Collection siler", "UI stilini değiştirir", "Test sonuçlarını arşivler"],
-        correct: 1
-    },
-    {
-        question: "Postman Runner ne için kullanılır?",
-        options: ["Database yedeği almak", "Birden fazla isteği topluca çalıştırmak", "JavaScript debug yapmak", "JSON schema üretmek", "UI test kaydı"],
-        correct: 1
-    },
-    {
-        question: "BDD'nin yazılım testine katkısı nedir?",
-        options: ["Kod karmaşıklığını artırır", "Paydaşların davranış odaklı test senaryolarını anlamasını sağlar", "Otomasyon testine engel olur", "Süreçleri yavaşlatır", "UI mocklama sürecidir"],
-        correct: 1
-    },
-    {
-        question: "\"Given - When - Then\" kalıbı ne sağlar?",
-        options: ["Selenium'da UI geçişi", "Kullanıcı davranışının sistemde nasıl işlemesi gerektiğini ifade eder", "Jenkins tetikleyici yazar", "Build komutu üretir", "JSON içerik üretir"],
-        correct: 1
-    },
-    {
-        question: "Scenario Outline ve Examples birlikteliği ne amaçla kullanılır?",
-        options: ["Unit test çalıştırmak", "Aynı senaryoyu farklı verilerle test etmek", "WebDriver tetiklemek", "Monitor grafiği üretmek", "Jenkins pipeline başlatmak"],
-        correct: 1
-    },
-    {
-        question: "SpecFlow kullanımı hangi programlama diliyle yaygındır?",
-        options: ["Python", "Ruby", "C# (.NET)", "Kotlin", "Bash"],
-        correct: 2
-    },
-    {
-        question: "TDD'de \"Refactor\" aşaması ne anlama gelir?",
-        options: ["Testi silmek", "Testler geçtikten sonra kodu sadeleştirerek iyileştirmek", "Gherkin senaryosu yazmak", "Log kaydını silmek", "HTML rapor oluşturmak"],
-        correct: 1
-    },
-    {
-        question: "TDD'nin birincil amacı nedir?",
-        options: ["UI tasarlamak", "Test odaklı kod üretmek", "Performans ölçmek", "API cache sistemi kurmak", "Metrik izlemek"],
-        correct: 1
-    },
-    {
-        question: "Test otomasyonunda clear() metodu ne yapar?",
-        options: ["Bir input alanını sıfırlar", "TestNG testini kapatır", "JSON içerik oluşturur", "Token üretir", "WebDriver durdurur"],
-        correct: 0
-    },
-    {
-        question: "Selenium WebDriver'da getAttribute() fonksiyonu ne döndürür?",
-        options: ["Bir öğenin istenen HTML özniteliğini (örneğin: href)", "Sayfa başlığını", "UI rengini", "Kullanıcı adını", "Status code"],
-        correct: 0
-    },
-    {
-        question: "Selenium'da isDisplayed() neyi kontrol eder?",
-        options: ["Sayfa başlığını", "Bir öğenin ekranda görünüp görünmediğini", "Attribute değerini", "JSON içinde anahtar adı", "Status kodunu"],
-        correct: 1
-    },
-    {
-        question: "Implicit Wait özelliği nasıl çalışır?",
-        options: ["Sadece bir öğe için geçerlidir", "Tüm öğeler için global bekleme süresi tanımlar", "JavaScript'e özgüdür", "JSON response sürelerini ölçer", "Jenkins'te devreye girer"],
-        correct: 1
-    },
-    {
-        question: "POM'un yazılım testine sağladığı avantaj nedir?",
-        options: ["Testleri uzatır", "Kodun modüler, bakımı kolay ve okunabilir olmasını sağlar", "JSON üretir", "Header değiştirir", "CI/CD başlatır"],
-        correct: 1
-    },
-    {
-        question: "Allure Report aşağıdakilerden hangisini sunmaz?",
-        options: ["Görsel raporlama", "Başarı/başarısızlık logları", "Kod compile etme", "Test adımı bazında görseller", "HTML çıktılar"],
-        correct: 2
-    },
-    {
-        question: "CI/CD'de kullanılan \"Build\" aşamasında ne yapılır?",
-        options: ["Monitoring yapılır", "Kod derlenir ve yapı dosyası oluşturulur", "Log kaydı alınır", "UI tasarımı yapılır", "Deploy edilir"],
-        correct: 1
-    },
-    {
-        question: "\"Version control system (VCS)\" ne sağlar?",
-        options: ["Test senaryosu üretimi", "Kod değişikliklerini takip ve geri alabilme", "Dashboard çizimi", "API cache tutma", "HTML export"],
-        correct: 1
-    },
-    {
-        question: "ELK Stack bileşenlerinden Kibana'nın rolü nedir?",
-        options: ["Kod compile eder", "Logları analiz eder ve grafiklerle gösterir", "JSON üretir", "Unit test çalıştırır", "Feature flag kontrol eder"],
-        correct: 1
-    },
-    {
-        question: "\"Deployment frequency\" metriği ne işe yarar?",
-        options: ["Build zamanını ölçer", "Log boyutunu verir", "Kodun ne sıklıkla canlıya alındığını gösterir", "API başarısı", "Status kontrolü"],
-        correct: 2
-    },
-    {
-        question: "CI/CD süreçlerinde \"security\" neden önemlidir?",
-        options: ["Logları şifreler", "UI mock üretir", "Dağıtıma giren kodların denetlenebilirliğini ve güvenliğini sağlar", "TestNG ile eşleşir", "JSON içeriğini temizler"],
-        correct: 2
-    },
-    // ÖRNEK SINAV 4
-    {
-        question: "Postman'da \"Environment Variable\" tanımlamanın temel amacı nedir?",
-        options: ["JSON'u dinamikleştirmek", "Farklı ortamlarda aynı isteği yeniden kullanılabilir hâle getirmek", "Header tanımı oluşturmak", "Test sonuçlarını gizlemek", "Otomatik GET çağrısı yapmak"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdaki değişken söz dizimlerinden hangisi Postman'da environment değişkenine aittir?",
-        options: ["#ENV:baseUrl", "[baseUrl]", "{{baseUrl}}", "/env/baseUrl", "$baseUrl"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi Postman test script'lerinde kullanılmaz?",
-        options: ["pm.test()", "html.report()", "pm.expect()", "pm.response", "pm.environment.get()"],
-        correct: 1
-    },
-    {
-        question: "BDD'nin \"living documentation\" özelliği neyi ifade eder?",
-        options: ["Gherkin senaryolarının hem test hem belge olarak kullanılabilmesini", "API testleri oluşturmayı", "Yalnızca CI/CD uyumluluğunu", "XML dokümantasyonu", "Build çıktısı"],
-        correct: 0
-    },
-    {
-        question: "Aşağıdaki Gherkin bileşenlerinden hangisi \"çoklu veriyle çalışmayı\" sağlar?",
-        options: ["Given", "Then", "Scenario Outline", "Background", "Feature"],
-        correct: 2
-    },
-    {
-        question: "Gherkin ile tanımlanmış senaryoların otomatik olarak çalışması için ne gerekir?",
-        options: ["Selenium Grid", "Jenkins", "Cucumber veya SpecFlow gibi bir framework", "Visual Studio", "TestNG XML dosyası"],
-        correct: 2
-    },
-    {
-        question: "\"Refactor\" aşaması ne zaman yapılmalıdır?",
-        options: ["Testler başarısızken", "Gherkin tamamlandıktan sonra", "Tüm testler geçtikten sonra kodun iyileştirilmesi için", "Loglar oluşturulmadan önce", "JSON parse işleminden önce"],
-        correct: 2
-    },
-    {
-        question: "TDD'nin avantajlarından biri değildir:",
-        options: ["Modüler kod", "Daha karmaşık yazılım mimarisi", "Hata riskini azaltma", "Kod güveni", "Refactor kolaylığı"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdaki WebDriver komutlarından hangisi sayfa başlığını verir?",
-        options: ["getText()", "is Displayed()", "findElement()", "getTitle()", "getAttribute()"],
-        correct: 3
-    },
-    {
-        question: "Selenium'da navigate().refresh() komutu ne yapar?",
-        options: ["Sayfayı yeniler", "Öğe bulur", "Oturumu kapatır", "JSON verisini işler", "WebDriver'ı kapatır"],
-        correct: 0
-    },
-    {
-        question: "Selenium Grid'de \"Node\" neyi ifade eder?",
-        options: ["Versiyon kontrol sistemi", "Testin yürütüldüğü tarayıcı çalıştırıcı makine", "Log kayıt merkezi", "HTML raporlayıcı", "Page Object sınıfı"],
-        correct: 1
-    },
-    {
-        question: "Explicit Wait'in avantajı nedir?",
-        options: ["Kod sadeleştirir", "Her öğe için tek kullanılır", "Belirli koşul gerçekleşene kadar hedeflenen öğe için bekleme sağlar", "CI/CD'yi hızlandırır", "JSON mapping'i kolaylaştırır"],
-        correct: 2
-    },
-    {
-        question: "TestNG'de @BeforeClass anotasyonu ne zaman çalışır?",
-        options: ["Her testten önce", "Test bitince", "Sınıftaki testlerden önce bir kez", "CI/CD sonrası", "Browser kapanınca"],
-        correct: 2
-    },
-    {
-        question: "CI/CD sürecinin en önemli otomasyon avantajı nedir?",
-        options: ["Daha çok insan kaynağı ihtiyacı", "Kodun hızlı, sürekli ve güvenli bir şekilde devreye alınması", "UI karmaşıklığı", "Kodun daha az test edilmesi", "JSON temizliği"],
-        correct: 1
-    },
-    {
-        question: "Monitor aşaması neden kritik sayılır?",
-        options: ["Deploy'u engeller", "Canlı sistemdeki performans ve hata durumlarını izler", "Kod versiyonlarını listeler", "Kullanıcı arayüzünü analiz eder", "GitHub branch'lerini sıralar"],
-        correct: 1
-    },
-    {
-        question: "Kibana hangi yapının parçasıdır?",
-        options: ["Prometheus", "ELK Stack", "Jenkins", "Playwright", "Appium"],
-        correct: 1
-    },
-    {
-        question: "Datadog ile ne yapılamaz?",
-        options: ["Uygulama performans izleme", "Altyapı takibi", "Test senaryosu çalıştırma", "Anomali tespiti", "APM takibi"],
-        correct: 2
-    },
-    {
-        question: "CI/CD süreçlerinde kullanılan \"Speed\" başarı kriteri hangi metrikle ölçülür?",
-        options: ["Test coverage", "Screenshot count", "Deployment frequency & Lead time", "JSON satırı", "WebSocket mesajları"],
-        correct: 2
-    },
-    {
-        question: "ArgoCD hangi platformla doğrudan ilişkilidir?",
-        options: ["Flask", "Kubernetes", "Postman", "Jenkins", "Selenium IDE"],
-        correct: 1
-    },
-    {
-        question: "GitHub Actions kullanımı aşağıdakilerden hangisini sağlar?",
-        options: ["UI test başlatmak", "Kod push sonrası otomatik işlem adımı tetiklemek", "REST endpoint oluşturmak", "Swagger UI döndürmek", "JSON dosyası temizlemek"],
-        correct: 1
-    },
-    // ÖRNEK SINAV 5
-    {
-        question: "Postman'da bir koleksiyon içindeki tüm istekleri sırasıyla çalıştırmak için hangi araç kullanılır?",
-        options: ["Test", "Runner", "Collection Viewer", "JSON Formatter", "Request Batch"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdaki seçeneklerden hangisi Postman'da test script'lerinde \"yanıt süresi\"ni kontrol eder?",
-        options: ["pm.request.size", "pm.response.responseTime", "pm.body.json", "pm.tokenCheck", "pm.statusMatch"],
-        correct: 1
-    },
-    {
-        question: "Bir API'ye POST isteği gönderilirken genellikle hangi içerik türü kullanılır?",
-        options: ["text/html", "application/json", "application/xml", "image/png", "multipart/form"],
-        correct: 1
-    },
-    {
-        question: "Gherkin dilinde \"Examples\" bloğu ne işe yarar?",
-        options: ["TestNG entegrasyonu", "Farklı veri girdileriyle aynı senaryoyu çalıştırmak", "Build dosyası oluşturmak", "JSON verisini temizlemek", "Yorum eklemek"],
-        correct: 1
-    },
-    {
-        question: "\"Feature: Kullanıcı giriş yapar\" ifadesi Gherkin'de neyi tanımlar?",
-        options: ["JSON dökümanı", "UI elementi", "Test edilen özelliği veya modülü", "Jenkins job tanımı", "CI/CD pipeline"],
-        correct: 2
-    },
-    {
-        question: "Cucumber kullanımıyla ilgili aşağıdakilerden hangisi yanlıştır?",
-        options: ["Açık kaynaklıdır", "Ruby tabanlıdır", "Sadece mobil testler içindir", "Gherkin syntax kullanır", "Java, C# gibi dilleri destekler"],
-        correct: 2
-    },
-    {
-        question: "BDD yaklaşımı hangi durumda daha etkisizdir?",
-        options: ["Basit senaryolarda", "Otomasyon olmayan yapılarda", "Geniş ekiplerde", "Çok karmaşık ve edge-case içeren senaryolarda", "Agile organizasyonlarda"],
-        correct: 3
-    },
-    {
-        question: "TDD'de ilk adım olarak ne yapılır?",
-        options: ["Deploy", "Test yazılır", "Kod çalıştırılır", "Log alınır", "Monitor başlatılır"],
-        correct: 1
-    },
-    {
-        question: "Aşağıdakilerden hangisi Selenium WebDriver'ın \"bekleme (wait)\" türlerinden biridir?",
-        options: ["Custom Wait", "Session Delay", "JavaScript Wait", "Fluent Wait", "Polling Wait"],
-        correct: 3
-    },
-    {
-        question: "driver.navigate().back(); komutu ne yapar?",
-        options: ["WebDriver'ı kapatır", "Sayfayı yeniler", "Tarayıcı geçmişinde bir önceki sayfaya gider", "URL'yi değiştirir", "Sayfa başlığını alır"],
-        correct: 2
-    },
-    {
-        question: "element.isEnabled() komutu neyi kontrol eder?",
-        options: ["Element DOM'da var mı", "Elementin kullanıcı etkileşimine açık olup olmadığını", "Elementin sınıfı", "Elementin text'i", "JSON content var mı"],
-        correct: 1
-    },
-    {
-        question: "Selenium IDE'nin temel avantajı nedir?",
-        options: ["Kod yazmadan test senaryosu oluşturulabilmesi", "JSON düzenleyicisi", "Build yönetimi", "Tarayıcı eylemlerini kaydetme ve oynatma kolaylığı", "Token üretme"],
-        correct: 3
-    },
-    {
-        question: "TestNG'de @AfterSuite anotasyonu ne zaman çalışır?",
-        options: ["Her testten sonra", "Class bazında", "Tüm suite tamamlandıktan sonra bir kez", "Jenkins tetiklenince", "Gherkin çalışınca"],
-        correct: 2
-    },
-    {
-        question: "Selenium Grid ne zaman kullanılır?",
-        options: ["Sadece API testlerinde", "Paralel test yürütme ve çapraz tarayıcı testlerinde", "Gherkin yorumlama için", "TestNG çalıştırmak için", "Raporları analiz etmek için"],
+        question: "Aşağıdakilerden hangisi RAG sisteminin modüler olmasının bir sonucudur?",
+        options: ["GPU’ya ihtiyaç duyulmaması", "Her bileşenin ayrı optimize edilebilmesi", "Belge kaynağının değiştirilememesi", "Prompt’ların sabit olması"],
         correct: 1
-    },
-    {
-        question: "Jenkins dosya yapılandırmasında \"pipeline\" nedir?",
-        options: ["Log klasörü", "Otomatik test ve deploy akışını tanımlayan yapı", "Browser sürücü listesi", "Database sürümü", "YAML kod yorumlayıcı"],
-        correct: 1
-    },
-    {
-        question: "CI/CD sürecinde \"Build\" adımında ne yapılmaz?",
-        options: ["Derleme", "Versiyon üretme", "Canlıya dağıtım (production deploy)", "Unit testler", "Artefact oluşturma"],
-        correct: 2
-    },
-    {
-        question: "Monitoring sistemlerinin en önemli avantajı nedir?",
-        options: ["Swagger üretimi", "Tarayıcı testleri", "Sorunları erken tespit ederek önlem alma imkânı", "JSON güzelleştirme", "Kod tekrarını azaltma"],
-        correct: 2
-    },
-    {
-        question: "Aşağıdakilerden hangisi \"özgün\" bir izleme aracı değildir?",
-        options: ["Prometheus", "Grafana", "Selenium IDE", "New Relic", "Zabbix"],
-        correct: 2
-    },
-    {
-        question: "\"Transparency\" CI/CD süreçlerinde neyi ifade eder?",
-        options: ["Sadece test coverage'1", "Süreç içinde hataların ve ilerlemenin açık ve izlenebilir olması", "API dokümantasyonunun otomatik olması", "Tüm testlerin UI ile gösterilmesi", "Deployment sonucu mail atılması"],
-        correct: 1
-    },
-    {
-        question: "ArgoCD aşağıdaki ihtiyaçlardan hangisini karşılar?",
-        options: ["Gherkin parser", "JSON validator", "Kubernetes ortamına otomatik dağıtım (CD)", "Database versiyonlama", "Test script yazımı"],
-        correct: 2
     }
 ];
 
